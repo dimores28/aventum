@@ -1,1 +1,57 @@
 // Заголовки, загальні БЕМ блоки та інше...
+
+.about {
+
+   // .about__container
+
+   &__container {
+      display: flex;
+   }
+
+   // .about__desc
+
+   &__desc {
+   }
+
+   // .about__title
+
+   &__title {
+   }
+
+   // .about__text
+
+   &__text {
+   }
+
+   // .about__content
+
+   &__content {
+   }
+
+   // .about__video
+
+   &__video {
+   }
+}
+.section-title {
+   font-family: 'Compo v2';
+   font-weight: 700;
+   font-size: rem(55);
+   line-height: 97.02%;
+   @include adaptiveValue("margin-bottom", 42, 26, 0, 1130, 768);
+}
+
+.video {
+
+   // .video__btn-wrp
+
+   &__btn-wrp {
+   }
+
+   // .video__btn
+
+   &__btn {
+   }
+}
+
+
