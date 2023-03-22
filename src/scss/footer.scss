@@ -17,7 +17,7 @@
     &__item a:hover,
     &__item a:focus,
     &__item a:active{
-        color:#89FF00;
+        color: $greenColor;
         transition: all 0.3s ease-in;
     }
 }
