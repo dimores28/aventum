@@ -205,7 +205,8 @@
       max-width: 662px;
       font-family: 'Compov2Bold';
       font-weight: 700;
-      font-size: 64px;
+      line-height: 86.52%;
+      @include adaptiveValue("font-size", 64, 32);
       margin: 0 auto;
       margin-bottom: 20px;
    }
@@ -215,13 +216,22 @@
    &__slogan {
       max-width: 662px;
       margin: 0 auto;
-      font-size: 20px;
+      @include adaptiveValue("font-size", 20, 14);
       line-height: 109.02%;
    }
 
    // .main__actions
 
    &__actions {
+      position: absolute;
+      left: 50%;
+      bottom: 209px;
+      // @include adaptiveValue("bottom", 209, 359);
+      transform: translateX(-50%);
+
+      @media (max-width:$mobile){
+          bottom: 50%; 
+      }
    }
 
    // .main__button
@@ -237,13 +247,53 @@
 }
 .video-bg {
 }
-.component-next {
 
-   // .component-next__btn
+.component-next {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   z-index: 10;
+
+   &::before {
+      content: '';
+      position: absolute;
+      width: 77px;
+      height: 77px;
+      border-radius: 50%;
+      background: rgba(137, 255, 0, 0.26);
+      z-index: 9;
+      animation: waveDivergence 5s linear infinite;
+
+      // @media (max-width:$mobile){
+      //    width: 42px;
+      //    height: 42px;
+      // }
+   }
+
+   &::after {
+      content: '';
+      position: absolute;
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.26);
+      z-index: 8;
+      animation: waveDivergence 5s linear infinite;
+
+      // @media (max-width:$mobile){
+      //    width: 56px;
+      //    height: 56px;
+      // }
+   }
 
    &__btn {
       width: 49px;
       height: 49px;
+      border-radius: 50%;
+      background: url('../img/common/scroll_to.png') center center no-repeat;
+      background-size: contain;
+      position: relative;
+      z-index: 11;
    }
 }
 //====================================================================================================
