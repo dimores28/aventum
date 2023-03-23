@@ -1,5 +1,6 @@
 // Заголовки, загальні БЕМ блоки та інше...
 
+//====================================================================================================
 .about {
    @include adaptiveValue("padding-top", 174, 55);
    @include adaptiveValue("padding-bottom", 164, 84);
@@ -174,3 +175,75 @@
       opacity: 0;
    }
 }
+
+//====================================================================================================
+
+
+//====================================================================================================
+.main {
+
+   // .main__fullscreen
+
+   &__fullscreen {
+      @include adaptiveValue("padding-top", 206, 122);
+   }
+
+   // .main__videoBackground
+
+   &__videoBackground {
+   }
+
+   // .main__container
+
+   &__container {
+      text-align: center;
+   }
+
+   // .main__heading
+
+   &__heading {
+      max-width: 662px;
+      font-family: 'Compov2Bold';
+      font-weight: 700;
+      font-size: 64px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+   }
+
+   // .main__slogan
+
+   &__slogan {
+      max-width: 662px;
+      margin: 0 auto;
+      font-size: 20px;
+      line-height: 109.02%;
+   }
+
+   // .main__actions
+
+   &__actions {
+   }
+
+   // .main__button
+
+   &__button {
+   }
+}
+.fullscreen {
+   min-height: 100vh;
+
+   position: relative;
+   @extend  %videoBackground;
+}
+.video-bg {
+}
+.component-next {
+
+   // .component-next__btn
+
+   &__btn {
+      width: 49px;
+      height: 49px;
+   }
+}
+//====================================================================================================
