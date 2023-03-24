@@ -1,3 +1,46 @@
 //====================================================================================================
+.advantages {
+   background: $blueColor;
+   padding-top: 20px;
+   padding-bottom: 156px;
+
+   // .advantages__container
+
+   &__container {
+   }
+
+   // .advantages__block
+
+   &__block {
+      display: grid;
+      grid-gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+   }
+
+   // .advantages__item
+
+   &__item {
+      text-align: center;
+   }
+
+
+   &__case {
+      font-family: 'Compov2Bold';
+      font-weight: 700;
+      @include adaptiveValue("font-size", 128, 96);
+      line-height: 97.02%;
+      color: rgba(255, 255, 255, 0.65);
+   }
+
+   // .advantages__desc
+
+   &__desc {
+      margin-top: 13px;
+      max-width: 184px;
+      margin-left: auto;
+      margin-right: auto;
+      @include adaptiveValue("font-size", 24, 16);
+   }
+}
 
 //====================================================================================================
