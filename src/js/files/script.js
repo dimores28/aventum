@@ -3,6 +3,8 @@ import { isMobile } from "./functions.js";
 // Підключення списку активних модулів
 import { flsModules } from "./modules.js";
 
+import "./modernizr.js"
+
 let player = document.querySelector('.video');
 let playBtn = document.querySelector('.video__btn');
 let playBtnWrap = document.querySelector('.video__btn-wrp');
@@ -42,3 +44,10 @@ languageSwitcher?.addEventListener('blur', function() {
     open = !open;
     isOpen();
 })
+
+
+const elem = document.querySelector('.b-marquee-line__flow-block');
+const clone = elem?.cloneNode(true);
+elem.parentElement?.appendChild(clone);
+// elem.classList?.toggle('animate-ticker');
+clone.classList?.toggle('clone');

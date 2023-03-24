@@ -179,7 +179,7 @@
 //====================================================================================================
 
 
-//====================================================================================================
+//Main====================================================================================================
 .main {
 
    // .main__fullscreen
@@ -242,7 +242,6 @@
 .fullscreen {
    min-height: 100vh;
 
-   position: relative;
    @extend  %videoBackground;
 }
 .video-bg {
@@ -296,4 +295,124 @@
       z-index: 11;
    }
 }
+//====================================================================================================
+
+
+//Marquee====================================================================================================
+
+$blockHeight: 124px;
+
+.b-marquee-line {
+
+  &__flow {
+     background: $blueColor;
+     font-size: 0;
+     line-height: 0;
+     height: $blockHeight;
+     overflow: hidden;
+     position: relative;
+     width: 100%;
+
+   //   @media (max-width:$mobile){
+   //       height: 55px;
+   //   }
+   
+
+     &-in {
+
+        display: block;
+        height: $blockHeight;
+        background: rgba(255, 255, 255, 0.12);
+        border-top: 2px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+        padding: 30px 0;
+
+         @media (max-width:$mobile){
+            padding: 14px 0;
+            height: 55px;
+         }
+
+        .cssanimations & {
+           width: 200%;
+           position: absolute;
+           overflow: hidden;
+           animation: marquee 10s linear infinite;
+        }
+
+     }
+
+     &-block {
+      display: flex;
+      align-items: center;
+      @include adaptiveValue("gap", 40, 18, 0, 1130, 768);
+      white-space: nowrap;
+
+        .no-cssanimations &:last-child {
+           display: none;
+        }
+
+        .cssanimations & {
+           white-space: nowrap;
+           float: left;
+           width: 50%;
+        }
+     }
+
+     &-item {
+         @media (max-width:$mobile){
+            height: 18px; 
+         }
+     }
+
+     &-item_big {
+      @media (max-width:$mobile){
+         height: 24px; 
+      }
+    }
+  }
+}
+
+@media (max-width: 1060px){
+    .clone > .b-marquee-line__flow-item:first-child {
+       opacity: 0;
+     } 
+}
+
+@media (max-width: 890px){
+   .clone > .b-marquee-line__flow-item:nth-child(2) {
+      opacity: 0;
+    } 
+}
+
+@media (max-width:$mobile){
+   .clone > .b-marquee-line__flow-item:first-child {
+      opacity: 1;
+   } 
+
+   .clone > .b-marquee-line__flow-item:nth-child(2) {
+      opacity: 1;
+   } 
+}
+
+@media (max-width: 508px){
+   .clone > .b-marquee-line__flow-item:first-child {
+      opacity: 0;
+    } 
+}
+
+@media (max-width: 431px){
+   .clone > .b-marquee-line__flow-item:nth-child(2) {
+      opacity: 0;
+    } 
+}
+
+@keyframes marquee {
+  0% {
+     left: 0;
+  }
+  100% {
+     left: -100%;
+  }
+}
+
 //====================================================================================================
