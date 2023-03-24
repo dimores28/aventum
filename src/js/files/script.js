@@ -51,3 +51,9 @@ const clone = elem?.cloneNode(true);
 elem.parentElement?.appendChild(clone);
 // elem.classList?.toggle('animate-ticker');
 clone.classList?.toggle('clone');
+
+const moreTextBtn = document.querySelector('.why-us__btn');
+
+moreTextBtn?.addEventListener('click', function() {
+    document.querySelector('.why-us__text')?.classList.toggle('_show-text');
+});
