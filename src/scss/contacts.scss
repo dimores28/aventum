@@ -1,0 +1,48 @@
+.contacts {
+    background: $blueColor;
+    padding-bottom: 62px;
+    // .contacts__container
+    
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    // .contacts__block
+
+    &__block {
+        display: flex;
+        align-items: end;
+    }
+
+    // .contacts__logo
+
+    &__logo {
+    }
+
+    // .contacts__nav
+
+    &__nav {
+    }
+
+    // .contacts__nav-item
+
+    &__nav-item {
+        margin-bottom: 16px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // .contacts__form
+
+    &__form {
+    }
+
+    // .contacts__form-body
+
+    &__form-body {
+    }
+}
