@@ -89,8 +89,31 @@
    @media (max-width:$mobile){
        text-align: center; 
    }
- 
+}
 
+.text-block {
+   @include adaptiveValue("font-size", 24, 16);
+
+   p {
+      @include adaptiveValue("margin-bottom", 30, 20, 0, 1130, 768);
+   }
+}
+
+.sub-title {
+   color: #89FF00;
+   @include adaptiveValue("font-size", 24, 16);
+   margin-bottom: 12px;
+
+   @media (max-width:$mobile){
+      text-align: center; 
+      margin-bottom: 8px;
+   }
+}
+
+.da-block {
+   @media (max-width:$mobile){
+       padding: 0 15px; 
+   }
 }
 
 .video {

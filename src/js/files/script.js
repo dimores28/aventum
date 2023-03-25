@@ -48,7 +48,7 @@ languageSwitcher?.addEventListener('blur', function() {
 
 const elem = document.querySelector('.b-marquee-line__flow-block');
 const clone = elem?.cloneNode(true);
-elem.parentElement?.appendChild(clone);
+elem?.parentElement?.appendChild(clone);
 // elem.classList?.toggle('animate-ticker');
 clone.classList?.toggle('clone');
 

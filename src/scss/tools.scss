@@ -1,0 +1,54 @@
+//Agri-banck====================================================================================================
+
+.agri-banck {
+   @include adaptiveValue("padding-top", 192, 60, 0, 1130, 768);
+   @include adaptiveValue("padding-bottom", 206, 84, 0, 1130, 768);
+
+   // .agri-banck__container
+
+   &__container {
+      display: flex;
+      gap: 45px;
+
+      @media (max-width:$mobile){
+          flex-wrap: wrap; 
+      }
+   }
+
+   // .agri-banck__illustration
+   &__illustration {
+      padding-top: 60px;
+
+      @media (max-width:$mobile){
+          padding-top: 0; 
+      }
+
+   }
+
+   &__illustration,
+   &__text-block {
+      flex: 1 1 50%;
+
+      @media (max-width:$mobile){
+          flex-basis: 100%; 
+      }
+   }
+
+   // .agri-banck__img
+
+   &__img {
+      width: 100%;
+      height: auto;
+   }
+
+   // .agri-banck__title
+
+   &__title {
+      @media (max-width:$mobile){
+          padding-bottom: 20px; 
+      }
+   }
+}
+
+//====================================================================================================
+

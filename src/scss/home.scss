@@ -1,4 +1,62 @@
+//Philosophy====================================================================================================
+.philosophy {
+   background: $blueColor;
+   @include adaptiveValue("padding-top", 104, 76, 0, 1130, 768);
+   padding-bottom: 64px;
+
+   &__container {
+      display: flex;
+
+      @media (max-width:$mobile){
+          flex-wrap: wrap-reverse; 
+      }
+   }
+
+   // .philosophy__text-block
+
+   &__text-block {
+      padding-top: 120px;
+   }
+
+   &__text-block,
+   &__animation-block {
+      flex: 1 1 50%;
+
+      @media (max-width:$mobile){
+          flex-basis: 100%; 
+      }
+
+   }
+
+   // .philosophy__sub-title
+
+   &__sub-title {
+   }
+
+   // .philosophy__title
+
+   &__title {
+   }
+
+   // .philosophy__text
+
+   &__text {
+   }
+
+   // .philosophy__gif
+
+   &__gif {
+      width: 100%;
+      height: auto;
+      background: url('../img/home/philosophy/bg.png')  bottom center no-repeat;
+      background-size: contain;
+   }
+}
+
 //====================================================================================================
+
+
+//Advantages====================================================================================================
 .advantages {
    background: $blueColor;
    padding-top: 20px;
