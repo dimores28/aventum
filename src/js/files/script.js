@@ -57,3 +57,43 @@ const moreTextBtn = document.querySelector('.why-us__btn');
 moreTextBtn?.addEventListener('click', function() {
     document.querySelector('.why-us__text')?.classList.toggle('_show-text');
 });
+
+
+//Home page
+ScrollReveal().reveal('.about__desc', { delay: 1500, duration: 500,  distance: '60px', origin: 'bottom'});
+ScrollReveal().reveal('.why-us__text-block', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
+ScrollReveal().reveal('.philosophy__text-block', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
+ScrollReveal().reveal('.program__container', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
+ScrollReveal().reveal('.advantages__block', { delay: 500, distance: '100%', duration: 500, origin: 'right' });
+ScrollReveal().reveal('.contacts__container', { delay: 500, distance: '100%', duration: 500, origin: 'left' });
+
+
+// init controller
+var controller = new ScrollMagic.Controller();
+
+// var scene = new ScrollMagic.Scene({triggerElement: "#about", offset: 10})
+// 						.setPin("#spot")
+//                         .setClassToggle("#spot", "green")
+// 						.addIndicators({name: "2 (duration: 0)"}) // add indicators (requires plugin)
+// 						.addTo(controller);
+
+
+new ScrollMagic.Scene({triggerElement: "#about video", triggerHook: 0.5})
+    .setPin("#spot")
+    .setClassToggle("#spot", "right")
+    .addIndicators() // add indicators (requires plugin)
+    .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement: "#why-us img"})
+    .setPin("#spot")
+    .setClassToggle("#spot", "left")
+    .on("enter leave", ()=>{document.querySelector("#spot").classList.remove('right')})
+    .addIndicators() // add indicators (requires plugin)
+    .addTo(controller);
+
+// new ScrollMagic.Scene({triggerElement: "#trigger", duration: 150, offset: 600})
+//     .setPin("#spot")
+//     .setClassToggle("#spot", "green")
+//     .on("enter leave", updateBox)
+//     .addIndicators() // add indicators (requires plugin)
+//     .addTo(controller);

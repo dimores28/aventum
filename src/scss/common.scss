@@ -79,6 +79,7 @@
       }
    }
 }
+
 .section-title {
    font-family: 'Compov2Bold';
    font-weight: 700;
@@ -206,7 +207,7 @@
 
 //Main====================================================================================================
 .main {
-
+   min-height: 100vh;
    // .main__fullscreen
 
    &__fullscreen {
@@ -456,8 +457,7 @@ $blockHeight: 124px;
 
    &__container {
       display: flex;
-      background: #0B0245 url('../img/home/spot.png') left center no-repeat;
-      background-size: contain;
+      background: #0B0245;
 
       @media (max-width:$mobile){
           flex-wrap: wrap; 
@@ -583,5 +583,24 @@ $blockHeight: 124px;
    }
 }
 
+
+.spot {
+   max-width: 600px;
+   transition: all 0.6s ease;
+
+   &__img {
+      width: 100%;
+      height: auto;
+   }
+}
+
+.right {
+   transform: translateX(50%);
+
+}
+
+.left {
+   transform: translateX(20%);
+}
 
 //====================================================================================================

@@ -8,7 +8,7 @@
       <main class="page">
          <section class="main">
             <div class="main__fullscreen fullscreen" data-fullscreen>
-               <video poster="@img/home/main/poster.jpg" class="main__videoBackground video-bg">
+               <video poster="@img/home/main/poster.jpg" class="main__videoBackground video-bg" height="1080" width="1920">
                   <source src="@img/video/BabyShar.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
                </video>
                <div class="main__container">
@@ -27,8 +27,7 @@
                </div>
             </div>
          </section>
-
-         <section class="about">
+         <section class="about" id="trigger2">
             <div class="about__container">
                <div class="about__desc">
                   <h2 class="about__title section-title">About company</h2>
@@ -183,6 +182,26 @@
                   </div>
                </div>
             </div>
+         </section>
+
+         <section class="program">
+           <div class="program__canvas">
+               <img src="@img/home/program/program_bg.png" alt="background image" class="program__bg-image">
+               <div class="program__container">
+                  <h2 class="program__title">
+                     Affiliate program
+                  </h2>
+                  
+                  <p class="program__desc">
+                     Aventum platform users get access to a high-class tool for creating a referral (affiliate) structure. As well as the opportunity to receive passive income using the investment program.
+                  </p>
+   
+                  <div class="program__scheme">
+                     <img src="@img/home/program/scheme_ru.svg" alt="scheme" class="program__img">
+                  </div>
+                  
+               </div>
+           </div>
          </section>
 
          @@include('html/_contacts.htm',{})
