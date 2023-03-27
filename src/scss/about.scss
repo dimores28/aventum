@@ -103,6 +103,7 @@
         @media (max-width:$mobile){
             max-width: 360px;
             margin: 0 auto; 
+            margin-top: 20px;
         }
 
         p {
@@ -152,8 +153,21 @@
         @include adaptiveValue("max-width", 172, 112, 0, 1130, 768);
         @include adaptiveValue("height", 257, 168, 0, 1130, 768);
 
-        border-width: 2px;
-        border-style: solid;
+        border: 2px solid transparent;
+        position: relative;
+        z-index: 2;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            bottom: -1px;
+            right: -1px;
+            background: url('../img/about/border.png') center center no-repeat;
+            background-size: cover;
+            z-index: 1;
+        }
 
 
 

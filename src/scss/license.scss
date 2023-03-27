@@ -1,0 +1,59 @@
+//License====================================================================================================
+.license {
+   min-width: 100vh;
+   padding-top: 168px;
+   padding-bottom: 190px;
+
+   @media (max-width:$mobile){
+      padding-top: 128px;
+      padding-bottom: 150px;
+   }
+   // .license__container
+
+   &__container {
+   }
+
+   // .license__title
+
+   &__title {
+      font-family: 'Compov2Bold';
+      font-weight: 700;
+      @include adaptiveValue("font-size", 55, 28);
+      line-height: 97.02%;
+      @include adaptiveValue("margin-bottom", 60, 32, 0, 1130, 768);
+
+      @media (max-width:$mobile){
+          text-align: center; 
+      }
+   }
+
+   // .license__cards
+
+   &__cards {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+   }
+
+   // .license__item
+
+   &__item {
+   }
+
+
+   &__image {
+      
+      img {
+         width: 100%;
+         height: auto;
+      }
+
+      margin-bottom: 30px;
+   }
+
+   &__name {
+      @include adaptiveValue("font-size", 24, 16);
+   }
+}
+
+//====================================================================================================
