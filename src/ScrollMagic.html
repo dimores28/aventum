@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+   @@include('html/_head.htm',{ "title":"Team" })
+   <body>
+      <div class="wrapper">
+         @@include('html/_header.htm',{})
+         <main class="page">
+            <section class="spacer">Content</section>
+            <div id="pinMaster">
+               <div id="pinContainer">
+                  <section class="panel dark">Pin Panel A</section>
+                  <div class="slide">
+                     <section class="panel turqoise">Pin Panel B</section>
+                     <section class="panel tomato">Pin Panel C</section>
+                     <section class="panel pink">Pin Panel D</section>
+                     <section class="panel yellow">Pin Panel E</section>
+                  </div>
+               </div>
+               <section class="spacer">Content</section>
+               <footer>Footer</footer>
+            </div>
+         </main>
+         @@include('html/_footer.htm',{})
+      </div>
+      @@include('html/_js.htm',{})
+   </body>
+</html>

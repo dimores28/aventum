@@ -77,7 +77,7 @@ ScrollReveal().reveal('.our-history__title', { delay: 500, duration: 500,  dista
 //====================================================================================================
 
 // init controller
-var controller = new ScrollMagic.Controller();
+// var controller = new ScrollMagic.Controller();
 
 // var scene = new ScrollMagic.Scene({triggerElement: "#about", offset: 10})
 // 						.setPin("#spot")
@@ -105,3 +105,30 @@ var controller = new ScrollMagic.Controller();
 //     .on("enter leave", updateBox)
 //     .addIndicators() // add indicators (requires plugin)
 //     .addTo(controller);
+
+
+var controller = new ScrollMagic.Controller();
+var tl = new TimelineMax();
+
+// tl.fromTo("section.panel.turqoise", 1, { xPercent: 100 }, { xPercent: 0, ease: Linear.easeNone }, "+=1");
+// tl.fromTo("section.panel.tomato", 1,   { xPercent: 100 }, { xPercent: 0, ease: Linear.easeNone }, "+=1");
+// tl.fromTo("section.panel.pink", 1,     { xPercent: 100 }, { xPercent: 0, ease: Linear.easeNone }, "+=1");
+// tl.fromTo("section.panel.yellow", 1,   { xPercent: 100 }, { xPercent: 0, ease: Linear.easeNone }, "+=1");
+
+
+tl.fromTo(".slide", 2,   { xPercent: 10 }, { xPercent: -80, ease: Linear.easeNone }, "+=1");
+
+new ScrollMagic.Scene({
+    triggerElement: "#pinMaster",
+    triggerHook: "onLeave",
+    duration: "100%"
+  })
+    .setPin("#pinMaster")
+    .setTween(tl)
+    .addIndicators({
+      colorTrigger: "white",
+      colorStart: "white",
+      colorEnd: "white",
+      indent: 40
+    })
+    .addTo(controller);
