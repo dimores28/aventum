@@ -5,12 +5,32 @@
       <div class="wrapper">
          @@include('html/_header.htm',{})
          <main class="page">
-            <div style="min-height: 100vh;">
-               main
-            </div>
-            <div id="spot" class="spot">
-               <img src="@img/common/spot.png" alt="scroll animation images" class="spot__img" >
-            </div>
+            <section class="video-bg main-about">
+               <video
+                  poster="@img/about/baout_poster.jpg"
+                  autoplay
+                  muted
+                  class="video-bg__video">
+                  <source
+                     src="@img/about/bg_video.mp"
+                     type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+               </video>
+               <div class="main-about__container">
+                  <h1 class="main-about__header">About Aventum Trade</h1>
+
+                  <div class="main-about__actions component-next">
+                     <button
+                        class="main-about__button component-next__btn"></button>
+                  </div>
+               </div>
+            </section>
+
+            <!-- <div id="spot" class="spot">
+               <img
+                  src="@img/common/spot.png"
+                  alt="scroll animation images"
+                  class="spot__img" />
+            </div> -->
             <section class="about" id="about">
                <div class="about__container">
                   <div class="about__desc">

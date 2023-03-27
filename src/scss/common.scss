@@ -583,6 +583,7 @@ $blockHeight: 124px;
    }
 }
 
+//====================================================================================================
 
 .spot {
    max-width: 600px;
@@ -603,4 +604,24 @@ $blockHeight: 124px;
    transform: translateX(20%);
 }
 
+//====================================================================================================
+.video-bg {
+
+   width: 100%;
+   min-height: 100vh;
+   position: relative;
+
+   &__video {
+      position: absolute;
+      top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		transform: translateX(-50%) translateY(-50%);
+		background-size: cover;
+   }
+}
 //====================================================================================================

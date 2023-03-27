@@ -78,18 +78,18 @@ var controller = new ScrollMagic.Controller();
 // 						.addTo(controller);
 
 
-new ScrollMagic.Scene({triggerElement: "#about video", triggerHook: 0.5})
-    .setPin("#spot")
-    .setClassToggle("#spot", "right")
-    .addIndicators() // add indicators (requires plugin)
-    .addTo(controller);
+// new ScrollMagic.Scene({triggerElement: "#about video", triggerHook: 0.5})
+//     .setPin("#spot")
+//     .setClassToggle("#spot", "right")
+//     .addIndicators() // add indicators (requires plugin)
+//     .addTo(controller);
 
-new ScrollMagic.Scene({triggerElement: "#why-us img"})
-    .setPin("#spot")
-    .setClassToggle("#spot", "left")
-    .on("enter leave", ()=>{document.querySelector("#spot").classList.remove('right')})
-    .addIndicators() // add indicators (requires plugin)
-    .addTo(controller);
+// new ScrollMagic.Scene({triggerElement: "#why-us img"})
+//     .setPin("#spot")
+//     .setClassToggle("#spot", "left")
+//     .on("enter leave", ()=>{document.querySelector("#spot").classList.remove('right')})
+//     .addIndicators() // add indicators (requires plugin)
+//     .addTo(controller);
 
 // new ScrollMagic.Scene({triggerElement: "#trigger", duration: 150, offset: 600})
 //     .setPin("#spot")

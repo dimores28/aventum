@@ -1,3 +1,62 @@
+//Main-tools====================================================================================================
+.main-tools {
+   @include adaptiveValue("padding-top", 230, 122, 0, 1130, 768);
+   // .main-tools__container
+
+   &__container {
+      @media (max-width:$mobile){
+          text-align: center; 
+      }
+   }
+
+   // .main-tools__header
+
+   &__header {
+      font-family: 'Compov2Bold';
+      font-weight: 700;
+      @include adaptiveValue("font-size", 64, 32);
+      line-height: 86.52%;
+      max-width: 561px;
+      margin-bottom: 22px;
+
+      @media (max-width:$mobile){
+         max-width: 220px;
+         margin-right: auto;
+         margin-left: auto;
+      }
+   }
+
+   // .main-tools__text
+
+   &__text {
+      max-width: 271px;
+      margin-bottom: 68px;
+
+      @media (max-width:$mobile){
+         margin-bottom: 28px;
+         margin-right: auto;
+         margin-left: auto;
+      }
+
+      p {
+         margin-bottom: 20px;
+      }
+   }
+
+   // .main-tools__actions
+
+   &__actions {
+      margin: 0 auto;
+   }
+
+   // .main-tools__button
+
+   &__button {
+   }
+}
+
+//====================================================================================================
+
 //Agri-banck====================================================================================================
 
 .agri-banck {

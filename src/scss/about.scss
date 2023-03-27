@@ -1,6 +1,48 @@
+//====================================================================================================
+.main-about {
+    padding-top: 240px;
+    // .main-about__container
+
+    &__container {
+        text-align: center;
+    }
+
+    // .main-about__header
+
+    &__header {
+        font-family: 'Compov2Bold';
+        font-weight: 700;
+        @include adaptiveValue("font-size", 64, 32);
+        line-height: 86.52%;
+        max-width: 345px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 46px;
+
+        @media (max-width:$mobile){
+            margin-bottom: 58px;  
+            max-width: 220px;
+        }
+    }
+
+    // .main-about__actions
+
+    &__actions {
+    }
+
+    // .main-about__button
+
+    &__button {
+    }
+}
+
+
+//====================================================================================================
 .aventum-mission {
 
     &__gif {
         @include adaptiveValue("padding-top", 80, 30, 0, 1130, 768);
     }
 }
+
+//====================================================================================================
