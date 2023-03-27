@@ -50,7 +50,7 @@ const elem = document.querySelector('.b-marquee-line__flow-block');
 const clone = elem?.cloneNode(true);
 elem?.parentElement?.appendChild(clone);
 // elem.classList?.toggle('animate-ticker');
-clone.classList?.toggle('clone');
+clone?.classList?.toggle('clone');
 
 const moreTextBtn = document.querySelector('.why-us__btn');
 
