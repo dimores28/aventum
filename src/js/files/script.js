@@ -58,6 +58,20 @@ moreTextBtn?.addEventListener('click', function() {
     document.querySelector('.why-us__text')?.classList.toggle('_show-text');
 });
 
+
+var zoomableImages = document.querySelectorAll('.license__image');
+
+if(zoomableImages.length) {
+    for (var i = 0; i < zoomableImages.length; i++) {
+        zoomableImages[i].addEventListener('click', function() {
+          this.classList.toggle('zoomed');
+        });
+      }
+}
+
+
+
+
 //text-animation====================================================================================================
 
 //Home page
@@ -76,37 +90,8 @@ ScrollReveal().reveal('.our-history__text', { delay: 500, duration: 500,  distan
 ScrollReveal().reveal('.our-history__title', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 //====================================================================================================
 
-// init controller
-// var controller = new ScrollMagic.Controller();
 
-// var scene = new ScrollMagic.Scene({triggerElement: "#about", offset: 10})
-// 						.setPin("#spot")
-//                         .setClassToggle("#spot", "green")
-// 						.addIndicators({name: "2 (duration: 0)"}) // add indicators (requires plugin)
-// 						.addTo(controller);
-
-
-// new ScrollMagic.Scene({triggerElement: "#about video", triggerHook: 0.5})
-//     .setPin("#spot")
-//     .setClassToggle("#spot", "right")
-//     .addIndicators() // add indicators (requires plugin)
-//     .addTo(controller);
-
-// new ScrollMagic.Scene({triggerElement: "#why-us img"})
-//     .setPin("#spot")
-//     .setClassToggle("#spot", "left")
-//     .on("enter leave", ()=>{document.querySelector("#spot").classList.remove('right')})
-//     .addIndicators() // add indicators (requires plugin)
-//     .addTo(controller);
-
-// new ScrollMagic.Scene({triggerElement: "#trigger", duration: 150, offset: 600})
-//     .setPin("#spot")
-//     .setClassToggle("#spot", "green")
-//     .on("enter leave", updateBox)
-//     .addIndicators() // add indicators (requires plugin)
-//     .addTo(controller);
-
-
+//ScrollMagic====================================================================================================
 var controller = new ScrollMagic.Controller();
 var tl = new TimelineMax();
 
@@ -132,3 +117,21 @@ new ScrollMagic.Scene({
       indent: 40
     })
     .addTo(controller);
+
+let structureSlider = new TimelineMax();
+
+structureSlider.fromTo("#structure-slider", 20, { xPercent: 40 }, { xPercent: -80, ease: Linear.easeNone });
+
+new ScrollMagic.Scene({
+    triggerElement: "#structure",
+    triggerHook: "onLeave",
+    duration: "100%"
+})
+.setPin('#structure')
+.setTween(structureSlider)
+.addIndicators({
+    colorTrigger: "white",
+    colorStart: "white",
+    colorEnd: "white",
+    indent: 40
+}).addTo(controller);

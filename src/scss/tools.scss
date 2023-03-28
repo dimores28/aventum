@@ -59,6 +59,61 @@
 
 //====================================================================================================
 
+
+//Structure====================================================================================================
+
+.structure {
+   min-height: 100vh;
+   position: relative;
+   padding-top: 160px;
+   // .structure__container
+
+   &__container {
+      overflow: hidden;
+      position: relative;
+   }
+
+   // .structure__blind
+
+   &__blind {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 40%;
+      background: linear-gradient(90deg, #0B0245 30%, rgba(11, 2, 69, 0) 100%);
+   }
+
+   &__title {
+      font-family: 'Compov2Bold';
+      font-weight: 700;
+      @include adaptiveValue("font-size", 55, 28);
+      line-height: 97.02%;
+      text-align: center;
+      margin-bottom: 85px;
+   }
+
+   // .structure__slider
+
+   &__slider {
+      display: flex;
+      gap: 60px;
+   }
+
+   // .structure__slide
+
+   &__slide {
+      flex-shrink: 0;
+      background: rgba(58, 146, 101, 0.52);
+      border-radius: 8px;
+      border: 2px solid #89FF00;
+      padding: 37px
+   }
+}
+//====================================================================================================
+
+
+
 //Agri-banck====================================================================================================
 
 .agri-banck {
