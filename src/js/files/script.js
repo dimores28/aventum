@@ -101,7 +101,7 @@ var tl = new TimelineMax();
 // tl.fromTo("section.panel.yellow", 1,   { xPercent: 100 }, { xPercent: 0, ease: Linear.easeNone }, "+=1");
 
 
-tl.fromTo(".slide", 2,   { xPercent: 10 }, { xPercent: -80, ease: Linear.easeNone }, "+=1");
+tl.fromTo(".slide", 2,   { xPercent: 10 }, { xPercent: -60, ease: Linear.easeNone });
 
 new ScrollMagic.Scene({
     triggerElement: "#pinMaster",
