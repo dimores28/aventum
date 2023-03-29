@@ -118,9 +118,35 @@ new ScrollMagic.Scene({
     })
     .addTo(controller);
 
-let structureSlider = new TimelineMax();
 
-structureSlider.fromTo("#structure-slider", 20, { xPercent: 40 }, { xPercent: -80, ease: Linear.easeNone });
+
+
+const procentX = () => {
+    console.log('animate')
+    const windowInnerWidth = document.documentElement.clientWidth;
+
+    if(windowInnerWidth <= 1040) {
+        return -200;
+    }
+
+    return -100;
+};
+
+
+let structureSlider = new TimelineMax();
+// var tween = new TweenMax();
+
+structureSlider.fromTo("#structure-slider", 10, { xPercent: 40 }, { xPercent: -100, ease: Linear.easeNone });
+
+window.onresize = function () {
+    console.log('resize');
+    const windowInnerWidth = document.documentElement.clientWidth;
+
+    if(windowInnerWidth <= 1040) {
+        structureSlider.from({ xPercent: -200 })
+    }
+}
+
 
 new ScrollMagic.Scene({
     triggerElement: "#structure",
