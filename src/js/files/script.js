@@ -91,73 +91,57 @@ ScrollReveal().reveal('.our-history__title', { delay: 500, duration: 500,  dista
 //====================================================================================================
 
 
-//ScrollMagic====================================================================================================
-var controller = new ScrollMagic.Controller();
-var tl = new TimelineMax();
-
-// tl.fromTo("section.panel.turqoise", 1, { xPercent: 100 }, { xPercent: 0, ease: Linear.easeNone }, "+=1");
-// tl.fromTo("section.panel.tomato", 1,   { xPercent: 100 }, { xPercent: 0, ease: Linear.easeNone }, "+=1");
-// tl.fromTo("section.panel.pink", 1,     { xPercent: 100 }, { xPercent: 0, ease: Linear.easeNone }, "+=1");
-// tl.fromTo("section.panel.yellow", 1,   { xPercent: 100 }, { xPercent: 0, ease: Linear.easeNone }, "+=1");
+//GSAP====================================================================================================
+// const windowInnerWidth = document.documentElement.clientWidth
+gsap.registerPlugin(ScrollTrigger);
 
 
-tl.fromTo(".slide", 2,   { xPercent: 10 }, { xPercent: -60, ease: Linear.easeNone });
+let scene1 = gsap.timeline();
+let sections = gsap.utils.toArray(".property");
 
-new ScrollMagic.Scene({
-    triggerElement: "#pinMaster",
-    triggerHook: "onLeave",
-    duration: "100%"
-  })
-    .setPin("#pinMaster")
-    .setTween(tl)
-    .addIndicators({
-      colorTrigger: "white",
-      colorStart: "white",
-      colorEnd: "white",
-      indent: 40
-    })
-    .addTo(controller);
+ScrollTrigger.create({
+    animation: scene1,
+    trigger: "#structure",
+    start: "top top",
+    end: "+=" + document.querySelector(".structure__container").offsetWidth,
+    markers: true,
+    scrub: 1,
+    snap: 1 / (sections.length - 1),
+    pin: true,
+    ease: "none",
+});
 
 
+// scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: function(index, target, targets){
+//     const windowInnerWidth = document.documentElement.clientWidth;
+//     let percent = -100;
+//     console.log("percent");
+//     if(windowInnerWidth <= 1030 && windowInnerWidth > 802){
+//         percent = -160;
+//     }
 
+//     if(windowInnerWidth <= 802){
+//         percent = -300;
+//     }
 
-const procentX = () => {
-    console.log('animate')
+//     return percent;
+// }});
+
+scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
+
+window.onresize = () => {
     const windowInnerWidth = document.documentElement.clientWidth;
 
-    if(windowInnerWidth <= 1040) {
-        return -200;
+    if(windowInnerWidth > 1030) {
+        scene1.clear();
+        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
     }
-
-    return -100;
-};
-
-
-let structureSlider = new TimelineMax();
-// var tween = new TweenMax();
-
-structureSlider.fromTo("#structure-slider", 10, { xPercent: 40 }, { xPercent: -100, ease: Linear.easeNone });
-
-window.onresize = function () {
-    console.log('resize');
-    const windowInnerWidth = document.documentElement.clientWidth;
-
-    if(windowInnerWidth <= 1040) {
-        structureSlider.from({ xPercent: -200 })
+    if(windowInnerWidth <= 1030 && windowInnerWidth > 802){
+        scene1.clear();
+        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -160 });
+    }
+    if(windowInnerWidth <= 802 && windowInnerWidth > 560 ){
+        scene1.clear();
+        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -300 });
     }
 }
-
-
-new ScrollMagic.Scene({
-    triggerElement: "#structure",
-    triggerHook: "onLeave",
-    duration: "100%"
-})
-.setPin('#structure')
-.setTween(structureSlider)
-.addIndicators({
-    colorTrigger: "white",
-    colorStart: "white",
-    colorEnd: "white",
-    indent: 40
-}).addTo(controller);
