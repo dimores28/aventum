@@ -83,11 +83,16 @@ ScrollReveal().reveal('.advantages__block', { delay: 500, distance: '100%', dura
 ScrollReveal().reveal('.contacts__container', { delay: 500, distance: '100%', duration: 500, origin: 'left' });
 
 //About page
-// 
 ScrollReveal().reveal('.why-us__text', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 ScrollReveal().reveal('.why-us__block', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 ScrollReveal().reveal('.our-history__text', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 ScrollReveal().reveal('.our-history__title', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
+
+//Tools page
+ScrollReveal().reveal('.main-tools__header', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
+ScrollReveal().reveal('.main-tools__text', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
+ScrollReveal().reveal('.agri-banck__title', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
+ScrollReveal().reveal('.agri-banck__text', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 //====================================================================================================
 
 
@@ -98,18 +103,51 @@ gsap.registerPlugin(ScrollTrigger);
 
 let scene1 = gsap.timeline();
 let sections = gsap.utils.toArray(".property");
+let endPoint = document.querySelector(".structure__container").offsetWidth;
 
 ScrollTrigger.create({
     animation: scene1,
     trigger: "#structure",
     start: "top top",
-    end: "+=" + document.querySelector(".structure__container").offsetWidth,
+    end: "+=" + endPoint,
     markers: true,
     scrub: 1,
     snap: 1 / (sections.length - 1),
     pin: true,
     ease: "none",
 });
+
+
+function getSceneAnimation() {
+    const windowInnerWidth = document.documentElement.clientWidth;
+
+    if(windowInnerWidth > 1030) {
+        scene1.clear();
+        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
+        endPoint = document.querySelector(".structure__container").offsetWidth;
+    }
+    if(windowInnerWidth <= 1030 && windowInnerWidth > 802){
+        scene1.clear();
+        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -160 });
+        endPoint = document.querySelector(".structure__container").offsetWidth;
+    }
+    if(windowInnerWidth <= 802 && windowInnerWidth > 560 ){
+        scene1.clear();
+        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -300 });
+        endPoint = document.querySelector(".structure__container").offsetWidth;
+    }
+    if(windowInnerWidth <= 560) {
+        scene1.clear();
+        scene1.fromTo("#structure-slider", 65, { yPercent: 10, xPercent: 0 }, { yPercent: -110, xPercent: 0 });
+        endPoint = document.querySelector(".structure__container").offsetHeight;
+    }
+}
+
+getSceneAnimation();
+
+window.onresize = () => {
+    getSceneAnimation();
+}
 
 
 // scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: function(index, target, targets){
@@ -127,21 +165,4 @@ ScrollTrigger.create({
 //     return percent;
 // }});
 
-scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
-
-window.onresize = () => {
-    const windowInnerWidth = document.documentElement.clientWidth;
-
-    if(windowInnerWidth > 1030) {
-        scene1.clear();
-        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
-    }
-    if(windowInnerWidth <= 1030 && windowInnerWidth > 802){
-        scene1.clear();
-        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -160 });
-    }
-    if(windowInnerWidth <= 802 && windowInnerWidth > 560 ){
-        scene1.clear();
-        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -300 });
-    }
-}
+// scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
