@@ -103,66 +103,59 @@ gsap.registerPlugin(ScrollTrigger);
 
 let scene1 = gsap.timeline();
 let sections = gsap.utils.toArray(".property");
-let endPoint = document.querySelector(".structure__container").offsetWidth;
+let endPoint = 
+document.querySelector(".structure__slider")?.offsetWidth > 
+document.querySelector(".structure__slider")?.offsetHeight ? 
+document.querySelector(".structure__slider")?.offsetWidth : 
+document.querySelector(".structure__slider")?.offsetHeight;
+endPoint += 100;
+console.log(endPoint);
 
-ScrollTrigger.create({
-    animation: scene1,
-    trigger: "#structure",
-    start: "top top",
-    end: "+=" + endPoint,
-    markers: true,
-    scrub: 1,
-    snap: 1 / (sections.length - 1),
-    pin: true,
-    ease: "none",
-});
+if(document.querySelector('.structure')) {
 
-
-function getSceneAnimation() {
-    const windowInnerWidth = document.documentElement.clientWidth;
-
-    if(windowInnerWidth > 1030) {
-        scene1.clear();
-        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
-        endPoint = document.querySelector(".structure__container").offsetWidth;
+    function getSceneAnimation() {
+        const windowInnerWidth = document.documentElement?.clientWidth;
+    
+        if(windowInnerWidth > 1030) {
+            scene1.clear();
+            scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
+            endPoint = document.querySelector(".structure__container")?.offsetWidth;
+        }
+        if(windowInnerWidth <= 1030 && windowInnerWidth > 802){
+            scene1.clear();
+            scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -160 });
+            endPoint = document.querySelector(".structure__container")?.offsetWidth;
+        }
+        if(windowInnerWidth <= 802 && windowInnerWidth > 560 ){
+            scene1.clear();
+            scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -300 });
+            endPoint = document.querySelector(".structure__container")?.offsetWidth;
+        }
+        if(windowInnerWidth <= 560) {
+            scene1.clear();
+            scene1.fromTo("#structure-slider", 65, { yPercent: 10, xPercent: 0 }, { yPercent: -110, xPercent: 0 });
+            endPoint = document.querySelector("#structure-slider")?.offsetHeight;
+        }
     }
-    if(windowInnerWidth <= 1030 && windowInnerWidth > 802){
-        scene1.clear();
-        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -160 });
-        endPoint = document.querySelector(".structure__container").offsetWidth;
-    }
-    if(windowInnerWidth <= 802 && windowInnerWidth > 560 ){
-        scene1.clear();
-        scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -300 });
-        endPoint = document.querySelector(".structure__container").offsetWidth;
-    }
-    if(windowInnerWidth <= 560) {
-        scene1.clear();
-        scene1.fromTo("#structure-slider", 65, { yPercent: 10, xPercent: 0 }, { yPercent: -110, xPercent: 0 });
-        endPoint = document.querySelector(".structure__container").offsetHeight;
-    }
-}
-
-getSceneAnimation();
-
-window.onresize = () => {
+    
     getSceneAnimation();
+    
+    ScrollTrigger.create({
+        animation: scene1,
+        trigger: "#structure",
+        start: "top top",
+        end: "+=" + endPoint,
+        markers: true,
+        scrub: 1,
+        snap: 1 / (sections.length - 1),
+        pin: true,
+        ease: "none",
+    });
+
+    window.onresize = () => {
+        getSceneAnimation();
+    }
 }
 
 
-// scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: function(index, target, targets){
-//     const windowInnerWidth = document.documentElement.clientWidth;
-//     let percent = -100;
-//     console.log("percent");
-//     if(windowInnerWidth <= 1030 && windowInnerWidth > 802){
-//         percent = -160;
-//     }
 
-//     if(windowInnerWidth <= 802){
-//         percent = -300;
-//     }
-
-//     return percent;
-// }});
-
-// scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
