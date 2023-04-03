@@ -109,7 +109,6 @@ document.querySelector(".structure__slider")?.offsetHeight ?
 document.querySelector(".structure__slider")?.offsetWidth : 
 document.querySelector(".structure__slider")?.offsetHeight;
 endPoint += 100;
-console.log(endPoint);
 
 if(document.querySelector('.structure')) {
 
@@ -152,10 +151,58 @@ if(document.querySelector('.structure')) {
         ease: "none",
     });
 
-    window.onresize = () => {
-        getSceneAnimation();
-    }
+    window.addEventListener('resize', getSceneAnimation, true);
 }
 
 
+if(document.querySelector('.formula-success')) {
+
+    let formulaSuccessScene = gsap.timeline();
+    let steps = gsap.utils.toArray(".step");
+
+    ScrollTrigger.create({
+        animation: formulaSuccessScene,
+        trigger: ".formula-success",
+        start: "top top",
+        end: "+=" + 600,
+        markers: true,
+        scrub: 1,
+        snap: 1 / (steps.length - 1),
+        pin: true,
+        ease: "none",
+    });
+
+
+    // w <= 1154px staart animation
+    function updateAnimation() {
+        const windowInnerWidth = document.documentElement?.clientWidth;
+
+        if(windowInnerWidth <= 1154 && windowInnerWidth > 867 ) {
+            formulaSuccessScene.clear();
+            formulaSuccessScene.to("#steps-block", 5, {xPercent: -40});
+        }
+        if(windowInnerWidth <= 867 &&  windowInnerWidth > 594 ) {
+            formulaSuccessScene.clear();
+            formulaSuccessScene.to("#steps-block", 5, {xPercent: -100});
+        }
+        if(windowInnerWidth <= 594 &&  windowInnerWidth > 414 ) {
+            formulaSuccessScene.clear();
+            formulaSuccessScene.to("#steps-block", 15, {xPercent: -195});
+        }
+        if(windowInnerWidth <= 414 &&  windowInnerWidth > 320) {
+            formulaSuccessScene.clear();
+            formulaSuccessScene.to("#steps-block", 15, {xPercent: -260});
+        }
+        if(windowInnerWidth <= 320) {
+            formulaSuccessScene.clear();
+            formulaSuccessScene.to("#steps-block", 15, {xPercent: -300});
+        }
+
+    }
+
+    updateAnimation();
+
+    window.addEventListener('resize', updateAnimation, true);
+
+}
 

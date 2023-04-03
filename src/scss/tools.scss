@@ -243,15 +243,23 @@
 //Formula-success====================================================================================================
 
 .formula-success {
+   position: relative;
 
    // .formula-success__bg
 
    &__bg {
-      max-width: $maxWidth;
       margin: 0 auto;
       background: url(../img/tools/formula_success.png) center center no-repeat;
       padding-bottom: 164px;
       overflow: hidden;
+
+      @media (max-width: 1154px){
+         padding-top: 160px; 
+      }
+
+      @media (max-width:$mobile){
+         background: url(../img/tools/formula_success_small.png) center center no-repeat;
+      }
    }
 
    // .formula-success__container
@@ -318,6 +326,7 @@
       line-height: 109.02%;
       max-width: 121px;
    }
+
 }
 
 .step:nth-child(1) {
@@ -343,6 +352,14 @@
 
 .step:nth-child(4) {
    animation: bounce3 4.3s linear infinite;
+}
+
+@media (max-width: $mobile) {
+
+   .step {
+      animation: none !important;
+   }
+
 }
 
 @keyframes bounce {
