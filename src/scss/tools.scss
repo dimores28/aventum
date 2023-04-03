@@ -78,7 +78,8 @@
       position: relative;
 
       @media (max-width: 560px){
-           height: 100vh;
+           height: 640px;
+           min-height: unset;
       }
    }
 
@@ -97,7 +98,7 @@
           right: 0; 
           width: 100%;
           top: unset;
-          height: 30%;
+          height: 60%;
           background: linear-gradient(1deg, #0E0548 30%, rgba(11, 2, 69, 0) 100%);
       }
    }

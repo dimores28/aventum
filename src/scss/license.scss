@@ -58,14 +58,26 @@
 
 
       &.zoomed {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100vh;
+         z-index: 2;
+         background: rgba(0,0,0,0.7);
+         padding-top: 12vh;
+         padding-left: 20px;
+         padding-right: 20px;
+         @media (max-width:$mobile){
+            padding-top: 26vh;
+         }
+
          img {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            max-width: 90%;
-            max-height: 90%;
+            z-index: 10;
+            display: block;
+            max-width: 900px;
+            margin: 0 auto;
+            
           }
       }
 
