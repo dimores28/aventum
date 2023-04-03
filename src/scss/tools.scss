@@ -239,3 +239,138 @@
 
 //====================================================================================================
 
+
+//Formula-success====================================================================================================
+
+.formula-success {
+
+   // .formula-success__bg
+
+   &__bg {
+      max-width: $maxWidth;
+      margin: 0 auto;
+      background: url(../img/tools/formula_success.png) center center no-repeat;
+      padding-bottom: 164px;
+      overflow: hidden;
+   }
+
+   // .formula-success__container
+
+   &__container {
+
+   }
+
+   &__title {
+      font-family: 'Compov2Bold';
+      font-weight: 700;
+      @include adaptiveValue("font-size", 55, 28);
+      line-height: 97.02%;
+      text-align: center;
+      margin-bottom: 104px;
+
+      @media (max-width: $mobile){
+           margin-bottom: 144px;
+      }
+   }
+
+   // .formula-success__steps-block
+
+   &__steps-block {
+      display: flex;
+      gap: 20px;
+   }
+
+}
+
+.step {
+   display: flex;
+   flex-direction: column;
+   padding: 13px 11px 20px 15px;
+   background: rgba(58, 146, 101, 0.52);
+   border-radius: 8px;
+   width: 171px;
+   flex-shrink: 0;
+   position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      background: url(../img/tools/step_border.svg) no-repeat;
+   }
+   
+
+   &__number {
+      font-size: rem(64);
+      line-height: 109.02%;
+      color: #89FF00;
+      text-align: right;
+      flex-grow: 1;
+   }
+
+   // .step__desc
+
+   &__desc {
+      font-size: rem(20);
+      line-height: 109.02%;
+      max-width: 121px;
+   }
+}
+
+.step:nth-child(1) {
+   animation: bounce 5s linear infinite 0.5s;
+}
+
+.step:nth-child(6) {
+   animation: bounce 5.3s linear infinite ;
+}
+
+.step:nth-child(2) {
+   animation: bounce2 4s linear infinite ;
+}
+
+.step:nth-child(5) {
+   animation: bounce2 5s linear infinite 0.7s;
+}
+
+
+.step:nth-child(3) {
+   animation: bounce3 5s linear infinite 1s;
+}
+
+.step:nth-child(4) {
+   animation: bounce3 4.3s linear infinite;
+}
+
+@keyframes bounce {
+   0%,100%{
+       transform: translate(0px, -20px);
+   }
+   50% {
+       transform: translate(0px, 20px);
+   }
+}
+
+@keyframes bounce2 {
+   0%,100%{
+       transform: translate(0px, -30px);
+   }
+   50% {
+       transform: translate(0px, 10px);
+   }
+}
+
+@keyframes bounce3 {
+   0%,100%{
+       transform: translate(0px, -40px);
+   }
+   50% {
+       transform: translate(0px, 0px);
+   }
+}
+
+
+//====================================================================================================
