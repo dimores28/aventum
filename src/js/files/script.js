@@ -144,7 +144,7 @@ if(document.querySelector('.structure')) {
         trigger: "#structure",
         start: "top top",
         end: "+=" + endPoint,
-        markers: true,
+        // markers: true,
         scrub: 1,
         snap: 1 / (sections.length - 1),
         pin: true,
@@ -165,7 +165,7 @@ if(document.querySelector('.formula-success')) {
         trigger: ".formula-success",
         start: "top top",
         end: "+=" + 600,
-        markers: true,
+        // markers: true,
         scrub: 1,
         snap: 1 / (steps.length - 1),
         pin: true,
@@ -204,5 +204,23 @@ if(document.querySelector('.formula-success')) {
 
     window.addEventListener('resize', updateAnimation, true);
 
+}
+
+if(document.querySelector('.team')) {
+    let teamScene = gsap.timeline();
+    let worker = gsap.utils.toArray(".step");
+
+    ScrollTrigger.create({
+        animation: teamScene,
+        trigger: ".team",
+        start: "top top",
+        end: "+=" + 700,
+        // markers: true,
+        scrub: 1,
+        pin: true,
+        ease: "none",
+    });
+
+    teamScene.to(".team__workers", 5,  {yPercent: -120});
 }
 
