@@ -97,6 +97,9 @@ ScrollReveal().reveal('.agri-banck__text', { delay: 500, duration: 500,  distanc
 
 
 //GSAP====================================================================================================
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+
 // const windowInnerWidth = document.documentElement.clientWidth
 gsap.registerPlugin(ScrollTrigger);
 
@@ -153,7 +156,6 @@ if(document.querySelector('.structure')) {
 
     window.addEventListener('resize', getSceneAnimation, true);
 }
-
 
 if(document.querySelector('.formula-success')) {
 
@@ -256,3 +258,8 @@ if(document.querySelector('.photo-gallery')) {
 
     window.addEventListener('resize', getMoveDistance, true);
 }
+
+
+gsap.timeline({
+
+});

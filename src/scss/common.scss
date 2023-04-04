@@ -588,6 +588,7 @@ $blockHeight: 124px;
 .spot {
    max-width: 600px;
    transition: all 0.6s ease;
+   position: absolute;
 
    &__img {
       width: 100%;
