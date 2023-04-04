@@ -1,3 +1,11 @@
+.team-title {
+    font-family: 'Compov2Bold';
+    font-weight: 700;
+    @include adaptiveValue("font-size", 55, 28);
+    line-height: 97.02%;
+    @include adaptiveValue("margin-bottom", 44, 26, 0, 1130, 768);
+}
+
 //Team====================================================================================================
 .team {
     padding-top: 188px;
@@ -53,12 +61,7 @@
 
     &__title {
         max-width: 240px;
-        font-family: 'Compov2Bold';
-        font-weight: 700;
-        @include adaptiveValue("font-size", 55, 28);
-        line-height: 97.02%;
-        @include adaptiveValue("margin-bottom", 44, 26, 0, 1130, 768);
-
+        
         @media (max-width:$mobile){
              margin-right: auto;
              margin-left: auto;
@@ -159,33 +162,62 @@
 //Photo gallery====================================================================================================
 
 .photo-gallery {
-
     // .photo-gallery__container
 
     &__container {
+        overflow: hidden;
+    
+        @media (max-width:$mobile){
+             text-align: center; 
+        }
     }
 
     // .photo-gallery__title
 
     &__title {
+        text-transform: uppercase;
     }
 
     // .photo-gallery__desc
 
     &__desc {
+        @include adaptiveValue("font-size", 24, 16);
+        margin-bottom: 80px;
+
+        @media (max-width:$mobile){
+            margin-bottom: 50px;    
+        }
     }
 
     // .photo-gallery__gallery
 
     &__gallery {
+        
     }
 }
 
 .gallery {
+    display: flex;
+    gap: 20px;
 
     // .gallery__item
 
     &__item {
+        flex: 1 0 33.333%;
+        padding-bottom: 2px;
+
+        @media (max-width:$mobile){
+             flex-basis: calc(50% - 10px); 
+        }
+
+        @media (max-width:$mobileSmall){
+            flex-basis: 100%; 
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 }
 

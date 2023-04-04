@@ -208,7 +208,7 @@ if(document.querySelector('.formula-success')) {
 
 if(document.querySelector('.team')) {
     let teamScene = gsap.timeline();
-    let worker = gsap.utils.toArray(".step");
+    // let worker = gsap.utils.toArray(".worker");
 
     ScrollTrigger.create({
         animation: teamScene,
@@ -217,10 +217,42 @@ if(document.querySelector('.team')) {
         end: "+=" + 700,
         // markers: true,
         scrub: 1,
+        // snap: 1 / ((worker.length - 1) / 2),
         pin: true,
         ease: "none",
     });
 
-    teamScene.to(".team__workers", 5,  {yPercent: -120});
+    teamScene.to(".team__workers", 5,  { yPercent: -120 });
 }
 
+// photo-gallery
+if(document.querySelector('.photo-gallery')) {
+    let galleryScene = gsap.timeline();
+    let item = gsap.utils.toArray(".gallery__item");
+
+    ScrollTrigger.create({
+        animation: galleryScene,
+        trigger: ".photo-gallery",
+        start: "top top",
+        end: "+=" + 600,
+        // markers: true,
+        scrub: 1,
+        snap: 1 / (item.length - 1),
+        pin: true,
+        ease: "none",
+    });
+
+
+    function getMoveDistance(){
+        let move = document.querySelector('.gallery').scrollWidth;
+        let block = document.querySelector('.gallery').offsetWidth ;
+
+        move = (move - block)  * -1;
+        galleryScene.clear();
+        galleryScene.to(".gallery", 25, {x: move})
+    }
+
+    getMoveDistance();
+
+    window.addEventListener('resize', getMoveDistance, true);
+}
