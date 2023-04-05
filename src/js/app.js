@@ -85,7 +85,7 @@ flsFunctions.menuInit();
 // ========================================================================================================================================================================================================================================================
 // Робота з формами ========================================================================================================================================================================================================================================================
 // ========================================================================================================================================================================================================================================================
-import * as flsForms from "./files/forms/forms.js";
+// import * as flsForms from "./files/forms/forms.js";
 
 /* Робота з полями форми */
 /* Документація: https://template.fls.guru/template-docs/rabota-s-formami.html */
@@ -159,7 +159,7 @@ flsForms.formFieldsInit({
 Документація плагіна: https://github.com/Grsmto/simplebar/tree/master/packages/simplebar
 Сніппет(HTML): 
 */
-// import './files/scroll/simplebar.js';
+import './files/scroll/simplebar.js';
 
 // Ліниве (відкладене) завантаження картинок
 // Документація по роботі у шаблоні: https://template.fls.guru/template-docs/modul-lenivaya-podgruzka-lazy-loading.html
@@ -183,7 +183,7 @@ flsForms.formFieldsInit({
 // import './libs/parallax.js'
 
 // Функції роботи скролом
-import * as flsScroll from "./files/scroll/scroll.js";
+// import * as flsScroll from "./files/scroll/scroll.js";
 
 // Плавна навігація по сторінці
 // Документація: https://template.fls.guru/template-docs/modul-plavnoj-navigacii-po-stranice.html

@@ -259,7 +259,17 @@ if(document.querySelector('.photo-gallery')) {
     window.addEventListener('resize', getMoveDistance, true);
 }
 
+//animation header
+if(document.querySelector('._animate-header')) {
+    let tween = gsap.to(".header", {backgroundColor:' #0B0245', duration: 1, ease: "elastic"});
 
-gsap.timeline({
+    ScrollTrigger.create({
+        animation: tween,
+        trigger: "._animate-header",
+        start: "top top",
+        end:"max",
+        // markers: true,
+        scrub: 1,
+    })
+}
 
-});
