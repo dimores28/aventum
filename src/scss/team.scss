@@ -8,8 +8,7 @@
 
 //Team====================================================================================================
 .team {
-    padding-top: 188px;
-    @include adaptiveValue("padding-top", 188, 132, 0, 1130, 768);
+    @include adaptiveValue("padding-top", 188, 100, 0, 1130, 768);
     text-align: left;
     position: relative;
 
@@ -22,6 +21,10 @@
         height: 40%;
         background: linear-gradient(180deg, rgba(11, 2, 69, 0) 0%, #0B0245 14.9%);
         z-index: 1;
+
+        @media (max-width: 560px){
+             height: 30%; 
+        }
     }
     
     @media (max-width:$mobile){
@@ -129,12 +132,17 @@
     }
 }
 
-.worker:nth-child(odd){
-    animation: bounce 4s linear infinite;
-};
 
-.worker:nth-child(2n){
-    animation: bounce2 4s linear infinite;
+@media (min-width: $mobileSmall){
+    
+    .worker:nth-child(odd){
+        animation: bounce 4s linear infinite;
+    };
+    
+    .worker:nth-child(2n){
+        animation: bounce2 4s linear infinite;
+    }
+      
 }
 
  @keyframes bounce {

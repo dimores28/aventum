@@ -54,10 +54,11 @@
     // .our-history__bg
 
     &__bg {
-        max-width: 1366px;
+        // max-width: 1366px;
         margin: 0 auto;
         background: url('../img/about/history_bg.png') center no-repeat;
         background-size: cover;
+        object-fit: cover;
         @include adaptiveValue("padding-bottom", 86, 34);
 
         @media (max-width:$mobile){

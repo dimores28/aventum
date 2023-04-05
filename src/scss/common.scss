@@ -1,5 +1,98 @@
 // Заголовки, загальні БЕМ блоки та інше...
 
+//Scroll bar====================================================================================================
+
+/* Ширина полоси прокрутки */
+// ::-webkit-scrollbar {
+//    width: 10px;
+//    scrollbar-width: thin;
+//  }
+ 
+ /* Колір фону полоси прокрутки */
+//  ::-webkit-scrollbar-track {
+//    background-color: #0B0245;
+//  }
+ 
+ /* Колір полоси прокрутки */
+//  ::-webkit-scrollbar-thumb {
+//    background-color: #89FF00
+;
+//  }
+ 
+ /* Збільшення висоти полоси прокрутки при наведенні */
+//  ::-webkit-scrollbar-thumb:hover {
+//    background-color: #555;
+//  }
+
+
+
+/* Колір фону полоси прокрутки */
+// scrollbar-color: #0B0245 #89FF00
+;
+
+/* Колір полоси прокрутки */
+// thumb {
+//   background-color: #89FF00
+;
+// }
+
+/* Збільшення висоти полоси прокрутки при наведенні */
+// thumb:hover {
+//   background-color: #555;
+// }
+
+
+/* Для WebKit-браузеров (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+   width: 8px;
+ }
+ 
+ ::-webkit-scrollbar-track {
+   background: #0B0245;
+   border-radius: 4px;
+ }
+ 
+ ::-webkit-scrollbar-thumb {
+   background: #3a926591;
+   border-radius: 4px;
+;
+ }
+ 
+ /* Для Firefox */
+ ::-moz-scrollbar {
+   width: 8px;
+ }
+ 
+ ::-moz-scrollbar-track {
+   background: #0B0245;
+   border-radius: 4px;
+ }
+ 
+ ::-moz-scrollbar-thumb {
+   background: #3a926591;
+   border-radius: 4px;
+;
+ }
+ 
+ /* Для Internet Explorer и Edge */
+ ::-ms-scrollbar {
+   width: 8px;
+ }
+ 
+ ::-ms-scrollbar-track {
+   background: #0B0245;
+   border-radius: 4px;
+ }
+ 
+ ::-ms-scrollbar-thumb {
+   background: #3a926591;
+   border-radius: 4px;
+;
+ }
+ 
+
+ //====================================================================================================
+ 
 //====================================================================================================
 .about {
    @include adaptiveValue("padding-top", 174, 55);
