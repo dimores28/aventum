@@ -237,7 +237,7 @@ if(document.querySelector('.photo-gallery')) {
         trigger: ".photo-gallery",
         start: "top top",
         end: "+=" + 600,
-        // markers: true,
+        markers: true,
         scrub: 1,
         snap: 1 / (item.length - 1),
         pin: true,
@@ -273,3 +273,27 @@ if(document.querySelector('._animate-header')) {
     })
 }
 
+
+let aboutScene = gsap.timeline();
+
+aboutScene.to(".spot", 5, {y: 351, x: 300,
+    ease: "none",
+    scrollTrigger: {
+        trigger:".about",
+        start: "top center",
+        end: "bottom 50%",
+        invalidateOnRefresh: true,
+        scrub: 0,
+        markers: true,
+        onLeave: () => {aboutScene.to(".spot", 2, {y: 651, x: 980})} 
+      }
+});
+
+console.log(document.querySelector('.about__text'));
+console.log(document.querySelector('.why-us__text'));
+
+// ScrollTrigger.create({
+//     trigger:".spot",
+//     start: "top center",
+//     end: "+=500",
+// });
