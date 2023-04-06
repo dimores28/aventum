@@ -2,46 +2,6 @@
 
 //Scroll bar====================================================================================================
 
-/* Ширина полоси прокрутки */
-// ::-webkit-scrollbar {
-//    width: 10px;
-//    scrollbar-width: thin;
-//  }
- 
- /* Колір фону полоси прокрутки */
-//  ::-webkit-scrollbar-track {
-//    background-color: #0B0245;
-//  }
- 
- /* Колір полоси прокрутки */
-//  ::-webkit-scrollbar-thumb {
-//    background-color: #89FF00
-;
-//  }
- 
- /* Збільшення висоти полоси прокрутки при наведенні */
-//  ::-webkit-scrollbar-thumb:hover {
-//    background-color: #555;
-//  }
-
-
-
-/* Колір фону полоси прокрутки */
-// scrollbar-color: #0B0245 #89FF00
-;
-
-/* Колір полоси прокрутки */
-// thumb {
-//   background-color: #89FF00
-;
-// }
-
-/* Збільшення висоти полоси прокрутки при наведенні */
-// thumb:hover {
-//   background-color: #555;
-// }
-
-
 /* Для WebKit-браузеров (Chrome, Safari, Opera) */
 ::-webkit-scrollbar {
    width: 8px;
@@ -515,6 +475,10 @@ $blockHeight: 124px;
    .clone > .b-marquee-line__flow-item:nth-child(2) {
       opacity: 0;
     } 
+
+    .clone > .b-marquee-line__flow-item:nth-child(3) {
+      opacity: 0;
+    } 
 }
 
 @keyframes marquee {
@@ -525,6 +489,94 @@ $blockHeight: 124px;
      left: -100%;
   }
 }
+
+//====================================================================================================
+.wrapp{
+   width: 100%;
+   overflow: hidden;
+   background: $blueColor;
+}
+
+.marquee-wrapper {
+   position: relative;
+   height: $blockHeight;
+   background: rgba(255, 255, 255, 0.12);
+   border-top: 2px solid rgba(255, 255, 255, 0.3);
+   border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+
+   @media (max-width:$mobile){
+       height: 55px; 
+   }
+ }
+ 
+ :root {
+   --marquee-elements-displayed: 4;
+   --marquee-element-width: calc(100vw / var(--marquee-elements-displayed));
+   --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+ }
+
+ .marquee-content {
+   width: 100vw;
+   position: absolute;
+   left: 0;
+   top: 34px;
+   display: flex;
+
+   @media (max-width:$mobile){
+       top: 14px;
+   }
+
+   -webkit-animation: scrolling var(--marquee-animation-duration) linear infinite;
+   animation: scrolling var(--marquee-animation-duration) linear infinite;
+ }
+
+ @-webkit-keyframes scrolling {
+   0% {
+     -webkit-transform: translateX(0);
+             transform: translateX(0);
+   }
+ 
+   100% {
+     -webkit-transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+             transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+   }
+ }
+ 
+ @keyframes scrolling {
+   0% {
+     -webkit-transform: translateX(0);
+             transform: translateX(0);
+   }
+ 
+   100% {
+     -webkit-transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+             transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+   }
+ }
+
+ .marquee-content li {
+   display: flex;
+   justify-content: center;
+   flex: 0 0 var(--marquee-element-width);
+   padding: 0px 10px;
+ }
+
+ .marquee-content li .marquee-item {
+   display: flex;
+   align-items: center;
+
+   @media (max-width:$mobile){
+      height: 24px; 
+   }
+ }
+
+ .marquee-item img{
+   width: 100%;
+   height: auto;
+ }
+ 
+//====================================================================================================
+
 
 //====================================================================================================
 

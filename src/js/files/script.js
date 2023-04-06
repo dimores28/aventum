@@ -5,6 +5,7 @@ import { flsModules } from "./modules.js";
 
 import "./modernizr.js"
 
+//====================================================================================================
 let player = document.querySelector('.video');
 let playBtn = document.querySelector('.video__btn');
 let playBtnWrap = document.querySelector('.video__btn-wrp');
@@ -25,6 +26,9 @@ player?.addEventListener('pause', function() {
     document.querySelector('.about__img').style.display = 'inline-block'
 })
 
+//====================================================================================================
+
+
 let languageSwitcher = document.querySelector('#languageSwitcher');
 let open = false;
 
@@ -44,14 +48,30 @@ languageSwitcher?.addEventListener('blur', function() {
     open = !open;
     isOpen();
 })
-
+//====================================================================================================
 
 const elem = document.querySelector('.b-marquee-line__flow-block');
 const clone = elem?.cloneNode(true);
 elem?.parentElement?.appendChild(clone);
-// elem.classList?.toggle('animate-ticker');
 clone?.classList?.toggle('clone');
 
+
+const root = document.documentElement
+
+
+const marqueeContent = document.querySelector('ul.marquee-content')
+
+
+root.style.setProperty('--marquee-elements', marqueeContent.children.length)
+
+
+const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue('--marquee-elements-displayed')
+
+for (let index = 0; index < marqueeElementsDisplayed.length; index++) {
+    marqueeContent.appendChild(marqueeContent.children[index].cloneNode(true))
+}
+
+//====================================================================================================
 const moreTextBtn = document.querySelector('.why-us__btn');
 
 moreTextBtn?.addEventListener('click', function() {
