@@ -55,21 +55,21 @@ const clone = elem?.cloneNode(true);
 elem?.parentElement?.appendChild(clone);
 clone?.classList?.toggle('clone');
 
+if(document.querySelector('.wrapp')) {
 
-const root = document.documentElement
+    const root = document.documentElement
 
+    const marqueeContent = document.querySelector('ul.marquee-content')
 
-const marqueeContent = document.querySelector('ul.marquee-content')
+    root.style.setProperty('--marquee-elements', marqueeContent.children.length)
 
+    const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue('--marquee-elements-displayed')
 
-root.style.setProperty('--marquee-elements', marqueeContent.children.length)
-
-
-const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue('--marquee-elements-displayed')
-
-for (let index = 0; index < marqueeElementsDisplayed.length; index++) {
-    marqueeContent.appendChild(marqueeContent.children[index].cloneNode(true))
+    for (let index = 0; index < marqueeElementsDisplayed.length; index++) {
+        marqueeContent.appendChild(marqueeContent.children[index].cloneNode(true))
+    }
 }
+
 
 //====================================================================================================
 const moreTextBtn = document.querySelector('.why-us__btn');
