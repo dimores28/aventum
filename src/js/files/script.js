@@ -242,6 +242,9 @@ if(document.querySelector('.team')) {
         // snap: 1 / ((worker.length - 1) / 2),
         pin: true,
         ease: "none",
+        onLeave: () => { 
+            // document.querySelector('.team__container').style.height = '50vh'
+        }
     });
 
     teamScene.to(".team__workers", 5,  { yPercent: -120 });
@@ -293,24 +296,26 @@ if(document.querySelector('._animate-header')) {
     })
 }
 
+if(document.querySelector('.spot')) {
+    let aboutScene = gsap.timeline();
 
-let aboutScene = gsap.timeline();
+    aboutScene.to(".spot", 5, {y: 351, x: 300,
+        ease: "none",
+        scrollTrigger: {
+            trigger:".about",
+            start: "top center",
+            end: "bottom 50%",
+            invalidateOnRefresh: true,
+            scrub: 0,
+            markers: true,
+            onLeave: () => {aboutScene.to(".spot", 2, {y: 651, x: 980})} 
+          }
+    });
+}
 
-aboutScene.to(".spot", 5, {y: 351, x: 300,
-    ease: "none",
-    scrollTrigger: {
-        trigger:".about",
-        start: "top center",
-        end: "bottom 50%",
-        invalidateOnRefresh: true,
-        scrub: 0,
-        markers: true,
-        onLeave: () => {aboutScene.to(".spot", 2, {y: 651, x: 980})} 
-      }
-});
 
-console.log(document.querySelector('.about__text'));
-console.log(document.querySelector('.why-us__text'));
+// console.log(document.querySelector('.about__text'));
+// console.log(document.querySelector('.why-us__text'));
 
 // ScrollTrigger.create({
 //     trigger:".spot",

@@ -114,17 +114,20 @@
    text-align: center;
    background: $blueColor;
 
-   padding-bottom: 140px;
+   
 
    &__canvas {
-      max-width: 1366px;
+      max-width: 1920px;
       margin: 0 auto;
+      overflow: hidden;
+      padding-bottom: 140px;
    }
 
    &__bg-image {
       width: 100%;
       height: auto;
       position: relative;
+      object-fit: cover;
       z-index: 1;
    }
 
