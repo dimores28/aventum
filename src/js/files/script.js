@@ -121,13 +121,29 @@ ScrollReveal().reveal('.agri-banck__text', { delay: 500, duration: 500,  distanc
 //GSAP====================================================================================================
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
 
 // const windowInnerWidth = document.documentElement.clientWidth
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+//Scroll To====================================================================================================
+
+document.querySelector('#btnScrollToAbout')?.addEventListener('click', function() {
+    gsap.to(window, {duration: 2, scrollTo: "#about"});
+});
+
+
+document.querySelector('#btnScrollToStructure')?.addEventListener('click', function() {
+    gsap.to(window, {duration: 2, scrollTo: "#structure"});
+});
+
+//Scroll To====================================================================================================
 
 // if (ScrollTrigger.isTouch  === 1) {
 //    ScrollTrigger.normalizeScroll(true);
 // }
+
+ScrollTrigger.config({ignoreMobileResize: true});
 
 let scene1 = gsap.timeline();
 let sections = gsap.utils.toArray(".property");
@@ -200,18 +216,18 @@ if(document.querySelector('.formula-success')) {
         ease: "none",
     });
 
-    // formulaTriger.normalizeScroll(true);
 
     // w <= 1154px staart animation
     function updateAnimation() {
         const windowInnerWidth = document.documentElement?.clientWidth;
+        const formulaId = document.querySelector('.pin-spacer-formula-id');
 
         if(windowInnerWidth > 1154) {
             formulaTriger.disable();
-            document.querySelector('.pin-spacer-formula-id').style.maxHeight = "600px"
+            formulaId.style.maxHeight = "600px"
         } else {
             formulaTriger.enable();
-            document.querySelector('.pin-spacer-formula-id').style.maxHeight = "none"
+            formulaId.style.maxHeight = "none"
         }
 
 
@@ -272,51 +288,67 @@ if(document.querySelector('.team')) {
 
 // photo-gallery
 if(document.querySelector('.photo-gallery')) {
-    let galleryScene = gsap.timeline();
-    let item = gsap.utils.toArray(".gallery__item");
+//     let galleryScene = gsap.timeline();
+//     let item = gsap.utils.toArray(".gallery__item");
 
-   const galleryTriger =  new ScrollTrigger.create({
-        animation: galleryScene,
-        trigger: ".photo-gallery",
-        start: "top top",
-        end: "+=" + 600,
-        // markers: true,
-        scrub: 1,
-        snap: 1 / (item.length - 1),
-        // pin: true,
-        ease: "none",
-        onLeave: () => { 
-            const windowInnerWidth = document.documentElement.clientWidth;
+//    const galleryTriger =  new ScrollTrigger.create({
+//         animation: galleryScene,
+//         trigger: ".photo-gallery",
+//         start: "top top",
+//         end: "+=" + 600,
+//         // markers: true,
+//         scrub: 1,
+//         snap: 1 / (item.length - 1),
+//         // pin: true,
+//         ease: "none",
+//         onLeave: () => { 
+//             const windowInnerWidth = document.documentElement.clientWidth;
 
-            if (windowInnerWidth < 479) {
-                galleryScene.clear();
-                galleryTriger.disable();
+//             if (windowInnerWidth < 479) {
+//                 galleryScene.clear();
+//                 galleryTriger.disable();
 
-                let gallery = document.querySelector('.gallery');
+//                 let gallery = document.querySelector('.gallery');
     
-                gallery.style.overflowX = "scroll"
-                gallery.style.transform = `translate(0, 0)`;
-                gallery.scrollLeft = gallery.scrollWidth;
+//                 gallery.style.overflowX = "scroll"
+//                 gallery.style.transform = `translate(0, 0)`;
+//                 gallery.scrollLeft = gallery.scrollWidth;
 
-                document.querySelector('.photo-gallery').scrollIntoView({block: "center", inline: "center"});
+//                 document.querySelector('.photo-gallery').scrollIntoView({block: "center", inline: "center"});
                 
-            }
-        }
+//             }
+//         }
+//     });
+
+
+//     function getMoveDistance(){
+//         let move = document.querySelector('.gallery').scrollWidth;
+//         let block = document.querySelector('.gallery').offsetWidth ;
+
+//         move = (move - block)  * -1;
+//         galleryScene.clear();
+//         galleryScene.to(".gallery", 25, {x: move})
+//     }
+
+//     getMoveDistance();
+
+//     window.addEventListener('resize', getMoveDistance, true);
+
+let item = gsap.utils.toArray(".gallery__item"),
+    galleryScene = gsap.to(".gallery", {
+		x: (i, target) => target.offsetWidth - target.scrollWidth,
+		ease: "none",
+		scrollTrigger: {
+			trigger: ".photo-gallery",
+			start: "top top",
+			end: "+=" + 600,
+			// markers: true,
+			scrub: 1,
+			snap: 1 / (item.length - 1),
+			pin: true,
+			invalidateOnRefresh: true
+		}
     });
-
-
-    function getMoveDistance(){
-        let move = document.querySelector('.gallery').scrollWidth;
-        let block = document.querySelector('.gallery').offsetWidth ;
-
-        move = (move - block)  * -1;
-        galleryScene.clear();
-        galleryScene.to(".gallery", 25, {x: move})
-    }
-
-    getMoveDistance();
-
-    window.addEventListener('resize', getMoveDistance, true);
 }
 
 //animation header
