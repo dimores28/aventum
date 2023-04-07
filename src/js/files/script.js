@@ -255,7 +255,7 @@ if(document.querySelector('.photo-gallery')) {
     let galleryScene = gsap.timeline();
     let item = gsap.utils.toArray(".gallery__item");
 
-    ScrollTrigger.create({
+   const galleryTriger =  new ScrollTrigger.create({
         animation: galleryScene,
         trigger: ".photo-gallery",
         start: "top top",
@@ -270,12 +270,14 @@ if(document.querySelector('.photo-gallery')) {
 
             if (windowInnerWidth < 479) {
                 galleryScene.clear();
+                galleryTriger.disable();
 
                 let gallery = document.querySelector('.gallery');
     
                 gallery.style.overflowX = "scroll"
                 gallery.style.transform = `translate(0, 0)`;
                 gallery.scrollLeft = gallery.scrollWidth;
+                
             }
         }
     });
