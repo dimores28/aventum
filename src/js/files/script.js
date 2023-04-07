@@ -100,7 +100,7 @@ ScrollReveal().reveal('.why-us__text-block', { delay: 500, duration: 500,  dista
 ScrollReveal().reveal('.philosophy__text-block', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 ScrollReveal().reveal('.program__container', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 ScrollReveal().reveal('.advantages__block', { delay: 500, distance: '100%', duration: 500, origin: 'right' });
-ScrollReveal().reveal('.contacts__container', { delay: 500, distance: '100%', duration: 500, origin: 'left' });
+// ScrollReveal().reveal('.contacts__container', { delay: 500, distance: '100%', duration: 500, origin: 'left' });
 
 //About page
 ScrollReveal().reveal('.why-us__text', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
@@ -230,24 +230,24 @@ if(document.querySelector('.formula-success')) {
 
 if(document.querySelector('.team')) {
     let teamScene = gsap.timeline();
-    // let worker = gsap.utils.toArray(".worker");
+    let end = document.querySelector('.team__workers').scrollHeight - document.querySelector('.worker').offsetHeight;
 
     ScrollTrigger.create({
         animation: teamScene,
         trigger: ".team",
         start: "top top",
-        end: "+=" + 700,
-        // markers: true,
+        end: "+=" + end,
+        markers: true,
         scrub: 1,
         // snap: 1 / ((worker.length - 1) / 2),
         pin: true,
         ease: "none",
         onLeave: () => { 
-            // document.querySelector('.team__container').style.height = '50vh'
+            // document.querySelector('.team').style.maxHeight = "145vh";
         }
     });
 
-    teamScene.to(".team__workers", 5,  { yPercent: -120 });
+    teamScene.to(".team__workers", 5,  { y: -1 * end });
 }
 
 // photo-gallery

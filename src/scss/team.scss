@@ -18,12 +18,17 @@
         left: 0;
         bottom: 0;
         right: 0;
-        height: 40%;
+        height: 30%;
         background: linear-gradient(180deg, rgba(11, 2, 69, 0) 0%, #0B0245 14.9%);
         z-index: 1;
 
-        @media (max-width: 560px){
-             height: 30%; 
+        @media (max-height: 760px) {
+            height: 40%; 
+        }
+        
+
+        @media (max-height: 533px) and (max-width: 340px) {
+            height: 12%; 
         }
     }
     
@@ -35,7 +40,7 @@
     &__container {
         display: flex;
         gap: 30px;
-        height: 100vh;
+        height: 80vh;
         overflow: hidden;
 
         @media (max-width:$mobile){
@@ -135,13 +140,13 @@
 
 @media (min-width: $mobileSmall){
     
-    .worker:nth-child(odd){
-        animation: bounce 4s linear infinite;
-    };
+    // .worker:nth-child(odd){
+    //     animation: bounce 4s linear infinite;
+    // };
     
-    .worker:nth-child(2n){
-        animation: bounce2 4s linear infinite;
-    }
+    // .worker:nth-child(2n){
+    //     animation: bounce2 4s linear infinite;
+    // }
       
 }
 
