@@ -100,7 +100,7 @@ ScrollReveal().reveal('.why-us__text-block', { delay: 500, duration: 500,  dista
 ScrollReveal().reveal('.philosophy__text-block', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 ScrollReveal().reveal('.program__container', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 ScrollReveal().reveal('.advantages__block', { delay: 500, distance: '100%', duration: 500, origin: 'right' });
-ScrollReveal().reveal('.contacts__container', { delay: 500, distance: '100%', duration: 500, origin: 'left' });
+// ScrollReveal().reveal('.contacts__container', { delay: 500, distance: '100%', duration: 500, origin: 'left' });
 
 //About page
 ScrollReveal().reveal('.why-us__text', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
@@ -277,6 +277,8 @@ if(document.querySelector('.photo-gallery')) {
                 gallery.style.overflowX = "scroll"
                 gallery.style.transform = `translate(0, 0)`;
                 gallery.scrollLeft = gallery.scrollWidth;
+
+                document.querySelector('.photo-gallery').scrollIntoView({block: "center", inline: "center"});
                 
             }
         }
