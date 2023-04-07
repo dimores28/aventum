@@ -145,119 +145,64 @@ document.querySelector('#btnScrollToStructure')?.addEventListener('click', funct
 
 ScrollTrigger.config({ignoreMobileResize: true});
 
-let scene1 = gsap.timeline();
-let sections = gsap.utils.toArray(".property");
-let endPoint = 
-document.querySelector(".structure__slider")?.offsetWidth > 
-document.querySelector(".structure__slider")?.offsetHeight ? 
-document.querySelector(".structure__slider")?.offsetWidth : 
-document.querySelector(".structure__slider")?.offsetHeight;
-endPoint += 100;
-
 if(document.querySelector('.structure')) {
 
-    function getSceneAnimation() {
-        const windowInnerWidth = document.documentElement?.clientWidth;
-    
-        if(windowInnerWidth > 1030) {
-            scene1.clear();
-            scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -100 });
-            endPoint = document.querySelector(".structure__container")?.offsetWidth;
-        }
-        if(windowInnerWidth <= 1030 && windowInnerWidth > 802){
-            scene1.clear();
-            scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -160 });
-            endPoint = document.querySelector(".structure__container")?.offsetWidth;
-        }
-        if(windowInnerWidth <= 802 && windowInnerWidth > 560 ){
-            scene1.clear();
-            scene1.fromTo("#structure-slider", 45, { xPercent: 40 }, { xPercent: -300 });
-            endPoint = document.querySelector(".structure__container")?.offsetWidth;
-        }
-        if(windowInnerWidth <= 560) {
-            scene1.clear();
-            scene1.fromTo("#structure-slider", 65, { yPercent: 10, xPercent: 0 }, { yPercent: -110, xPercent: 0 });
-            endPoint = document.querySelector("#structure-slider")?.offsetHeight;
-        }
-    }
-    
-    getSceneAnimation();
-    
-    ScrollTrigger.create({
-        animation: scene1,
-        trigger: "#structure",
-        start: "top top",
-        end: "+=" + endPoint,
-        // markers: true,
-        scrub: 1,
-        snap: 1 / (sections.length - 1),
-        pin: true,
-        ease: "none",
-    });
+    let mm = gsap.matchMedia(),
+    breakPoint = 560;
 
-    window.addEventListener('resize', getSceneAnimation, true);
+    mm.add({
+
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+      
+      }, (context) => {
+      
+        let { isDesktop, isMobile } = context.conditions;
+      
+        let slide = gsap.utils.toArray(".property"),
+        sliderScene = gsap.fromTo(".structure__slider", 
+        {x: isDesktop ? 600 : 0, y: isDesktop ? 0 : 50 }, 
+        {x: isDesktop ? (i, target) => target.offsetWidth - target.scrollWidth : 0, 
+            y: isDesktop ? 0 : (i, target) => (target.offsetHeight - 250) * - 1,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#structure",
+                start: "top top",
+                end: "+=" + 600,
+                // markers: true,
+                scrub: 1,
+                snap: 1 / (slide.length - 1),
+                pin: true,
+                invalidateOnRefresh: true
+            }
+        });
+    
+      });
 }
 
 if(document.querySelector('.formula-success')) {
+    
+    let mm = gsap.matchMedia();
 
-    let formulaSuccessScene = gsap.timeline();
-    let steps = gsap.utils.toArray(".step");
+    mm.add("(max-width: 1154px)", () => {
 
-    const formulaTriger =  ScrollTrigger.create({
-        animation: formulaSuccessScene,
-        trigger: ".formula-success",
-        start: "top top",
-        end: "+=" + 600,
-        id: "formula-id",
-        // markers: true,
-        scrub: 1,
-        snap: 1 / (steps.length - 1),
-        pin: true,
-        ease: "none",
+        let item = gsap.utils.toArray(".step"),
+        formulaSuccessScene = gsap.to("#steps-block", {
+            x: (i, target) => target.offsetWidth - target.scrollWidth,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".formula-success",
+                start: "top top",
+                end: "+=" + 600,
+                // markers: true,
+                scrub: 1,
+                snap: 1 / (item.length - 1),
+                pin: true,
+                invalidateOnRefresh: true
+            }
+        });
     });
-
-
-    // w <= 1154px staart animation
-    function updateAnimation() {
-        const windowInnerWidth = document.documentElement?.clientWidth;
-        const formulaId = document.querySelector('.pin-spacer-formula-id');
-
-        if(windowInnerWidth > 1154) {
-            formulaTriger.disable();
-            formulaId.style.maxHeight = "600px"
-        } else {
-            formulaTriger.enable();
-            formulaId.style.maxHeight = "none"
-        }
-
-
-        if(windowInnerWidth <= 1154 && windowInnerWidth > 867 ) {
-            formulaSuccessScene.clear();
-            formulaSuccessScene.to("#steps-block", 5, {xPercent: -40});
-        }
-        if(windowInnerWidth <= 867 &&  windowInnerWidth > 594 ) {
-            formulaSuccessScene.clear();
-            formulaSuccessScene.to("#steps-block", 5, {xPercent: -120});
-        }
-        if(windowInnerWidth <= 594 &&  windowInnerWidth > 414 ) {
-            formulaSuccessScene.clear();
-            formulaSuccessScene.to("#steps-block", 15, {xPercent: -195});
-        }
-        if(windowInnerWidth <= 414 &&  windowInnerWidth > 320) {
-            formulaSuccessScene.clear();
-            formulaSuccessScene.to("#steps-block", 15, {xPercent: -260});
-        }
-        if(windowInnerWidth <= 320) {
-            formulaSuccessScene.clear();
-            formulaSuccessScene.to("#steps-block", 15, {xPercent: -300});
-        }
-
-    }
-
-    updateAnimation();
-
-    window.addEventListener('resize', updateAnimation, true);
-
 }
 
 if(document.querySelector('.team')) {
@@ -334,7 +279,7 @@ if(document.querySelector('.photo-gallery')) {
 
 //     window.addEventListener('resize', getMoveDistance, true);
 
-let item = gsap.utils.toArray(".gallery__item"),
+    let item = gsap.utils.toArray(".gallery__item"),
     galleryScene = gsap.to(".gallery", {
 		x: (i, target) => target.offsetWidth - target.scrollWidth,
 		ease: "none",
