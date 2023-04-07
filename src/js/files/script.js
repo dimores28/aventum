@@ -242,15 +242,16 @@ if(document.querySelector('.team')) {
         fastScrollEnd: true,
         // markers: true,
         scrub: 1,
-        // snap: 1 / ((worker.length - 1) / 2),
         pin: true,
         ease: "none",
-        onLeave: () => { 
-            // document.querySelector('.team').style.maxHeight = "145vh";
-        }
+        onLeave: () => { }
     });
 
-    teamScene.to(".team__workers", 5,  { y: -1 * (end + 50) });
+    if(document.documentElement.clientWidth < 479) {
+        end += 80;
+    }
+
+    teamScene.to(".team__workers", 5,  { y: -1 * (end) });
 }
 
 // photo-gallery
