@@ -125,6 +125,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 // const windowInnerWidth = document.documentElement.clientWidth
 gsap.registerPlugin(ScrollTrigger);
 
+// if (ScrollTrigger.isTouch  === 1) {
+//    ScrollTrigger.normalizeScroll(true);
+// }
 
 let scene1 = gsap.timeline();
 let sections = gsap.utils.toArray(".property");
@@ -184,11 +187,12 @@ if(document.querySelector('.formula-success')) {
     let formulaSuccessScene = gsap.timeline();
     let steps = gsap.utils.toArray(".step");
 
-    ScrollTrigger.create({
+    const formulaTriger =  ScrollTrigger.create({
         animation: formulaSuccessScene,
         trigger: ".formula-success",
         start: "top top",
         end: "+=" + 600,
+        id: "formula-id",
         // markers: true,
         scrub: 1,
         snap: 1 / (steps.length - 1),
@@ -196,10 +200,20 @@ if(document.querySelector('.formula-success')) {
         ease: "none",
     });
 
+    // formulaTriger.normalizeScroll(true);
 
     // w <= 1154px staart animation
     function updateAnimation() {
         const windowInnerWidth = document.documentElement?.clientWidth;
+
+        if(windowInnerWidth > 1154) {
+            formulaTriger.disable();
+            document.querySelector('.pin-spacer-formula-id').style.maxHeight = "600px"
+        } else {
+            formulaTriger.enable();
+            document.querySelector('.pin-spacer-formula-id').style.maxHeight = "none"
+        }
+
 
         if(windowInnerWidth <= 1154 && windowInnerWidth > 867 ) {
             formulaSuccessScene.clear();
@@ -207,7 +221,7 @@ if(document.querySelector('.formula-success')) {
         }
         if(windowInnerWidth <= 867 &&  windowInnerWidth > 594 ) {
             formulaSuccessScene.clear();
-            formulaSuccessScene.to("#steps-block", 5, {xPercent: -100});
+            formulaSuccessScene.to("#steps-block", 5, {xPercent: -120});
         }
         if(windowInnerWidth <= 594 &&  windowInnerWidth > 414 ) {
             formulaSuccessScene.clear();
@@ -244,7 +258,9 @@ if(document.querySelector('.team')) {
         scrub: 1,
         pin: true,
         ease: "none",
-        onLeave: () => { }
+        onLeave: () => {
+            // document.querySelector('.photo-gallery').scrollIntoView({block: "center", inline: "center"});
+         }
     });
 
     if(document.documentElement.clientWidth < 479) {
@@ -267,7 +283,7 @@ if(document.querySelector('.photo-gallery')) {
         // markers: true,
         scrub: 1,
         snap: 1 / (item.length - 1),
-        pin: true,
+        // pin: true,
         ease: "none",
         onLeave: () => { 
             const windowInnerWidth = document.documentElement.clientWidth;
