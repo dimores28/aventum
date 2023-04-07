@@ -100,7 +100,7 @@ ScrollReveal().reveal('.why-us__text-block', { delay: 500, duration: 500,  dista
 ScrollReveal().reveal('.philosophy__text-block', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 ScrollReveal().reveal('.program__container', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
 ScrollReveal().reveal('.advantages__block', { delay: 500, distance: '100%', duration: 500, origin: 'right' });
-// ScrollReveal().reveal('.contacts__container', { delay: 500, distance: '100%', duration: 500, origin: 'left' });
+ScrollReveal().reveal('.contacts__container', { delay: 500, distance: '100%', duration: 500, origin: 'left' });
 
 //About page
 ScrollReveal().reveal('.why-us__text', { delay: 500, duration: 500,  distance: '80px', origin: 'bottom'});
@@ -237,7 +237,7 @@ if(document.querySelector('.team')) {
         trigger: ".team",
         start: "top top",
         end: "+=" + end,
-        markers: true,
+        // markers: true,
         scrub: 1,
         // snap: 1 / ((worker.length - 1) / 2),
         pin: true,
@@ -260,11 +260,24 @@ if(document.querySelector('.photo-gallery')) {
         trigger: ".photo-gallery",
         start: "top top",
         end: "+=" + 600,
-        markers: true,
+        // markers: true,
         scrub: 1,
         snap: 1 / (item.length - 1),
         pin: true,
         ease: "none",
+        onLeave: () => { 
+            const windowInnerWidth = document.documentElement.clientWidth;
+
+            if (windowInnerWidth < 479) {
+                galleryScene.clear();
+
+                let gallery = document.querySelector('.gallery');
+    
+                gallery.style.overflowX = "scroll"
+                gallery.style.transform = `translate(0, 0)`;
+                gallery.scrollLeft = gallery.scrollWidth;
+            }
+        }
     });
 
 
