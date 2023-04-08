@@ -50,10 +50,10 @@ languageSwitcher?.addEventListener('blur', function() {
 })
 //====================================================================================================
 
-const elem = document.querySelector('.b-marquee-line__flow-block');
-const clone = elem?.cloneNode(true);
-elem?.parentElement?.appendChild(clone);
-clone?.classList?.toggle('clone');
+// const elem = document.querySelector('.b-marquee-line__flow-block');
+// const clone = elem?.cloneNode(true);
+// elem?.parentElement?.appendChild(clone);
+// clone?.classList?.toggle('clone');
 
 if(document.querySelector('.wrapp')) {
 
@@ -122,6 +122,7 @@ ScrollReveal().reveal('.agri-banck__text', { delay: 500, duration: 500,  distanc
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
 
 // const windowInnerWidth = document.documentElement.clientWidth
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -142,7 +143,7 @@ document.querySelector('.header__logo')?.addEventListener('click', function(e) {
     gsap.to(window, {duration: 2, scrollTo: "#main"});
 })
 
-//Scroll To====================================================================================================
+//End scroll To====================================================================================================
 
 // if (ScrollTrigger.isTouch  === 1) {
 //    ScrollTrigger.normalizeScroll(true);
@@ -278,29 +279,68 @@ if(document.querySelector('._animate-header')) {
     })
 }
 
-if(document.querySelector('.spot')) {
-    let aboutScene = gsap.timeline();
+//Spot animation====================================================================================================
+gsap.registerPlugin(MotionPathPlugin)
 
-    aboutScene.to(".spot", 5, {y: 351, x: 300,
-        ease: "none",
+if(document.querySelector('.spot')) {
+
+    const rx = window.innerWidth < 1000 ? window.innerWidth / 1200 : 1
+    const ry = window.innerHeight < 700 ? window.innerHeight / 1200 : 1
+
+    const path = [
+        //1
+        {x: 740, y: 400},
+        //2
+        {x: 165, y: 1200},
+        //3
+        {x: 500, y: 2200},
+    ];
+
+
+    const scaledPath = path.map(({ x, y }) => {
+        return {
+            x: x * rx,
+            y: y * ry
+        }
+    })
+
+    const aboutSpotScene = gsap.timeline({
         scrollTrigger: {
             trigger:".about",
-            start: "top center",
-            end: "bottom 50%",
-            invalidateOnRefresh: true,
-            scrub: 0,
-            markers: true,
-            onLeave: () => {aboutScene.to(".spot", 2, {y: 651, x: 980})} 
-          }
-    });
+            start: "top 80%",
+            // end: "+=" + 2200,
+            scrub: 1.5,
+            // markers: true,
+            endTrigger: ".our-history",
+        },
+    })
+
+    aboutSpotScene.to(".spot", {
+        motionPath: {
+            path: scaledPath,
+            align: 'self',
+            alignOrigin: [0.5, 0.5],
+            // autoRotate: true
+        },
+        duration: 2,
+        immediateRender: true,
+        // ease: 'power4'
+    })
+    // aboutSpotScene.to(".spot", {x: 740, y: 400});
+
+    function getOffset(el) {
+        const rect = el.getBoundingClientRect();
+        return {
+          x: rect.left + window.scrollX,
+          y: rect.top + window.scrollY
+        };
+      }
+
+    // console.log(getOffset(document.querySelector('.about__content')));
+    // console.log(getOffset(document.querySelector('.why-us__gif')));
+    // console.log(getOffset(document.querySelector('.our-history__body')));
+    console.log(getOffset(document.querySelector('.spot')));
+    
 }
 
 
-// console.log(document.querySelector('.about__text'));
-// console.log(document.querySelector('.why-us__text'));
-
-// ScrollTrigger.create({
-//     trigger:".spot",
-//     start: "top center",
-//     end: "+=500",
-// });
