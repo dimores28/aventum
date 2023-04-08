@@ -182,7 +182,7 @@ if(document.querySelector('.structure')) {
 }
 
 if(document.querySelector('.formula-success')) {
-    
+
     let mm = gsap.matchMedia();
 
     mm.add("(max-width: 1154px)", () => {
@@ -206,85 +206,12 @@ if(document.querySelector('.formula-success')) {
 }
 
 if(document.querySelector('.team')) {
-    let teamScene = gsap.timeline();
-    let end = document.querySelector('.team__workers').scrollHeight - document.querySelector('.worker').offsetHeight;
-
-    ScrollTrigger.create({
-        animation: teamScene,
-        trigger: ".team",
-        start: "top top",
-        end: "+=" + end,
-        fastScrollEnd: true,
-        // markers: true,
-        scrub: 1,
-        pin: true,
-        ease: "none",
-        onLeave: () => {
-            // document.querySelector('.photo-gallery').scrollIntoView({block: "center", inline: "center"});
-         }
-    });
-
-    if(document.documentElement.clientWidth < 479) {
-        end += 80;
-    }
-
-    teamScene.to(".team__workers", 5,  { y: -1 * (end) });
-}
-
-// photo-gallery
-if(document.querySelector('.photo-gallery')) {
-//     let galleryScene = gsap.timeline();
-//     let item = gsap.utils.toArray(".gallery__item");
-
-//    const galleryTriger =  new ScrollTrigger.create({
-//         animation: galleryScene,
-//         trigger: ".photo-gallery",
-//         start: "top top",
-//         end: "+=" + 600,
-//         // markers: true,
-//         scrub: 1,
-//         snap: 1 / (item.length - 1),
-//         // pin: true,
-//         ease: "none",
-//         onLeave: () => { 
-//             const windowInnerWidth = document.documentElement.clientWidth;
-
-//             if (windowInnerWidth < 479) {
-//                 galleryScene.clear();
-//                 galleryTriger.disable();
-
-//                 let gallery = document.querySelector('.gallery');
-    
-//                 gallery.style.overflowX = "scroll"
-//                 gallery.style.transform = `translate(0, 0)`;
-//                 gallery.scrollLeft = gallery.scrollWidth;
-
-//                 document.querySelector('.photo-gallery').scrollIntoView({block: "center", inline: "center"});
-                
-//             }
-//         }
-//     });
-
-
-//     function getMoveDistance(){
-//         let move = document.querySelector('.gallery').scrollWidth;
-//         let block = document.querySelector('.gallery').offsetWidth ;
-
-//         move = (move - block)  * -1;
-//         galleryScene.clear();
-//         galleryScene.to(".gallery", 25, {x: move})
-//     }
-
-//     getMoveDistance();
-
-//     window.addEventListener('resize', getMoveDistance, true);
-
-    let item = gsap.utils.toArray(".gallery__item"),
-    galleryScene = gsap.to(".gallery", {
-		x: (i, target) => target.offsetWidth - target.scrollWidth,
+    let item = gsap.utils.toArray(".worker"),
+     teamScene = gsap.to(".team__workers", {
+		y: (i, target) => (target.scrollHeight - target.firstElementChild.offsetHeight) * -1,
 		ease: "none",
 		scrollTrigger: {
-			trigger: ".photo-gallery",
+			trigger: ".team",
 			start: "top top",
 			end: "+=" + 600,
 			// markers: true,
@@ -294,6 +221,42 @@ if(document.querySelector('.photo-gallery')) {
 			invalidateOnRefresh: true
 		}
     });
+}
+
+// photo-gallery
+if(document.querySelector('.photo-gallery')) {
+    let mm = gsap.matchMedia(),
+    breakPoint = 480;
+
+
+    mm.add({
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)"
+      }, (context) => {
+      
+        let {isDesktop} = context.conditions;
+
+        let item = gsap.utils.toArray(".gallery__item"),
+        galleryScene = gsap.to(".gallery", {
+            x: isDesktop ? (i, target) => target.offsetWidth - target.scrollWidth : 0,
+            y: isMobile ? (i, target) => (target.scrollHeight - target.firstElementChild.offsetHeight) * -1 : 0,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".photo-gallery",
+                start: "top top",
+                end: "+=" + 600,
+                // markers: true,
+                scrub: 1,
+                snap: 1 / (item.length - 1),
+                pin: true,
+                invalidateOnRefresh: true
+            }
+        });
+    
+      });
+
+      
 }
 
 //animation header

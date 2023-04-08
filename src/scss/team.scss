@@ -178,6 +178,11 @@
         @media (max-width:$mobile){
              text-align: center; 
         }
+
+        @media (max-width:$mobileSmall){
+             max-height: 400px;
+             overflow-y: hidden; 
+        }
     }
 
     // .photo-gallery__title
@@ -207,6 +212,10 @@
 .gallery {
     display: flex;
     gap: 20px;
+
+    @media (max-width:$mobileSmall){
+         flex-direction: column; 
+    }
 
     // .gallery__item
 
