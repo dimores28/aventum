@@ -137,6 +137,11 @@ document.querySelector('#btnScrollToStructure')?.addEventListener('click', funct
     gsap.to(window, {duration: 2, scrollTo: "#structure"});
 });
 
+document.querySelector('.header__logo')?.addEventListener('click', function(e) {
+    if(e) e.preventDefault();
+    gsap.to(window, {duration: 2, scrollTo: "#main"});
+})
+
 //Scroll To====================================================================================================
 
 // if (ScrollTrigger.isTouch  === 1) {
