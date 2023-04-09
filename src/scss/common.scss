@@ -261,6 +261,7 @@
 //Main====================================================================================================
 .main {
    min-height: 100vh;
+   overflow-x: hidden;
    // .main__fullscreen
 
    &__fullscreen {
@@ -479,6 +480,9 @@ $blockHeight: 124px;
  }
 
  @media (max-width:$mobile){
+   .marquee-item_visa {
+      height: 20px;  
+   }
     .marquee-item_visa img {
       height: 20px;
     } 
@@ -650,6 +654,21 @@ $blockHeight: 124px;
 .left {
    transform: translateX(20%);
 }
+
+.big-spot {
+   position: absolute;
+   @media (max-width:$mobile){
+        max-width: 773px;
+   }
+
+   &__img {
+     @media (max-width:$mobile){
+        width: 100%;
+        height: auto; 
+     }
+   }
+}
+
 
 //====================================================================================================
 .video-bg {

@@ -282,40 +282,117 @@ if(document.querySelector('._animate-header')) {
 //Spot animation====================================================================================================
 gsap.registerPlugin(MotionPathPlugin)
 
-if(document.querySelector('.spot')) {
+//Experement 1
+// if(document.querySelector('.spot')) {
 
-    const rx = window.innerWidth < 1000 ? window.innerWidth / 1200 : 1
-    const ry = window.innerHeight < 700 ? window.innerHeight / 1200 : 1
+//     const rx = window.innerWidth < 1000 ? window.innerWidth / 1160 : 1
+//     const ry = window.innerHeight < 700 ? window.innerHeight / 1160 : 1
+
+//     const path = [
+//         //1
+//         {x: 730, y: 160},
+//         {x: 760, y: 260},
+//         {x: 770, y: 360},
+//         //2
+//         // {x: 155, y: 1190},
+//         {x: 165, y: 400},
+//         // {x: 175, y: 1210},
+//         //3
+//         // {x: 490, y: 1190},
+//         {x: 500, y: 2200},
+//         // {x: 510, y: 2210},
+//     ];
+
+
+//     const scaledPath = path.map(({ x, y }) => {
+//         return {
+//             x: x * rx,
+//             y: y * ry
+//         }
+//     })
+
+//     console.log(scaledPath);
+
+//     const aboutSpotScene = gsap.timeline({
+//         scrollTrigger: {
+//             trigger:".about",
+//             start: "top 80%",
+//             // end: "+=" + 2200,
+//             scrub: 5,
+//             // markers: true,
+//             endTrigger: ".our-history",
+//         },
+//     })
+
+//     aboutSpotScene.to(".spot", {
+//         motionPath: {
+//             path: scaledPath,
+//             align: 'self',
+//             alignOrigin: [0.5, 0.5],
+//             // autoRotate: true
+//         },
+//         duration: 2,
+//         immediateRender: true,
+//         // ease: 'power4'
+//     })
+//     // aboutSpotScene.to(".spot", {x: 740, y: 400});
+
+//     function getOffset(el) {
+//         const rect = el.getBoundingClientRect();
+//         return {
+//           x: rect.left + window.scrollX,
+//           y: rect.top + window.scrollY
+//         };
+//       }
+
+//     // console.log(getOffset(document.querySelector('.about__content')));
+//     // console.log(getOffset(document.querySelector('.why-us__gif')));
+//     // console.log(getOffset(document.querySelector('.our-history__body')));
+//     // console.log(getOffset(document.querySelector('.spot')));
+    
+// }
+
+//Experement 1
+if(document.querySelector('.big-spot')) {
+
+    const rx = window.innerWidth < 1000 ? window.innerWidth / 1160 : 1;
+    const ry = window.innerHeight < 700 ? window.innerHeight / 1160 : 1;
+
 
     const path = [
         //1
-        {x: 740, y: 400},
+        {x: 200, y: -120},
         //2
-        {x: 165, y: 1200},
+        {x: -430, y: 680},
         //3
-        {x: 500, y: 2200},
+        {x: 0, y: 1730},
+        //4
+        {x: -220, y: 1900},
+
     ];
 
+// {x: 740, y: 915}
+// {x: 175, y: 1664}
+// {x: 175, y: 2892}
 
     const scaledPath = path.map(({ x, y }) => {
         return {
             x: x * rx,
             y: y * ry
         }
-    })
+    });
 
     const aboutSpotScene = gsap.timeline({
         scrollTrigger: {
             trigger:".about",
-            start: "top 80%",
-            // end: "+=" + 2200,
+            start: "top 10%",
+            endTrigger: ".our-history",
             scrub: 1.5,
             // markers: true,
-            endTrigger: ".our-history",
         },
-    })
+    });
 
-    aboutSpotScene.to(".spot", {
+    aboutSpotScene.to(".big-spot", {
         motionPath: {
             path: scaledPath,
             align: 'self',
@@ -326,7 +403,6 @@ if(document.querySelector('.spot')) {
         immediateRender: true,
         // ease: 'power4'
     })
-    // aboutSpotScene.to(".spot", {x: 740, y: 400});
 
     function getOffset(el) {
         const rect = el.getBoundingClientRect();
@@ -339,8 +415,6 @@ if(document.querySelector('.spot')) {
     // console.log(getOffset(document.querySelector('.about__content')));
     // console.log(getOffset(document.querySelector('.why-us__gif')));
     // console.log(getOffset(document.querySelector('.our-history__body')));
-    console.log(getOffset(document.querySelector('.spot')));
-    
+    // console.log(getOffset(document.querySelector('.big-spot')));
+
 }
-
-
