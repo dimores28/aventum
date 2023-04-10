@@ -87,8 +87,6 @@ body {
 	// Притискаємо footer
 	> main {
 		flex: 1 1 auto;
-		max-width: 100vh;
-		overflow-x: hidden;
 	}
 	// Фікс для слайдерів
 	> * {
