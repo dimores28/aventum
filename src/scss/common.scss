@@ -462,6 +462,12 @@ $blockHeight: 124px;
    }
  }
 
+ .marquee-content li .marquee-item_small {
+   @media (max-width:$mobile){
+       padding-top: 3px; 
+   }
+ }
+
  .marquee-content li .marquee-item_small img {
    @media (max-width:$mobile){
       height: 18px; 

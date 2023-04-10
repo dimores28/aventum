@@ -256,7 +256,10 @@ if(document.querySelector('.photo-gallery')) {
                 scrub: 1,
                 snap: 1 / (item.length - 1),
                 pin: true,
-                invalidateOnRefresh: true
+                invalidateOnRefresh: true,
+                onLeave: () => document.querySelector('.contacts').style.marginTop = '-200px',
+                onEnterBack: () => document.querySelector('.contacts').style.marginTop = '0px',
+
             }
         });
     
