@@ -667,6 +667,7 @@ $blockHeight: 124px;
    @media (max-width:$mobile){
       width: 773px;
       height: 385px;
+      transform: translateX(-100%);
    }
 
    &__img {
