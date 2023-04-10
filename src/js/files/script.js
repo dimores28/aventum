@@ -319,8 +319,8 @@ if(document.querySelector('.big-spot')) {
 
         const imageWidth = 1663;
         const imageHeight = 998;
-        const smallImageWidth = 773;
-        const smallImageHeight = 385;
+        const smallImageWidth = document.querySelector('.big-spot').offsetWidth;
+        const smallImageHeight = document.querySelector('.big-spot').offsetHeight;
         const imageCenter = imageWidth / 2;
         const smallImageCenter = smallImageWidth / 2;
 
@@ -351,7 +351,7 @@ if(document.querySelector('.big-spot')) {
             ];
 
         } else {
-            
+
             startPoint = (aboutSection.offsetHeight - smallImageHeight) / 2;
             endPoint = main.offsetHeight - mainAbout.offsetHeight - smallImageHeight;
             marqueePoint = endPoint - marquee.offsetHeight;
