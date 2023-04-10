@@ -257,15 +257,13 @@ if(document.querySelector('.photo-gallery')) {
                 snap: 1 / (item.length - 1),
                 pin: true,
                 invalidateOnRefresh: true,
-                onLeave: () => document.querySelector('.contacts').style.marginTop = '-200px',
-                onEnterBack: () => document.querySelector('.contacts').style.marginTop = '0px',
+                onLeave: () => document.querySelector('.contacts').classList.add('_move-contact'),
+                onEnterBack: () => document.querySelector('.contacts').classList.remove('_move-contact'),
 
             }
         });
     
-      });
-
-      
+    });   
 }
 
 //animation header
@@ -285,107 +283,51 @@ if(document.querySelector('._animate-header')) {
 //Spot animation====================================================================================================
 gsap.registerPlugin(MotionPathPlugin)
 
-//Experement 1
-// if(document.querySelector('.spot')) {
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      x: rect.left + window.scrollX,
+      y: rect.top + window.scrollY
+    };
+}
 
-//     const rx = window.innerWidth < 1000 ? window.innerWidth / 1160 : 1
-//     const ry = window.innerHeight < 700 ? window.innerHeight / 1160 : 1
-
-//     const path = [
-//         //1
-//         {x: 730, y: 160},
-//         {x: 760, y: 260},
-//         {x: 770, y: 360},
-//         //2
-//         // {x: 155, y: 1190},
-//         {x: 165, y: 400},
-//         // {x: 175, y: 1210},
-//         //3
-//         // {x: 490, y: 1190},
-//         {x: 500, y: 2200},
-//         // {x: 510, y: 2210},
-//     ];
-
-
-//     const scaledPath = path.map(({ x, y }) => {
-//         return {
-//             x: x * rx,
-//             y: y * ry
-//         }
-//     })
-
-//     console.log(scaledPath);
-
-//     const aboutSpotScene = gsap.timeline({
-//         scrollTrigger: {
-//             trigger:".about",
-//             start: "top 80%",
-//             // end: "+=" + 2200,
-//             scrub: 5,
-//             // markers: true,
-//             endTrigger: ".our-history",
-//         },
-//     })
-
-//     aboutSpotScene.to(".spot", {
-//         motionPath: {
-//             path: scaledPath,
-//             align: 'self',
-//             alignOrigin: [0.5, 0.5],
-//             // autoRotate: true
-//         },
-//         duration: 2,
-//         immediateRender: true,
-//         // ease: 'power4'
-//     })
-//     // aboutSpotScene.to(".spot", {x: 740, y: 400});
-
-//     function getOffset(el) {
-//         const rect = el.getBoundingClientRect();
-//         return {
-//           x: rect.left + window.scrollX,
-//           y: rect.top + window.scrollY
-//         };
-//       }
-
-//     // console.log(getOffset(document.querySelector('.about__content')));
-//     // console.log(getOffset(document.querySelector('.why-us__gif')));
-//     // console.log(getOffset(document.querySelector('.our-history__body')));
-//     // console.log(getOffset(document.querySelector('.spot')));
-    
-// }
-
-
-
-//Experement 1
+//Experement 2
 if(document.querySelector('.big-spot')) {
     const main = document.querySelector('#main');
+    const mainAbout = document.querySelector('.main-about');
+    const aboutSection = document.querySelector('.about');
+    const marquee = document.querySelector('.wrapp');
+
     //размер 4 части 
     let quarterMain = main.offsetWidth / 4;
     let centerMain = main.offsetWidth / 2;
 
     const imageWidth = 1663;
+    const imageHeight = 998;
     let imageCenter = imageWidth / 2;
 
+    //axis offset X
     const shiftToRight = (centerMain - imageCenter) + quarterMain;
     const shiftToLeft = quarterMain - imageCenter;
     const shiftToCenter = centerMain - imageCenter;
 
+    //axis offset Y
+    const startPoint = (aboutSection.offsetHeight - imageHeight) / 2;
+    const endPoint = main.offsetHeight - mainAbout.offsetHeight - imageHeight;
+    const marqueePoint = endPoint - marquee.offsetHeight;
+
     const path = [
         //1
-        {x: shiftToRight, y: -120},
+        {x: shiftToRight, y: startPoint},
         //2
         {x: shiftToLeft, y: 680},
         //3
-        {x: shiftToCenter, y: 1730},
+        {x: shiftToCenter, y: marqueePoint},
         //4
-        {x: shiftToCenter, y: 1900},
+        {x: shiftToCenter, y: endPoint},
 
     ];
 
-// {x: 740, y: 915}
-// {x: 175, y: 1664}
-// {x: 175, y: 2892}
 
     const scaledPath = path.map(({ x, y }) => {
         return {
@@ -394,14 +336,13 @@ if(document.querySelector('.big-spot')) {
         }
     });
 
-    console.log(scaledPath);
     const aboutSpotScene = gsap.timeline({
         scrollTrigger: {
             trigger:".about",
             start: "top 20%",
             endTrigger: ".our-history",
             scrub: 1.5,
-            // markers: true,
+
         },
     });
 
@@ -416,21 +357,4 @@ if(document.querySelector('.big-spot')) {
         immediateRender: true,
         // ease: 'power4'
     })
-
-    function getOffset(el) {
-        const rect = el.getBoundingClientRect();
-        return {
-          x: rect.left + window.scrollX,
-          y: rect.top + window.scrollY
-        };
-    }
-
-    // const bigSpot  = document.querySelector('.big-spot');
-    // console.log(getOffset(bigSpot));
-
-    // console.log(getOffset(document.querySelector('.about__content')));
-    // console.log(getOffset(document.querySelector('.why-us__gif')));
-    // console.log(getOffset(document.querySelector('.our-history__body')));
-    // console.log(getOffset(document.querySelector('.big-spot')));
-
 }
