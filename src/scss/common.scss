@@ -665,7 +665,7 @@ $blockHeight: 124px;
 .big-spot {
    position: absolute;
    @media (max-width:$mobile){
-      width: 773px;
+      max-width: 773px;
       height: 385px;
       transform: translateX(-100%);
    }
