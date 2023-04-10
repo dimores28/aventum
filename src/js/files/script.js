@@ -355,22 +355,31 @@ gsap.registerPlugin(MotionPathPlugin)
     
 // }
 
+
+
 //Experement 1
 if(document.querySelector('.big-spot')) {
+    const main = document.querySelector('#main');
+    //размер 4 части 
+    let quarterMain = main.offsetWidth / 4;
+    let centerMain = main.offsetWidth / 2;
 
-    const rx = window.innerWidth < 1000 ? window.innerWidth / 1160 : 1;
-    const ry = window.innerHeight < 700 ? window.innerHeight / 1160 : 1;
+    const imageWidth = 1663;
+    let imageCenter = imageWidth / 2;
 
+    const shiftToRight = (centerMain - imageCenter) + quarterMain;
+    const shiftToLeft = quarterMain - imageCenter;
+    const shiftToCenter = centerMain - imageCenter;
 
     const path = [
         //1
-        {x: 200, y: -120},
+        {x: shiftToRight, y: -120},
         //2
-        {x: -430, y: 680},
+        {x: shiftToLeft, y: 680},
         //3
-        {x: 0, y: 1730},
+        {x: shiftToCenter, y: 1730},
         //4
-        {x: -220, y: 1900},
+        {x: shiftToCenter, y: 1900},
 
     ];
 
@@ -380,15 +389,16 @@ if(document.querySelector('.big-spot')) {
 
     const scaledPath = path.map(({ x, y }) => {
         return {
-            x: x * rx,
-            y: y * ry
+            x: x,
+            y: y 
         }
     });
 
+    console.log(scaledPath);
     const aboutSpotScene = gsap.timeline({
         scrollTrigger: {
             trigger:".about",
-            start: "top 10%",
+            start: "top 20%",
             endTrigger: ".our-history",
             scrub: 1.5,
             // markers: true,
@@ -413,7 +423,10 @@ if(document.querySelector('.big-spot')) {
           x: rect.left + window.scrollX,
           y: rect.top + window.scrollY
         };
-      }
+    }
+
+    // const bigSpot  = document.querySelector('.big-spot');
+    // console.log(getOffset(bigSpot));
 
     // console.log(getOffset(document.querySelector('.about__content')));
     // console.log(getOffset(document.querySelector('.why-us__gif')));

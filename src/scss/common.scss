@@ -464,7 +464,7 @@ $blockHeight: 124px;
 
  .marquee-content li .marquee-item_small {
    @media (max-width:$mobile){
-       padding-top: 3px; 
+       padding-top: 5px; 
    }
  }
 
@@ -488,6 +488,7 @@ $blockHeight: 124px;
  @media (max-width:$mobile){
    .marquee-item_visa {
       height: 20px;  
+      padding-top: 3px;
    }
     .marquee-item_visa img {
       height: 20px;
@@ -664,7 +665,7 @@ $blockHeight: 124px;
 .big-spot {
    position: absolute;
    @media (max-width:$mobile){
-        max-width: 773px;
+        width: 773px;
    }
 
    &__img {
