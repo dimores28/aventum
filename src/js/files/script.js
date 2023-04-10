@@ -177,10 +177,12 @@ if(document.querySelector('.structure')) {
                 start: "top top",
                 end: "+=" + 600,
                 // markers: true,
+                id:"structure",
                 scrub: 1,
                 snap: 1 / (slide.length - 1),
                 pin: true,
-                invalidateOnRefresh: true
+                invalidateOnRefresh: true,
+                onLeave: () => {},
             }
         });
     
@@ -293,68 +295,108 @@ function getOffset(el) {
 
 //Experement 2
 if(document.querySelector('.big-spot')) {
-    const main = document.querySelector('#main');
-    const mainAbout = document.querySelector('.main-about');
-    const aboutSection = document.querySelector('.about');
-    const marquee = document.querySelector('.wrapp');
 
-    //размер 4 части 
-    let quarterMain = main.offsetWidth / 4;
-    let centerMain = main.offsetWidth / 2;
+    let mm = gsap.matchMedia(),
+    breakPoint = 768;
 
-    const imageWidth = 1663;
-    const imageHeight = 998;
-    let imageCenter = imageWidth / 2;
+    mm.add({
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)"
+      
+      }, (context) => {
+      
+        let { isDesktop } = context.conditions;
 
-    //axis offset X
-    const shiftToRight = (centerMain - imageCenter) + quarterMain;
-    const shiftToLeft = quarterMain - imageCenter;
-    const shiftToCenter = centerMain - imageCenter;
+        const main = document.querySelector('#main');
+        const mainAbout = document.querySelector('.main-about');
+        const aboutSection = document.querySelector('.about');
+        const marquee = document.querySelector('.wrapp');
 
-    //axis offset Y
-    const startPoint = (aboutSection.offsetHeight - imageHeight) / 2;
-    const endPoint = main.offsetHeight - mainAbout.offsetHeight - imageHeight;
-    const marqueePoint = endPoint - marquee.offsetHeight;
+        //размер 4 части 
+        let quarterMain = main.offsetWidth / 4;
+        let centerMain = main.offsetWidth / 2;
 
-    const path = [
-        //1
-        {x: shiftToRight, y: startPoint},
-        //2
-        {x: shiftToLeft, y: 680},
-        //3
-        {x: shiftToCenter, y: marqueePoint},
-        //4
-        {x: shiftToCenter, y: endPoint},
+        const imageWidth = 1663;
+        const imageHeight = 998;
+        const smallImageWidth = 773;
+        const smallImageHeight = 385;
+        const imageCenter = imageWidth / 2;
+        const smallImageCenter = smallImageWidth / 2;
 
-    ];
+        //axis offset X
+        const shiftToRight = (centerMain - imageCenter) + quarterMain;
+        const shiftToLeft = quarterMain - imageCenter;
+        const shiftToCenter = centerMain - imageCenter;
+        const mobileCenter = centerMain - smallImageCenter;
 
+        //axis offset Y
+        let startPoint = (aboutSection.offsetHeight - imageHeight) / 2;
+        let endPoint = main.offsetHeight - mainAbout.offsetHeight - imageHeight;
+        let marqueePoint = endPoint - marquee.offsetHeight;
 
-    const scaledPath = path.map(({ x, y }) => {
-        return {
-            x: x,
-            y: y 
+        let path = null;
+
+        if(isDesktop) {
+            path = [
+                //1
+                {x: shiftToRight, y: startPoint},
+                //2
+                {x: shiftToLeft, y: 680},
+                //3
+                {x: shiftToCenter, y: marqueePoint},
+                //4
+                {x: shiftToCenter, y: endPoint},
+        
+            ];
+
+        } else {
+            
+            startPoint = (aboutSection.offsetHeight - smallImageHeight) / 2;
+            endPoint = main.offsetHeight - mainAbout.offsetHeight - smallImageHeight;
+            marqueePoint = endPoint - marquee.offsetHeight;
+
+            path = [
+                //1
+                {x: mobileCenter, y: startPoint},
+                //2
+                {x: mobileCenter, y: 680},
+                //3
+                {x: mobileCenter, y: marqueePoint},
+                //4
+                {x: mobileCenter, y: endPoint},
+        
+            ];
         }
-    });
 
-    const aboutSpotScene = gsap.timeline({
-        scrollTrigger: {
-            trigger:".about",
-            start: "top 20%",
-            endTrigger: ".our-history",
-            scrub: 1.5,
+        const scaledPath = path.map(({ x, y }) => {
+            return {
+                x: x,
+                y: y 
+            }
+        });
 
-        },
-    });
+        const aboutSpotScene = gsap.timeline({
+            scrollTrigger: {
+                trigger:".about",
+                start: "top 20%",
+                endTrigger: ".our-history",
+                scrub: 1.5,
+    
+            },
+        });
 
-    aboutSpotScene.to(".big-spot", {
-        motionPath: {
-            path: scaledPath,
-            align: 'self',
-            alignOrigin: [0.5, 0.5],
-            // autoRotate: true
-        },
-        duration: 2,
-        immediateRender: true,
-        // ease: 'power4'
-    })
+        aboutSpotScene.to(".big-spot", {
+            motionPath: {
+                path: scaledPath,
+                align: 'self',
+                alignOrigin: [0.5, 0.5],
+                // autoRotate: true
+            },
+            duration: 2,
+            immediateRender: true,
+            // ease: 'power4'
+        })
+
+      }); 
 }
