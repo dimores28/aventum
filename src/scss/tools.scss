@@ -71,6 +71,10 @@
    background-repeat: no-repeat;
    background-size: cover;
 
+   @media (max-width:$mobile){
+      min-height: unset;
+   }
+
    // .structure__container
 
    &__container {
@@ -78,8 +82,7 @@
       position: relative;
 
       @media (max-width: 560px){
-           height: 640px;
-           min-height: unset;
+           max-height: 640px;
       }
    }
 
@@ -322,13 +325,18 @@
    position: relative;
 
    &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      bottom: -10px;
-      background: url(../img/tools/step_border.svg) no-repeat;
+      bottom: 0;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background: linear-gradient(360deg, rgba(206,255,171,1) 17%, rgba(137,255,0,1) 100%);;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
    }
    
 
@@ -373,21 +381,6 @@
 
 .step:nth-child(4) {
    animation: bounce3 4.3s linear infinite;
-}
-
-.step:nth-child(2)::before {
-   content: "";
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   border-radius: 8px;
-   border: 2px solid transparent;
-   background: linear-gradient(360deg, rgba(206,255,171,1) 17%, rgba(137,255,0,1) 100%);;
-   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-   -webkit-mask-composite: destination-out;
-   mask-composite: exclude;
 }
 
 @media (max-width: $mobile) {

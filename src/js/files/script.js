@@ -383,8 +383,6 @@ if(document.querySelector('.big-spot')) {
             }
         });
 
-        console.log(scaledPath);
-
         const aboutSpotScene = gsap.timeline({
             scrollTrigger: {
                 trigger:".about",
