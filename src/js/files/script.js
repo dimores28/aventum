@@ -175,15 +175,17 @@ if(document.querySelector('.structure')) {
             scrollTrigger: {
                 trigger: "#structure",
                 start: "top top",
-                end: "+=" + 600,
+                end: "+=" + 1000,
                 // markers: true,
                 id:"structure",
                 scrub: 1,
                 snap: 1 / (slide.length - 1),
-                pin: true,
+                pin: ".pinMe",
+                pinSpacing: true,
                 pinReparent: true,
                 invalidateOnRefresh: true,
-                onLeave: () => {},
+                onLeave: () => { document.querySelector('.structure')?.classList.add('_structure-shift')},
+                onEnterBack: () => {document.querySelector('.structure')?.classList.remove('_structure-shift')},
             }
         });
     
@@ -294,7 +296,13 @@ function getOffset(el) {
     };
 }
 
-//Experement 2
+
+{
+
+const imageWidth = 1663;
+const imageHeight = 998;
+
+//About page spot animation
 if(document.querySelector('#about-animation')) {
 
     let mm = gsap.matchMedia(),
@@ -318,8 +326,7 @@ if(document.querySelector('#about-animation')) {
         let quarterMain = main.offsetWidth / 4;
         let centerMain = main.offsetWidth / 2;
 
-        const imageWidth = 1663;
-        const imageHeight = 998;
+        
         const smallImageWidth = document.querySelector('#main').offsetWidth;
         const smallImageHeight = document.querySelector('#main').offsetWidth * 1.2;
         const imageCenter = imageWidth / 2;
@@ -406,4 +413,87 @@ if(document.querySelector('#about-animation')) {
         })
 
       }); 
+}
+
+//Tools page animation 
+if(document.querySelector('#tools-animation')) {
+
+    let mm = gsap.matchMedia(),
+    breakPoint = 768;
+
+    mm.add({
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)"
+      
+      }, (context) => {
+      
+        let { isDesktop } = context.conditions;
+
+        const main = document.querySelector('#main');
+        const structure = document.querySelector('.structure');
+        const agriBanck = document.querySelector('.agri-banck');
+        const formulaSuccess = document.querySelector('.formula-success');
+
+        //размер 4 части и половины
+        let quarterMain = main.offsetWidth / 4;
+        let centerMain = main.offsetWidth / 2;
+
+        const imageCenter = imageWidth / 2;
+
+        //axis offset X
+        const shiftToRight = (centerMain - imageCenter) + quarterMain;
+        const shiftToLeft = quarterMain - imageCenter;
+        const shiftToCenter = centerMain - imageCenter;
+
+        //axis offset Y
+        let startPoint = (structure.offsetHeight - imageHeight) / 2;
+        let endPoint = main.offsetHeight - formulaSuccess.offsetHeight - imageHeight;
+
+        let path = null;
+
+        if(isDesktop) {
+            path = [
+                //1
+                {x: shiftToRight, y: startPoint},
+                //2
+                {x: shiftToLeft, y: 680},
+                //3
+                {x: shiftToCenter, y: endPoint},
+        
+            ];
+        }
+
+        const scaledPath = path.map(({ x, y }) => {
+            return {
+                x: x,
+                y: y 
+            }
+        });
+
+        const aboutSpotScene = gsap.timeline({
+            scrollTrigger: {
+                trigger:".structure",
+                start: "top 20%",
+                endTrigger: ".formula-success",
+                scrub: 1.5,
+                // markers: true,
+            },
+        });
+
+        aboutSpotScene.to(".big-spot", {
+            motionPath: {
+                path: scaledPath,
+                align: 'self',
+                alignOrigin: [0.5, 0.5],
+            },
+            duration: 2,
+            immediateRender: true,
+            // ease: 'power4'
+        });
+      
+      }); 
+}
+
+
 }
