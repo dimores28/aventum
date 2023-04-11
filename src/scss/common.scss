@@ -669,11 +669,22 @@ $blockHeight: 124px;
       overflow-x: hidden;
    }
 
+   
+
    &__img {
-     @media (max-width:$mobile){
-         width: 100%;
-         height: auto; 
-     }
+
+      @media (max-width:$mobile){
+          display: none; 
+      }
+
+      &_mobile {
+         display: none;
+         @media (max-width:$mobile) {
+            display: block;
+            width: 100%;
+            height: auto; 
+        }
+      }
    }
 }
 

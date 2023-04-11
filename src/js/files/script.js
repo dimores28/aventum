@@ -181,6 +181,7 @@ if(document.querySelector('.structure')) {
                 scrub: 1,
                 snap: 1 / (slide.length - 1),
                 pin: true,
+                pinReparent: true,
                 invalidateOnRefresh: true,
                 onLeave: () => {},
             }
@@ -319,8 +320,8 @@ if(document.querySelector('.big-spot')) {
 
         const imageWidth = 1663;
         const imageHeight = 998;
-        const smallImageWidth = document.querySelector('.big-spot').offsetWidth;
-        const smallImageHeight = document.querySelector('.big-spot').offsetHeight;
+        const smallImageWidth = document.querySelector('#main').offsetWidth;
+        const smallImageHeight = document.querySelector('#main').offsetWidth * 1.2;
         const imageCenter = imageWidth / 2;
         const smallImageCenter = smallImageWidth / 2;
 
@@ -351,16 +352,22 @@ if(document.querySelector('.big-spot')) {
             ];
 
         } else {
-
+            let ourHistory =  document.querySelector('.our-history').offsetHeight;
             startPoint = (aboutSection.offsetHeight - smallImageHeight) / 2;
-            endPoint = main.offsetHeight - mainAbout.offsetHeight - smallImageHeight;
+            endPoint = main.offsetHeight - mainAbout.offsetHeight - (ourHistory / 3) - smallImageHeight;
             marqueePoint = endPoint - marquee.offsetHeight;
+
+            console.log(smallImageHeight);
+            console.log(main.offsetHeight);
+            console.log(mainAbout.offsetHeight);
 
             path = [
                 //1
                 {x: mobileCenter, y: startPoint},
                 //2
-                {x: mobileCenter, y: 680},
+                {x: mobileCenter, y: 300},
+                {x: mobileCenter, y: 400},
+                {x: mobileCenter, y: 500},
                 //3
                 {x: mobileCenter, y: marqueePoint},
                 //4
@@ -375,6 +382,8 @@ if(document.querySelector('.big-spot')) {
                 y: y 
             }
         });
+
+        console.log(scaledPath);
 
         const aboutSpotScene = gsap.timeline({
             scrollTrigger: {
