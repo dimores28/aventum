@@ -354,7 +354,7 @@ if(document.querySelector('.big-spot')) {
         } else {
             let ourHistory =  document.querySelector('.our-history').offsetHeight;
             startPoint = (aboutSection.offsetHeight - smallImageHeight) / 2;
-            endPoint = main.offsetHeight - mainAbout.offsetHeight - (ourHistory / 3) - smallImageHeight;
+            endPoint = main.offsetHeight - mainAbout.offsetHeight - (ourHistory / 4) - smallImageHeight;
             marqueePoint = endPoint - marquee.offsetHeight;
 
             console.log(smallImageHeight);
@@ -365,9 +365,9 @@ if(document.querySelector('.big-spot')) {
                 //1
                 {x: mobileCenter, y: startPoint},
                 //2
-                {x: mobileCenter, y: 300},
+                {x: mobileCenter, y: 200},
                 {x: mobileCenter, y: 400},
-                {x: mobileCenter, y: 500},
+                {x: mobileCenter, y: 600},
                 //3
                 {x: mobileCenter, y: marqueePoint},
                 //4
