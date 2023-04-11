@@ -295,7 +295,7 @@ function getOffset(el) {
 }
 
 //Experement 2
-if(document.querySelector('.big-spot')) {
+if(document.querySelector('#about-animation')) {
 
     let mm = gsap.matchMedia(),
     breakPoint = 768;

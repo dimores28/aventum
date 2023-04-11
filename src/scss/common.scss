@@ -470,12 +470,14 @@ $blockHeight: 124px;
 
  .marquee-content li .marquee-item_small img {
    @media (max-width:$mobile){
+      width: 114px;
       height: 18px; 
    }
  }
 
  .marquee-content li .marquee-item_big{
    @media (max-width:$mobile){
+      width: 140px;
       height: 24px; 
    }
  }
@@ -491,6 +493,7 @@ $blockHeight: 124px;
       padding-top: 3px;
    }
     .marquee-item_visa img {
+      width: 61px;
       height: 20px;
     } 
  }
@@ -641,26 +644,6 @@ $blockHeight: 124px;
 }
 
 //====================================================================================================
-
-.spot {
-   max-width: 600px;
-   transition: all 0.6s ease;
-   position: absolute;
-
-   &__img {
-      width: 100%;
-      height: auto;
-   }
-}
-
-.right {
-   transform: translateX(50%);
-
-}
-
-.left {
-   transform: translateX(20%);
-}
 
 .big-spot {
    position: absolute;
