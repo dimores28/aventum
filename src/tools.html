@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-   @@include('html/_head.htm',{ "title":"Tools" })
-   <body>
-      <div class="wrapper" id="tools-animation">
-         @@include('html/_header.htm',{})
-         <main class="page" id="main">
-            <section class="video-bg main-tools">
-               <video
-                  poster="@img/tools/tools_poster.jpg"
-                  autoplay
-                  muted
-                  class="video-bg__video">
-                  <source
-                     src="@img/about/bg_video.mp4"
-                     type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-               </video>
-               <div class="main-tools__container">
-                  <h1 class="main-tools__header">Tools Aventum Trade</h1>
-                  <div class="main-tools__text">
-                     <p>
-                        Aventum trade is your reliable tool for getting profit
-                        from 15% per month.
-                     </p>
-                     <p>
-                        We use the concept of smart money to provide reliable
-                        investment services.
-                     </p>
-                  </div>
+@@include('html/_head.htm',{ "title":"Tools" })
 
-                  <div class="main-tools__actions component-next">
-                     <button
-                        class="main-tools__button component-next__btn" id="btnScrollToStructure"></button>
-                  </div>
+<body>
+   <div class="wrapper" id="tools-animation">
+      @@include('html/_header.htm',{})
+      <main class="page" id="main">
+         <section class="video-bg main-tools">
+            <video poster="@img/tools/tools_poster.jpg" autoplay muted class="video-bg__video">
+               <source src="@img/video/Laptop.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+            </video>
+            <div class="main-tools__container">
+               <h1 class="main-tools__header">Tools Aventum Trade</h1>
+               <div class="main-tools__text">
+                  <p>
+                     Aventum trade is your reliable tool for getting profit
+                     from 15% per month.
+                  </p>
+                  <p>
+                     We use the concept of smart money to provide reliable
+                     investment services.
+                  </p>
                </div>
-            </section>
 
-            <div class="pinMe">
-               <div id="big-spot" class="big-spot">
+               <div class="main-tools__actions component-next">
+                  <button class="main-tools__button component-next__btn" id="btnScrollToStructure"></button>
+               </div>
+            </div>
+         </section>
+
+         <div class="pinMe">
+            <!-- <div id="big-spot" class="big-spot">
                   <img
                      src="@img/common/big_spot.png"
                      alt="scroll animation images"
@@ -47,216 +41,198 @@
                      src="@img/common/small_spot.png"
                      alt="scroll animation images"
                      class="big-spot__img big-spot__img_mobile" />
-               </div>
+               </div> -->
 
-               <section class="structure _animate-header" id="structure">
-                  <div class="structure__blind"></div>
-                  <h2 class="structure__title" data-da=".structure,560,0">Structure</h2>
-                  <div class="structure__container">
-                     
-                     <div class="structure__slider" id="structure-slider">
-                        <div class="structure__slide property">
-                           <div class="property__header">
-                              <img
-                                 src="@img/tools/p.png"
-                                 alt=""
-                                 class="property__img" />
-                              <h3 class="property__title">Princips</h3>
-                           </div>
-                           <ul class="property__list">
-                              <li class="property__list-item">Medium term</li>
-                              <li class="property__list-item">Mecessarily SP</li>
-                              <li class="property__list-item">HTF</li>
-                              <li class="property__list-item">min 1%,SL,3%TP</li>
-                           </ul>
+            <section class="structure _animate-header" id="structure">
+               <div class="structure__blind"></div>
+               <h2 class="structure__title" data-da=".structure,560,0">Structure</h2>
+               <div class="structure__container">
+
+                  <div class="structure__slider" id="structure-slider">
+                     <div class="structure__slide property">
+                        <div class="property__header">
+                           <img src="@img/tools/p.png" alt="" class="property__img" />
+                           <h3 class="property__title">Princips</h3>
                         </div>
-   
-                        <div class="structure__slide property">
-                           <div class="property__header">
-                              <img
-                                 src="@img/tools/t.png"
-                                 alt=""
-                                 class="property__img" />
-                              <h3 class="property__title">Tickers</h3>
-                           </div>
-                           <ul class="property__list">
-                              <li class="property__list-item">Sp500</li>
-                              <li class="property__list-item">Dax500</li>
-                              <li class="property__list-item">Eur/usd</li>
-                              <li class="property__list-item">Btc/usd</li>
-                              <li class="property__list-item">Tother…</li>
-                           </ul>
-                        </div>
-   
-                        <div class="structure__slide property">
-                           <div class="property__header">
-                              <img
-                                 src="@img/tools/i.png"
-                                 alt=""
-                                 class="property__img" />
-                              <h3 class="property__title">Instrument</h3>
-                           </div>
-                           <ul class="property__list">
-                              <li class="property__list-item">Futures</li>
-                              <li class="property__list-item">Option</li>
-                              <li class="property__list-item">Bonds</li>
-                              <li class="property__list-item">Shares</li>
-                              <li class="property__list-item">Spot</li>
-                           </ul>
-                        </div>
-   
-                        <div class="structure__slide property">
-                           <div class="property__header">
-                              <img
-                                 src="@img/tools/p.png"
-                                 alt=""
-                                 class="property__img" />
-                              <h3 class="property__title">Princips</h3>
-                           </div>
-                           <ul class="property__list">
-                              <li class="property__list-item">Medium term</li>
-                              <li class="property__list-item">Mecessarily SP</li>
-                              <li class="property__list-item">HTF</li>
-                              <li class="property__list-item">min 1%,SL,3%TP</li>
-                           </ul>
-                        </div>
-   
-                        <div class="structure__slide property">
-                           <div class="property__header">
-                              <img
-                                 src="@img/tools/t.png"
-                                 alt=""
-                                 class="property__img" />
-                              <h3 class="property__title">Tickers</h3>
-                           </div>
-                           <ul class="property__list">
-                              <li class="property__list-item">Sp500</li>
-                              <li class="property__list-item">Dax500</li>
-                              <li class="property__list-item">Eur/usd</li>
-                              <li class="property__list-item">Btc/usd</li>
-                              <li class="property__list-item">Tother…</li>
-                           </ul>
-                        </div>
-   
-                        <div class="structure__slide property">
-                           <div class="property__header">
-                              <img
-                                 src="@img/tools/i.png"
-                                 alt=""
-                                 class="property__img" />
-                              <h3 class="property__title">Instrument</h3>
-                           </div>
-                           <ul class="property__list">
-                              <li class="property__list-item">Futures</li>
-                              <li class="property__list-item">Option</li>
-                              <li class="property__list-item">Bonds</li>
-                              <li class="property__list-item">Shares</li>
-                              <li class="property__list-item">Spot</li>
-                           </ul>
-                        </div>
+                        <ul class="property__list">
+                           <li class="property__list-item">Medium term</li>
+                           <li class="property__list-item">Mecessarily SP</li>
+                           <li class="property__list-item">HTF</li>
+                           <li class="property__list-item">min 1%,SL,3%TP</li>
+                        </ul>
                      </div>
-                  </div>
-               </section>
-   
-               <section class="agri-banck">
-                  <div class="agri-banck__container">
-                     <div class="agri-banck__illustration">
-                        <img
-                           src="@img/tools/illustration.png"
-                           class="agri-banck__img"
-                           alt="illustration"
-                           height="355"
-                           width="537" />
+
+                     <div class="structure__slide property">
+                        <div class="property__header">
+                           <img src="@img/tools/t.png" alt="" class="property__img" />
+                           <h3 class="property__title">Tickers</h3>
+                        </div>
+                        <ul class="property__list">
+                           <li class="property__list-item">Sp500</li>
+                           <li class="property__list-item">Dax500</li>
+                           <li class="property__list-item">Eur/usd</li>
+                           <li class="property__list-item">Btc/usd</li>
+                           <li class="property__list-item">Tother…</li>
+                        </ul>
                      </div>
-                     <div class="agri-banck__text-block">
-                        <div data-da=".agri-banck,767,0" class="da-block">
-                           <h2 class="agri-banck__title section-title">
-                              AgriBank assets managment with Renaissance
-                              Technologies
-                           </h2>
+
+                     <div class="structure__slide property">
+                        <div class="property__header">
+                           <img src="@img/tools/i.png" alt="" class="property__img" />
+                           <h3 class="property__title">Instrument</h3>
                         </div>
-   
-                        <div class="agri-banck__text text-block">
-                           <p>
-                              And Agribank previously transferred funds to this
-                              Renaissance Technologies fund for management - but
-                              all this time aventum was being thought out.
-                           </p>
-                           <p>
-                              Aventum applied the best from the Renaissance
-                              Technologies fund. all the best is a clear
-                              understanding - that the team should not consist of
-                              twitter stars, instagram or showmen - but the team
-                              should have the best minds of this planet who
-                              graduated from the best educational institutions and
-                              have a clear understanding of the physical,
-                              astrological, psychological - and other aspects of
-                              which consists of the financial market. this is
-                              exactly the kind of team that our esteemed Aigin
-                              Richard, the head of aventum.trade, managed to
-                              assemble
-                           </p>
-                        </div>
+                        <ul class="property__list">
+                           <li class="property__list-item">Futures</li>
+                           <li class="property__list-item">Option</li>
+                           <li class="property__list-item">Bonds</li>
+                           <li class="property__list-item">Shares</li>
+                           <li class="property__list-item">Spot</li>
+                        </ul>
                      </div>
-                  </div>
-               </section>
-            </div>
 
-            <section class="formula-success">
-               <div class="formula-success__bg">
-                  <div class="formula-success__container">
-                     <h2 class="formula-success__title">Formula for success</h2>
-                     <div class="formula-success__steps-block" id="steps-block">
-                        <div class="formula-success__step step">
-                           <h3 class="step__number">01</h3>
-                           <p class="step__desc">
-                              A team of experts in the field of financial
-                              markets, each participant has a CFA, CFP, CFI
-                           </p>
+                     <div class="structure__slide property">
+                        <div class="property__header">
+                           <img src="@img/tools/p.png" alt="" class="property__img" />
+                           <h3 class="property__title">Princips</h3>
                         </div>
+                        <ul class="property__list">
+                           <li class="property__list-item">Medium term</li>
+                           <li class="property__list-item">Mecessarily SP</li>
+                           <li class="property__list-item">HTF</li>
+                           <li class="property__list-item">min 1%,SL,3%TP</li>
+                        </ul>
+                     </div>
 
-                        <div class="formula-success__step step">
-                           <h3 class="step__number">02</h3>
-                           <p class="step__desc">
-                              Reporting system and results analytics
-                           </p>
+                     <div class="structure__slide property">
+                        <div class="property__header">
+                           <img src="@img/tools/t.png" alt="" class="property__img" />
+                           <h3 class="property__title">Tickers</h3>
                         </div>
+                        <ul class="property__list">
+                           <li class="property__list-item">Sp500</li>
+                           <li class="property__list-item">Dax500</li>
+                           <li class="property__list-item">Eur/usd</li>
+                           <li class="property__list-item">Btc/usd</li>
+                           <li class="property__list-item">Tother…</li>
+                        </ul>
+                     </div>
 
-                        <div class="formula-success__step step">
-                           <h3 class="step__number">03</h3>
-                           <p class="step__desc">More than 120 employees</p>
+                     <div class="structure__slide property">
+                        <div class="property__header">
+                           <img src="@img/tools/i.png" alt="" class="property__img" />
+                           <h3 class="property__title">Instrument</h3>
                         </div>
-
-                        <div class="formula-success__step step">
-                           <h3 class="step__number">04</h3>
-                           <p class="step__desc">
-                              A clear risk management system for each position
-                           </p>
-                        </div>
-
-                        <div class="formula-success__step step">
-                           <h3 class="step__number">05</h3>
-                           <p class="step__desc">
-                              News analytics using artificial intelligence
-                           </p>
-                        </div>
-
-                        <div class="formula-success__step step">
-                           <h3 class="step__number">06</h3>
-                           <p class="step__desc">
-                              Work against the crowd - which allows you to form
-                              a high winrate of transactions over 70%
-                           </p>
-                        </div>
+                        <ul class="property__list">
+                           <li class="property__list-item">Futures</li>
+                           <li class="property__list-item">Option</li>
+                           <li class="property__list-item">Bonds</li>
+                           <li class="property__list-item">Shares</li>
+                           <li class="property__list-item">Spot</li>
+                        </ul>
                      </div>
                   </div>
                </div>
             </section>
 
-            @@include('html/_contacts.htm',{})
-         </main>
-         @@include('html/_footer.htm',{})
-      </div>
-      @@include('html/_js.htm',{})
-   </body>
+            <section class="agri-banck">
+               <div class="agri-banck__container">
+                  <div class="agri-banck__illustration">
+                     <picture>
+                        <source srcset="@img/gif/_4.gif" type="image/gif" />
+                        <img src="@img/tools/illustration.png" loading="lazy" class="agri-banck__img" alt="illustration" height="355"
+                        width="537" />
+                     </picture>
+                  </div>
+                  <div class="agri-banck__text-block">
+                     <div data-da=".agri-banck,767,0" class="da-block">
+                        <h2 class="agri-banck__title section-title">
+                           AgriBank assets managment with Renaissance
+                           Technologies
+                        </h2>
+                     </div>
+
+                     <div class="agri-banck__text text-block">
+                        <p>
+                           And Agribank previously transferred funds to this
+                           Renaissance Technologies fund for management - but
+                           all this time aventum was being thought out.
+                        </p>
+                        <p>
+                           Aventum applied the best from the Renaissance
+                           Technologies fund. all the best is a clear
+                           understanding - that the team should not consist of
+                           twitter stars, instagram or showmen - but the team
+                           should have the best minds of this planet who
+                           graduated from the best educational institutions and
+                           have a clear understanding of the physical,
+                           astrological, psychological - and other aspects of
+                           which consists of the financial market. this is
+                           exactly the kind of team that our esteemed Aigin
+                           Richard, the head of aventum.trade, managed to
+                           assemble
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </div>
+
+         <section class="formula-success">
+            <div class="formula-success__bg">
+               <div class="formula-success__container">
+                  <h2 class="formula-success__title">Formula for success</h2>
+                  <div class="formula-success__steps-block" id="steps-block">
+                     <div class="formula-success__step step">
+                        <h3 class="step__number">01</h3>
+                        <p class="step__desc">
+                           A team of experts in the field of financial
+                           markets, each participant has a CFA, CFP, CFI
+                        </p>
+                     </div>
+
+                     <div class="formula-success__step step">
+                        <h3 class="step__number">02</h3>
+                        <p class="step__desc">
+                           Reporting system and results analytics
+                        </p>
+                     </div>
+
+                     <div class="formula-success__step step">
+                        <h3 class="step__number">03</h3>
+                        <p class="step__desc">More than 120 employees</p>
+                     </div>
+
+                     <div class="formula-success__step step">
+                        <h3 class="step__number">04</h3>
+                        <p class="step__desc">
+                           A clear risk management system for each position
+                        </p>
+                     </div>
+
+                     <div class="formula-success__step step">
+                        <h3 class="step__number">05</h3>
+                        <p class="step__desc">
+                           News analytics using artificial intelligence
+                        </p>
+                     </div>
+
+                     <div class="formula-success__step step">
+                        <h3 class="step__number">06</h3>
+                        <p class="step__desc">
+                           Work against the crowd - which allows you to form
+                           a high winrate of transactions over 70%
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         @@include('html/_contacts.htm',{})
+      </main>
+      @@include('html/_footer.htm',{})
+   </div>
+   @@include('html/_js.htm',{})
+</body>
+
 </html>

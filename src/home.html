@@ -1,345 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-   @@include('html/_head.htm',{ "title":"HomePage" })
+@@include('html/_head.htm',{ "title":"HomePage" })
 
-   <body>
-      <div class="wrapper">
-         @@include('html/_header.htm',{})
-         <main class="page" id="main">
-            <section class="main">
-               <div class="main__fullscreen fullscreen" data-fullscreen>
-                  <video
-                     poster="@img/home/main/poster.jpg"
-                     autoplay
-                     muted
-                     loop
-                     class="main__videoBackground video-bg"
-                     height="1080"
-                     width="1920">
-                     <source
-                        src="@img/video/man.mp4"
-                        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                  </video>
-                  <div class="main__container">
-                     <h1 class="main__heading">
-                        New finance paradigm with Aventum trade
-                     </h1>
-                     <p class="main__slogan">
-                        We thank the financial markets - for the opportunity to
-                        diversify their risks and consistently earn from 15% per
-                        month to the investor!
-                     </p>
+<body>
+   <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <main class="page" id="main">
+         <section class="main">
+            <div class="main__fullscreen fullscreen" data-fullscreen>
+               <video poster="@img/home/main/poster.jpg" autoplay muted loop class="main__videoBackground video-bg"
+                  height="1080" width="1920">
+                  <source src="@img/video/Man.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+               </video>
+               <div class="main__container">
+                  <h1 class="main__heading">
+                     New finance paradigm with Aventum trade
+                  </h1>
+                  <p class="main__slogan">
+                     We thank the financial markets - for the opportunity to
+                     diversify their risks and consistently earn from 15% per
+                     month to the investor!
+                  </p>
 
-                     <div class="main__actions component-next">
-                        <button
-                           class="main__button component-next__btn"
-                           id="btnScrollToAbout"></button>
-                     </div>
+                  <div class="main__actions component-next">
+                     <button class="main__button component-next__btn" id="btnScrollToAbout"></button>
                   </div>
-               </div>
-            </section>
-
-            <section class="about _animate-header" id="about">
-               <div class="about__container">
-                  <div class="about__desc">
-                     <h2 class="about__title section-title">About company</h2>
-
-                     <div class="about__text">
-                        <p>
-                           Aventum is a new financial system. This is a
-                           community of open, wealthy, progressive people.
-                        </p>
-
-                        <p>
-                           Our team of exceptionally experienced experts work 5
-                           days a week for the benefit of the development of
-                           each of us.
-                        </p>
-
-                        <p>
-                           In our turnover today at the time of the creation of
-                           the project more than $ 150 million - we offer you
-                           cooperation with professionals.
-                        </p>
-                     </div>
-                  </div>
-
-                  <div class="about__content">
-                     <div class="about__player">
-                        <video
-                           poster="@img/common/poster.jpg"
-                           width="100%"
-                           class="about__video video">
-                           <source
-                              src="@img/video/BabyShark.mp4"
-                              type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                        </video>
-
-                        <div class="video__btn-wrp">
-                           <button class="video__btn"></button>
-                        </div>
-                        <img
-                           src="@img/common/illustration.png"
-                           alt="illustration"
-                           class="about__img"
-                           width="186"
-                           height="176" />
-                     </div>
-                  </div>
-               </div>
-            </section>
-
-            <section class="why-us">
-               <div class="why-us__container">
-                  <div class="why-us__gif">
-                     <img
-                        src="@img/home/illustration.png"
-                        alt="gif animation"
-                        class="why-us__animation" />
-                     <!-- <video
-                        poster="@img/home/illustration.png"
-                        autoplay
-                        muted
-                        loop
-                        class="why-us__animation">
-                        <source
-                           src="@img/video/microscope.mp4"
-                           type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                     </video> -->
-                  </div>
-
-                  <div class="why-us__text-block">
-                     <div data-da=".why-us,767,0" class="why-us__block">
-                        <p class="why-us__sub-title">Why us?</p>
-                        <h2 class="why-us__title section-title">
-                           Scientific approach to trading
-                        </h2>
-                     </div>
-
-                     <div class="why-us__text text-block">
-                        <p>
-                           The aventum team brings together the best specialists
-                           in the field of investing and trading.
-                        </p>
-
-                        <p>
-                           We approach the trading and investment industry from
-                           a scientific point of view (physics, mathematics,
-                           astrology, psychology) - understanding the basic
-                           principles of the brain of most players in the
-                           market, we have learned how to consistently earn
-                           money using Forex, stocks, cryptocurrency, options,
-                           indices.
-                        </p>
-                     </div>
-
-                     <button class="why-us__btn btn">More</button>
-                  </div>
-               </div>
-            </section>
-
-            <div class="wrapp">
-               <div class="marquee-wrapper">
-                  <ul class="marquee-content">
-                     <li>
-                        <div class="marquee-item marquee-item_visa">
-                           <img src="@img/ticker/visa.png" alt="visa" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_big">
-                           <img
-                              src="@img/ticker/mastercard.png"
-                              alt="mastercard" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_big">
-                           <img src="@img/ticker/binance.png" alt="binance" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_small">
-                           <img src="@img/ticker/kracken.png" alt="kracken" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_visa">
-                           <img src="@img/ticker/visa.png" alt="visa" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_big">
-                           <img
-                              src="@img/ticker/mastercard.png"
-                              alt="mastercard" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_big">
-                           <img src="@img/ticker/binance.png" alt="binance" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_small">
-                           <img src="@img/ticker/kracken.png" alt="kracken" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_visa">
-                           <img src="@img/ticker/visa.png" alt="visa" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_big">
-                           <img
-                              src="@img/ticker/mastercard.png"
-                              alt="mastercard" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_big">
-                           <img src="@img/ticker/binance.png" alt="binance" />
-                        </div>
-                     </li>
-
-                     <li>
-                        <div class="marquee-item marquee-item_small">
-                           <img src="@img/ticker/kracken.png" alt="kracken" />
-                        </div>
-                     </li>
-                  </ul>
                </div>
             </div>
+         </section>
 
-            <section class="philosophy">
-               <div class="philosophy__container">
-                  <div class="philosophy__text-block">
-                     <div data-da=".philosophy,767,0" class="da-block">
-                        <p class="philosophy__sub-title sub-title">
-                           Our philosophy
-                        </p>
-                        <h2 class="philosophy__title section-title">
-                           Play against the crowd
-                        </h2>
-                     </div>
-                     <div class="philosophy__text text-block">
-                        <p>
-                           The main thing in the industry of financial markets
-                           is the collection of information about the mood of
-                           the players, and understanding in which direction the
-                           majority expects the movement, and start playing
-                           against them.
-                        </p>
-                        <p>
-                           For most financial market participants, it is more
-                           correct to entrust their funds to professionals with
-                           many years of experience like Aventum.
-                        </p>
-                     </div>
-                  </div>
-                  <div class="philosophy__animation-block">
-                     <img
-                        src="@img/home/animation.png"
-                        alt="gif animation"
-                        class="philosophy__gif" />
-                  </div>
-               </div>
-            </section>
+         <section class="about _animate-header" id="about">
+            <div class="about__container">
+               <div class="about__desc">
+                  <h2 class="about__title section-title">About company</h2>
 
-            <section class="advantages">
-               <div class="advantages__container">
-                  <div class="advantages__block">
-                     <div class="advantages__item">
-                        <div class="advantages__case">
-                           <img
-                              src="@img/home/advantages/10.svg"
-                              alt="10"
-                              class="advantages__img"
-                              height="90" />
-                        </div>
-                        <p class="advantages__desc">
-                           years of banking experience for the team
-                        </p>
-                     </div>
-                     <div class="advantages__item">
-                        <div class="advantages__case">
-                           <img
-                              src="@img/home/advantages/300$.svg"
-                              alt="300$"
-                              class="advantages__img"
-                              height="104" />
-                        </div>
-                        <p class="advantages__desc">minimum investment</p>
-                     </div>
-                     <div class="advantages__item">
-                        <div class="advantages__case">
-                           <img
-                              src="@img/home/advantages/procent.svg"
-                              alt="%"
-                              class="advantages__img"
-                              height="90" />
-                        </div>
-                        <p class="advantages__desc">
-                           from the turnover of the whole team
-                        </p>
-                     </div>
-                     <div class="advantages__item">
-                        <div class="advantages__case">
-                           <img
-                              src="@img/home/advantages/10k.svg"
-                              alt="10k"
-                              class="advantages__img"
-                              height="90" />
-                        </div>
-                        <p class="advantages__desc">
-                           profitable trades since 2012
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            </section>
-
-            <section class="program">
-               <div class="program__canvas">
-                  <img
-                     src="@img/home/program/program_bg.png"
-                     alt="background image"
-                     class="program__bg-image" />
-                  <div class="program__container">
-                     <h2 class="program__title">Affiliate program</h2>
-
-                     <p class="program__desc">
-                        Aventum platform users get access to a high-class tool
-                        for creating a referral (affiliate) structure. As well
-                        as the opportunity to receive passive income using the
-                        investment program.
+                  <div class="about__text">
+                     <p>
+                        Aventum is a new financial system. This is a
+                        community of open, wealthy, progressive people.
                      </p>
 
-                     <div class="program__scheme">
-                        <img
-                           src="@img/home/program/scheme_ru.svg"
-                           alt="scheme"
-                           class="program__img" />
-                     </div>
+                     <p>
+                        Our team of exceptionally experienced experts work 5
+                        days a week for the benefit of the development of
+                        each of us.
+                     </p>
+
+                     <p>
+                        In our turnover today at the time of the creation of
+                        the project more than $ 150 million - we offer you
+                        cooperation with professionals.
+                     </p>
                   </div>
                </div>
-            </section>
 
-            @@include('html/_contacts.htm',{})
-         </main>
-         @@include('html/_footer.htm',{})
-      </div>
-      @@include('html/_js.htm',{})
-   </body>
+               <div class="about__content">
+                  <div class="about__player">
+                     <video poster="@img/common/poster.jpg" width="100%" class="about__video video">
+                        <source src="@img/video/BabyShark.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                     </video>
+
+                     <div class="video__btn-wrp">
+                        <button class="video__btn"></button>
+                     </div>
+                     <img src="@img/common/illustration.png" alt="illustration" class="about__img" width="186"
+                        height="176" />
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="why-us">
+            <div class="why-us__container">
+               <div class="why-us__gif">
+                  <picture>
+                     <source srcset="@img/gif/_1.gif" type="image/gif" />
+                     <img src="@img/home/illustration.png" loading="lazy" alt="gif animation"
+                        class="why-us__animation" />
+                  </picture>
+               </div>
+
+               <div class="why-us__text-block">
+                  <div data-da=".why-us,767,0" class="why-us__block">
+                     <p class="why-us__sub-title">Why us?</p>
+                     <h2 class="why-us__title section-title">
+                        Scientific approach to trading
+                     </h2>
+                  </div>
+
+                  <div class="why-us__text text-block">
+                     <p>
+                        The aventum team brings together the best specialists
+                        in the field of investing and trading.
+                     </p>
+
+                     <p>
+                        We approach the trading and investment industry from
+                        a scientific point of view (physics, mathematics,
+                        astrology, psychology) - understanding the basic
+                        principles of the brain of most players in the
+                        market, we have learned how to consistently earn
+                        money using Forex, stocks, cryptocurrency, options,
+                        indices.
+                     </p>
+                  </div>
+
+                  <button class="why-us__btn btn">More</button>
+               </div>
+            </div>
+         </section>
+
+         <div class="wrapp">
+            <div class="marquee-wrapper">
+               <ul class="marquee-content">
+                  <li>
+                     <div class="marquee-item marquee-item_visa">
+                        <img src="@img/ticker/visa.png" alt="visa" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_big">
+                        <img src="@img/ticker/mastercard.png" alt="mastercard" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_big">
+                        <img src="@img/ticker/binance.png" alt="binance" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_small">
+                        <img src="@img/ticker/kracken.png" alt="kracken" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_visa">
+                        <img src="@img/ticker/visa.png" alt="visa" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_big">
+                        <img src="@img/ticker/mastercard.png" alt="mastercard" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_big">
+                        <img src="@img/ticker/binance.png" alt="binance" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_small">
+                        <img src="@img/ticker/kracken.png" alt="kracken" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_visa">
+                        <img src="@img/ticker/visa.png" alt="visa" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_big">
+                        <img src="@img/ticker/mastercard.png" alt="mastercard" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_big">
+                        <img src="@img/ticker/binance.png" alt="binance" />
+                     </div>
+                  </li>
+
+                  <li>
+                     <div class="marquee-item marquee-item_small">
+                        <img src="@img/ticker/kracken.png" alt="kracken" />
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+         <section class="philosophy">
+            <div class="philosophy__container">
+               <div class="philosophy__text-block">
+                  <div data-da=".philosophy,767,0" class="da-block">
+                     <p class="philosophy__sub-title sub-title">
+                        Our philosophy
+                     </p>
+                     <h2 class="philosophy__title section-title">
+                        Play against the crowd
+                     </h2>
+                  </div>
+                  <div class="philosophy__text text-block">
+                     <p>
+                        The main thing in the industry of financial markets
+                        is the collection of information about the mood of
+                        the players, and understanding in which direction the
+                        majority expects the movement, and start playing
+                        against them.
+                     </p>
+                     <p>
+                        For most financial market participants, it is more
+                        correct to entrust their funds to professionals with
+                        many years of experience like Aventum.
+                     </p>
+                  </div>
+               </div>
+               <div class="philosophy__animation-block">
+                  <picture>
+                     <source srcset="@img/gif/_2.gif" type="image/gif" />
+                     <img src="@img/home/animation.png" loading="lazy" alt="gif animation" class="philosophy__gif" />
+                  </picture>
+               </div>
+            </div>
+         </section>
+
+         <section class="advantages">
+            <div class="advantages__container">
+               <div class="advantages__block">
+                  <div class="advantages__item">
+                     <div class="advantages__case">
+                        <img src="@img/home/advantages/10.svg" alt="10" class="advantages__img" height="90" />
+                     </div>
+                     <p class="advantages__desc">
+                        years of banking experience for the team
+                     </p>
+                  </div>
+                  <div class="advantages__item">
+                     <div class="advantages__case">
+                        <img src="@img/home/advantages/300$.svg" alt="300$" class="advantages__img" height="104" />
+                     </div>
+                     <p class="advantages__desc">minimum investment</p>
+                  </div>
+                  <div class="advantages__item">
+                     <div class="advantages__case">
+                        <img src="@img/home/advantages/procent.svg" alt="%" class="advantages__img" height="90" />
+                     </div>
+                     <p class="advantages__desc">
+                        from the turnover of the whole team
+                     </p>
+                  </div>
+                  <div class="advantages__item">
+                     <div class="advantages__case">
+                        <img src="@img/home/advantages/10k.svg" alt="10k" class="advantages__img" height="90" />
+                     </div>
+                     <p class="advantages__desc">
+                        profitable trades since 2012
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="program">
+            <div class="program__canvas">
+               <img src="@img/home/program/program_bg.png" alt="background image" class="program__bg-image" />
+               <div class="program__container">
+                  <h2 class="program__title">Affiliate program</h2>
+
+                  <p class="program__desc">
+                     Aventum platform users get access to a high-class tool
+                     for creating a referral (affiliate) structure. As well
+                     as the opportunity to receive passive income using the
+                     investment program.
+                  </p>
+
+                  <div class="program__scheme">
+                     <img src="@img/home/program/scheme_ru.svg" alt="scheme" class="program__img" />
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         @@include('html/_contacts.htm',{})
+      </main>
+      @@include('html/_footer.htm',{})
+   </div>
+   @@include('html/_js.htm',{})
+</body>
+
 </html>
