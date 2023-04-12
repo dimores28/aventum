@@ -3,7 +3,7 @@
 @@include('html/_head.htm',{ "title":"HomePage" })
 
 <body>
-   <div class="wrapper">
+   <div class="wrapper" id="home-animation">
       @@include('html/_header.htm',{})
       <main class="page" id="main">
          <section class="main">
@@ -28,6 +28,13 @@
                </div>
             </div>
          </section>
+
+         <div id="big-spot" class="big-spot">
+            <img src="@img/common/big_spot.png" alt="scroll animation images" class="big-spot__img" width="1663"
+               height="998" />
+            <img src="@img/common/small_spot.png" alt="scroll animation images"
+               class="big-spot__img big-spot__img_mobile" />
+         </div>
 
          <section class="about _animate-header" id="about">
             <div class="about__container">
@@ -279,9 +286,8 @@
                </div>
             </div>
          </section>
-
-         @@include('html/_contacts.htm',{})
       </main>
+      @@include('html/_contacts.htm',{})
       @@include('html/_footer.htm',{})
    </div>
    @@include('html/_js.htm',{})

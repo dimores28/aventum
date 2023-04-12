@@ -359,9 +359,6 @@ if(document.querySelector('#about-animation')) {
             endPoint = main.offsetHeight - mainAbout.offsetHeight - (ourHistory / 4) - smallImageHeight;
             marqueePoint = endPoint - marquee.offsetHeight;
 
-            console.log(smallImageHeight);
-            console.log(main.offsetHeight);
-            console.log(mainAbout.offsetHeight);
 
             path = [
                 //1
@@ -411,6 +408,152 @@ if(document.querySelector('#about-animation')) {
 }
 
 //Home page animation 
+if(document.querySelector('#home-animation')) {
+
+    let mm = gsap.matchMedia(),
+    breakPoint = 768;
+
+    mm.add({
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)"
+      
+      }, (context) => {
+      
+        let { isDesktop } = context.conditions;
+
+        const main = document.querySelector('#main');
+        const mainSection = document.querySelector('.main');
+        const aboutSection = document.querySelector('.about');
+        const whyUsSection = document.querySelector('.why-us');
+        const marquee = document.querySelector('.wrapp');
+        const advantages = document.querySelector('.advantages');
+        const program = document.querySelector('.program');
+
+        //размер 4 части тега main
+        let quarterMain = main.offsetWidth / 4;
+        //размер 2 части тега main
+        let centerMain = main.offsetWidth / 2;
+
+        
+        // const smallImageWidth = document.querySelector('#main').offsetWidth;
+        // const smallImageHeight = document.querySelector('#main').offsetWidth * 1.2;
+        const imageCenter = imageWidth / 2;
+        // const smallImageCenter = smallImageWidth / 2;
+
+        //axis offset X
+        const shiftToRight = (centerMain - imageCenter) + quarterMain;
+        const shiftToLeft = quarterMain - imageCenter;
+        const shiftToCenter = centerMain - imageCenter;
+        // const mobileCenter = centerMain - smallImageCenter;
+
+        //axis offset Y
+        let startPoint = (aboutSection.offsetHeight - imageHeight) / 2;
+        let endPoint = main.offsetHeight - mainSection.offsetHeight - imageHeight;
+        let marqueePoint = (aboutSection.offsetHeight + whyUsSection.offsetHeight) - marquee.offsetHeight;
+        let advantagesPoint = (advantages.offsetHeight / 2) + marqueePoint + marquee.offsetHeight;
+
+        let path = null;
+
+        if(isDesktop) {
+            // path = [
+            //     //1 About
+            //     {x: shiftToRight, y: startPoint},
+            //     //2 Why us
+            //     {x: shiftToLeft, y: 146},
+            //     {x: shiftToLeft, y: 346},
+            //     //3 Marquee
+            //     {x: shiftToCenter, y: marqueePoint - imageHeight / 2},
+            //     //4 Philosophy
+            //     {x: shiftToRight, y: marqueePoint + marquee.offsetHeight - imageHeight / 2},
+            //     //5 Advantages
+            //     {x: shiftToCenter, y: advantagesPoint},
+            //     //6
+            //     {x: shiftToCenter, y: endPoint},
+        
+            // ];
+
+            path = [
+                //1 About
+                {x: shiftToRight, y: startPoint},
+                //2 Why us
+                {x: shiftToLeft, y: 150},
+                {x: shiftToLeft, y: 450},
+                {x: shiftToLeft, y: 750},
+                //3 Marquee
+                {x: shiftToLeft, y: 1000},
+                {x: shiftToCenter, y: 1200},
+                //4 Philosophy
+                {x: shiftToRight, y: 1250},
+                {x: shiftToRight, y: 1650},
+                //5 Advantages
+                {x: shiftToCenter, y: advantagesPoint},
+                //6
+                {x: shiftToCenter, y: 2092},
+                {x: shiftToCenter, y: 2392},
+                {x: shiftToCenter, y: 2730},
+
+            ];
+
+        } else {
+            // let ourHistory =  document.querySelector('.our-history').offsetHeight;
+            // startPoint = (aboutSection.offsetHeight - smallImageHeight) / 2;
+            // endPoint = main.offsetHeight - mainAbout.offsetHeight - (ourHistory / 4) - smallImageHeight;
+            // marqueePoint = endPoint - marquee.offsetHeight;
+
+
+            path = [
+                //1
+                // {x: mobileCenter, y: startPoint},
+                //2
+                {x: 0, y: 200},
+                // {x: mobileCenter, y: 400},
+                // {x: mobileCenter, y: 600},
+                //3
+                // {x: mobileCenter, y: marqueePoint},
+                // //4
+                // {x: mobileCenter, y: endPoint},
+        
+            ];
+        }
+
+        const scaledPath = path.map(({ x, y }) => {
+            return {
+                x: x,
+                y: y 
+            }
+        });
+
+        console.log(scaledPath);
+        
+
+        const aboutSpotScene = gsap.timeline({
+            scrollTrigger: {
+                trigger:".about",
+                start: "top 10%",
+                // endTrigger: ".program",
+                end: "max",
+                scrub: 1.5,
+                markers: true,
+    
+            },
+        });
+
+        aboutSpotScene.to(".big-spot", {
+            motionPath: {
+                path: scaledPath,
+                align: 'self',
+                alignOrigin: [0.5, 0.5],
+                // autoRotate: true
+            },
+            duration: 2,
+            immediateRender: true,
+            // ease: 'power4'
+        });
+
+      }); 
+}
+
 
 //Tools page animation 
 // if(document.querySelector('#tools-animation')) {
