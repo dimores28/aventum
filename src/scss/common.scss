@@ -648,8 +648,15 @@ $blockHeight: 124px;
 .big-spot {
    position: absolute;
    @media (max-width:$mobile){
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100vw;
+      height: 100vh; 
       overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      opacity: 0;
    }
 
    
@@ -664,8 +671,8 @@ $blockHeight: 124px;
          display: none;
          @media (max-width:$mobile) {
             display: block;
-            width: 100%;
-            height: auto; 
+            width: 180%;
+            height: 100vh; 
         }
       }
    }
