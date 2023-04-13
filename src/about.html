@@ -1,253 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-@@include('html/_head.htm',{ "title":"About" })
+   @@include('html/_head.htm',{ "title":"About" })
 
-<body>
-   <div class="wrapper" id="about-animation">
-      @@include('html/_header.htm',{})
-      <main class="page" id="main">
-         <section class="video-bg main-about">
-            <video poster="@img/about/baout_poster.jpg" autoplay muted loop class="video-bg__video">
-               <source src="@img/video/City.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-            </video>
-            <div class="main-about__container">
-               <h1 class="main-about__header">About Aventum Trade</h1>
+   <body>
+      <div class="wrapper" id="about-animation">
+         @@include('html/_header.htm',{})
+         <main class="page" id="main">
+            <section class="video-bg main-about">
+               <video
+                  poster="@img/about/baout_poster.jpg"
+                  autoplay
+                  muted
+                  loop
+                  class="video-bg__video">
+                  <source
+                     src="@img/video/City.mp4"
+                     type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+               </video>
+               <div class="main-about__container">
+                  <h1 class="main-about__header">About Aventum Trade</h1>
 
-               <div class="main-about__actions component-next">
-                  <button class="main-about__button component-next__btn" id="btnScrollToAbout"></button>
-               </div>
-            </div>
-         </section>
-
-         <div id="big-spot" class="big-spot">
-            <img src="@img/common/big_spot.png" alt="scroll animation images" class="big-spot__img" width="1663"
-               height="998" />
-            <img src="@img/common/small_spot.png" alt="scroll animation images"
-               class="big-spot__img big-spot__img_mobile" />
-         </div>
-
-         <section class="about _animate-header" id="about">
-            <div class="about__container">
-               <div class="about__desc">
-                  <h2 class="about__title section-title">About company</h2>
-
-                  <div class="about__text">
-                     <p>
-                        Aventum is a new financial system. This is a
-                        community of open, wealthy, progressive people.
-                     </p>
-
-                     <p>
-                        Our team of exceptionally experienced experts work 5
-                        days a week for the benefit of the development of
-                        each of us.
-                     </p>
-
-                     <p>
-                        In our turnover today at the time of the creation of
-                        the project more than $ 150 million - we offer you
-                        cooperation with professionals.
-                     </p>
+                  <div class="main-about__actions component-next">
+                     <button
+                        class="main-about__button component-next__btn"
+                        id="btnScrollToAbout"></button>
                   </div>
                </div>
+            </section>
 
-               <div class="about__content">
-                  <div class="about__player">
-                     <video poster="@img/common/poster.jpg" width="100%" class="about__video video">
-                        <source src="@img/video/BabyShark.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                     </video>
-
-                     <div class="video__btn-wrp">
-                        <button class="video__btn"></button>
-                     </div>
-                     <img src="@img/common/illustration.png" alt="illustration" class="about__img" width="186"
-                        height="176" />
-                  </div>
-               </div>
+            <div id="big-spot" class="big-spot">
+               <img
+                  src="@img/common/big_spot.png"
+                  alt="scroll animation images"
+                  class="big-spot__img"
+                  width="1663"
+                  height="998" />
+               <img
+                  src="@img/common/small_spot.png"
+                  alt="scroll animation images"
+                  class="big-spot__img big-spot__img_mobile" />
             </div>
-         </section>
 
-         <section class="why-us aventum-mission" id="why-us">
-            <div class="why-us__container">
-               <div class="why-us__gif aventum-mission__gif">
-                  <picture>
-                     <source srcset="@img/gif/_3.gif" type="image/gif" />
-                     <img src="@img/about/illustration.png" loading="lazy" alt="gif animation" class="why-us__animation" />
-                  </picture>
-               </div>
+            <section class="about _animate-header" id="about">
+               <div class="about__container">
+                  <div class="about__desc">
+                     <h2 class="about__title section-title">About company</h2>
 
-               <div class="why-us__text-block">
-                  <div data-da=".why-us,767,0" class="why-us__block">
-                     <p class="why-us__sub-title">Aventum mission</p>
-                     <h2 class="why-us__title section-title">
-                        We are creating a new, revolutionary movement of
-                        "free people"
-                     </h2>
-                  </div>
-
-                  <div class="why-us__text text-block">
-                     <p>
-                        Our experiment is like bitcoin, religions, internet
-                        and artificial intelligence.
-                     </p>
-
-                     <p>
-                        Free according to all the canons of this word -
-                        consolidated from the slave pleasures imposed by the
-                        royal traditions, free from the rotten financial
-                        system that continues to make the poor only poorer,
-                        free from laws - “work and earn”. Our movement is
-                        like a reverse-acting corona virus - we do not kill,
-                        we inspire and revive, we awaken the sleeping - our
-                        movement will literally capture huge masses of people
-                        in a matter of years - where everyone has the right
-                        to be self-sufficient and never think about where to
-                        get money for a solution current tasks.
-                     </p>
-
-                     <p>
-                        With aventum - money as such - will no longer be a
-                        "measure of labor" - but will be a simple way to get
-                        what everyone wants, everywhere.
-                     </p>
-
-                     <p>
-                        We hope our predecessors will bring to the masses not
-                        only financial ideals and opportunities - but also
-                        open the curtain on the spiritual part of our
-                        movement of "free people"
-                     </p>
-                  </div>
-
-                  <button class="why-us__btn btn">More</button>
-               </div>
-            </div>
-         </section>
-
-         <div class="wrapp">
-            <div class="marquee-wrapper">
-               <ul class="marquee-content">
-                  <li>
-                     <div class="marquee-item marquee-item_visa">
-                        <img src="@img/ticker/visa.png" alt="visa" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_big">
-                        <img src="@img/ticker/mastercard.png" alt="mastercard" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_big">
-                        <img src="@img/ticker/binance.png" alt="binance" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_small">
-                        <img src="@img/ticker/kracken.png" alt="kracken" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_visa">
-                        <img src="@img/ticker/visa.png" alt="visa" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_big">
-                        <img src="@img/ticker/mastercard.png" alt="mastercard" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_big">
-                        <img src="@img/ticker/binance.png" alt="binance" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_small">
-                        <img src="@img/ticker/kracken.png" alt="kracken" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_visa">
-                        <img src="@img/ticker/visa.png" alt="visa" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_big">
-                        <img src="@img/ticker/mastercard.png" alt="mastercard" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_big">
-                        <img src="@img/ticker/binance.png" alt="binance" />
-                     </div>
-                  </li>
-
-                  <li>
-                     <div class="marquee-item marquee-item_small">
-                        <img src="@img/ticker/kracken.png" alt="kracken" />
-                     </div>
-                  </li>
-               </ul>
-            </div>
-         </div>
-
-         <section class="our-history">
-            <div class="our-history__bg">
-               <div class="our-history__container">
-                  <h2 class="our-history__title">Our history</h2>
-                  <div class="our-history__body">
-                     <div class="our-history__text">
+                     <div class="about__text">
                         <p>
-                           One of the brothers is a great and avid marketer.
-                           The second of the brothers is an inveterate
-                           financier who knows everything about money.
+                           Aventum is a new financial system. This is a
+                           community of open, wealthy, progressive people.
                         </p>
+
                         <p>
-                           Then the most interesting begins - the brother of
-                           the marketer has worked all his life in top
-                           companies and has always been embarrassed to bring
-                           his ideas to 100%. because he was afraid that he
-                           would not be understood correctly - because the
-                           ideas were sometimes crazy.
+                           Our team of exceptionally experienced experts work 5
+                           days a week for the benefit of the development of
+                           each of us.
                         </p>
+
                         <p>
-                           The second brother of more conservative views is
-                           essentially a human calculator. and then suddenly
-                           they decide together to create a family bank
-                           AgriBank - these are parts of the name of two
-                           brothers - Aigin and Richard - this is how the Ag
-                           Ri bank turned out.
+                           In our turnover today at the time of the creation of
+                           the project more than $ 150 million - we offer you
+                           cooperation with professionals.
                         </p>
                      </div>
-                     <div class="our-history__cards">
-                        <div class="our-history__item our-history__item_aigin">
-                           <span>Aigin</span>
+                  </div>
+
+                  <div class="about__content">
+                     <div class="about__player">
+                        <video
+                           poster="@img/common/poster.jpg"
+                           class="about__video video">
+                           <source
+                              src="@img/video/BabyShark.mp4"
+                              type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                        </video>
+
+                        <div class="video__btn-wrp">
+                           <button class="video__btn"></button>
                         </div>
-                        <div class="our-history__item our-history__item_richard">
-                           <span>Richard</span>
+                        <img
+                           src="@img/common/illustration.png"
+                           alt="illustration"
+                           class="about__img"
+                           width="186"
+                           height="176" />
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+            <section class="why-us aventum-mission" id="why-us">
+               <div class="why-us__container">
+                  <div class="why-us__gif aventum-mission__gif">
+                     <picture>
+                        <source srcset="@img/gif/_3.gif" type="image/gif" />
+                        <img
+                           src="@img/about/illustration.png"
+                           loading="lazy"
+                           alt="gif animation"
+                           class="why-us__animation" />
+                     </picture>
+                  </div>
+
+                  <div class="why-us__text-block">
+                     <div data-da=".why-us,767,0" class="why-us__block">
+                        <p class="why-us__sub-title">Aventum mission</p>
+                        <h2 class="why-us__title section-title">
+                           We are creating a new, revolutionary movement of
+                           "free people"
+                        </h2>
+                     </div>
+
+                     <div class="why-us__text text-block">
+                        <p>
+                           Our experiment is like bitcoin, religions, internet
+                           and artificial intelligence.
+                        </p>
+
+                        <p>
+                           Free according to all the canons of this word -
+                           consolidated from the slave pleasures imposed by the
+                           royal traditions, free from the rotten financial
+                           system that continues to make the poor only poorer,
+                           free from laws - “work and earn”. Our movement is
+                           like a reverse-acting corona virus - we do not kill,
+                           we inspire and revive, we awaken the sleeping - our
+                           movement will literally capture huge masses of people
+                           in a matter of years - where everyone has the right
+                           to be self-sufficient and never think about where to
+                           get money for a solution current tasks.
+                        </p>
+
+                        <p>
+                           With aventum - money as such - will no longer be a
+                           "measure of labor" - but will be a simple way to get
+                           what everyone wants, everywhere.
+                        </p>
+
+                        <p>
+                           We hope our predecessors will bring to the masses not
+                           only financial ideals and opportunities - but also
+                           open the curtain on the spiritual part of our
+                           movement of "free people"
+                        </p>
+                     </div>
+
+                     <button class="why-us__btn btn">More</button>
+                  </div>
+               </div>
+            </section>
+
+            <div class="wrapp">
+               <div class="marquee-wrapper">
+                  <ul class="marquee-content">
+                     <li>
+                        <div class="marquee-item marquee-item_visa">
+                           <img src="@img/ticker/visa.png" alt="visa" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_big">
+                           <img
+                              src="@img/ticker/mastercard.png"
+                              alt="mastercard" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_big">
+                           <img src="@img/ticker/binance.png" alt="binance" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_small">
+                           <img src="@img/ticker/kracken.png" alt="kracken" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_visa">
+                           <img src="@img/ticker/visa.png" alt="visa" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_big">
+                           <img
+                              src="@img/ticker/mastercard.png"
+                              alt="mastercard" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_big">
+                           <img src="@img/ticker/binance.png" alt="binance" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_small">
+                           <img src="@img/ticker/kracken.png" alt="kracken" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_visa">
+                           <img src="@img/ticker/visa.png" alt="visa" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_big">
+                           <img
+                              src="@img/ticker/mastercard.png"
+                              alt="mastercard" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_big">
+                           <img src="@img/ticker/binance.png" alt="binance" />
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="marquee-item marquee-item_small">
+                           <img src="@img/ticker/kracken.png" alt="kracken" />
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+
+            <section class="our-history">
+               <div class="our-history__bg">
+                  <div class="our-history__container">
+                     <h2 class="our-history__title">Our history</h2>
+                     <div class="our-history__body">
+                        <div class="our-history__text">
+                           <p>
+                              One of the brothers is a great and avid marketer.
+                              The second of the brothers is an inveterate
+                              financier who knows everything about money.
+                           </p>
+                           <p>
+                              Then the most interesting begins - the brother of
+                              the marketer has worked all his life in top
+                              companies and has always been embarrassed to bring
+                              his ideas to 100%. because he was afraid that he
+                              would not be understood correctly - because the
+                              ideas were sometimes crazy.
+                           </p>
+                           <p>
+                              The second brother of more conservative views is
+                              essentially a human calculator. and then suddenly
+                              they decide together to create a family bank
+                              AgriBank - these are parts of the name of two
+                              brothers - Aigin and Richard - this is how the Ag
+                              Ri bank turned out.
+                           </p>
+                        </div>
+                        <div class="our-history__cards">
+                           <div
+                              class="our-history__item our-history__item_aigin">
+                              <span>Aigin</span>
+                           </div>
+                           <div
+                              class="our-history__item our-history__item_richard">
+                              <span>Richard</span>
+                           </div>
                         </div>
                      </div>
                   </div>
                </div>
-            </div>
-         </section>
+            </section>
 
-         @@include('html/_contacts.htm',{})
-      </main>
-      @@include('html/_footer.htm',{})
-   </div>
-   @@include('html/_js.htm',{})
-</body>
-
+            @@include('html/_contacts.htm',{})
+         </main>
+         @@include('html/_footer.htm',{})
+      </div>
+      @@include('html/_js.htm',{})
+   </body>
 </html>

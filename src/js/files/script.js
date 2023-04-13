@@ -169,18 +169,16 @@ if(document.querySelector('.structure')) {
             y: isDesktop ? 0 : (i, target) => (target.offsetHeight - 250) * - 1,
             ease: "none",
             scrollTrigger: {
-                trigger: "#structure",
+                trigger: ".myPin",
                 start: "top top",
                 end: "+=" + 1000,
                 // markers: true,
                 id:"structure",
                 scrub: 1,
                 snap: 1 / (slide.length - 1),
-                pin:true,
+                pin: true,
                 pinSpacing: true,
                 invalidateOnRefresh: true,
-                // onLeave: () => { document.querySelector('.structure')?.classList.add('_structure-shift')},
-                // onEnterBack: () => {document.querySelector('.structure')?.classList.remove('_structure-shift')},
             }
         });
     
