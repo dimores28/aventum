@@ -530,6 +530,7 @@ $blockHeight: 124px;
 
    &__gif {
       flex: 1 1 50%;
+      position: relative;
 
       @media (max-width:$mobile){
          flex: 1 1 100%;  
@@ -672,7 +673,7 @@ $blockHeight: 124px;
          display: none;
          @media (max-width:$mobile) {
             display: block;
-            width: 180%;
+            width: 130%;
             height: 100vh; 
         }
       }

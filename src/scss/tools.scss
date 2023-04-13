@@ -252,6 +252,7 @@
    // .agri-banck__illustration
    &__illustration {
       padding-top: 60px;
+      position: relative;
 
       @media (max-width:$mobile){
           padding-top: 0; 

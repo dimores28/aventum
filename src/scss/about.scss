@@ -41,6 +41,7 @@
 .aventum-mission {
 
     &__gif {
+        position: relative;
         @include adaptiveValue("padding-top", 80, 30, 0, 1130, 768);
     }
 }

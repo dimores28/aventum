@@ -21,6 +21,7 @@
    &__text-block,
    &__animation-block {
       flex: 1 1 50%;
+      position: relative;
 
       @media (max-width:$mobile){
           flex-basis: 100%; 
