@@ -678,6 +678,16 @@ $blockHeight: 124px;
    }
 }
 
+#tools-animation {
+   .big-spot {
+      position: fixed;
+      top: 0;
+      left: 30%;
+      z-index: 2;
+      opacity: 0;
+   }
+}
+
 
 //====================================================================================================
 .video-bg {

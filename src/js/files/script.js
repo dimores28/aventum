@@ -531,3 +531,77 @@ if(document.querySelector('#home-animation')) {
 
 
 //Tools page animation 
+if(document.querySelector('#tools-animation')) {
+    let mm = gsap.matchMedia(),
+    breakPoint = 768;
+
+mm.add({
+
+  isDesktop: `(min-width: ${breakPoint}px)`,
+  isMobile: `(max-width: ${breakPoint - 1}px)`,
+  reduceMotion: "(prefers-reduced-motion: reduce)"
+
+}, (context) => {
+
+  let { isDesktop, isMobile } = context.conditions;
+
+  if(isDesktop) {
+        const main = document.querySelector('#main');
+
+        //размер 4 части тега main
+        let quarterMain = main.offsetWidth / 4;
+        //размер 2 части тега main
+        let centerMain = main.offsetWidth / 2;
+        const imageCenter = imageWidth / 2;
+
+        //axis offset X
+        // const shiftToRight = (centerMain - imageCenter) + quarterMain;
+        const shiftToLeft = quarterMain - imageCenter - 200;
+        // const shiftToCenter = centerMain - imageCenter;
+
+
+        gsap.to(".big-spot", {
+            scrollTrigger: {
+                trigger:".myPin",
+                start: "top 30%",
+                end:"center bottom",
+                scrub: 1.5,
+                // markers: true,
+            }, 
+            opacity: 1,
+            duration: 1,
+            immediateRender: true,
+        });
+
+
+        gsap.to(".big-spot", {
+            scrollTrigger: {
+                trigger:".agri-banck",
+                start: "top top",
+                end:"bottom bottom",
+                scrub: 1.5,
+                markers: true,
+            },
+            x: shiftToLeft,
+            duration: 1,
+            immediateRender: true,
+        })
+  }
+
+  if(isMobile) {
+    gsap.to(".big-spot", {
+        scrollTrigger: {
+            trigger:".myPin",
+            start: "top 30%",
+            end:"center bottom",
+            scrub: 1.5,
+            // markers: true,
+        }, 
+        opacity: 1,
+        duration: 1,
+        immediateRender: true,
+      });
+  }
+
+}); 
+}
