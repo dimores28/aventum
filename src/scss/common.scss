@@ -582,19 +582,14 @@ $blockHeight: 124px;
    // .why-us__text
 
    &__text {
-      max-height: 320px;
+      max-height: 280px;
       overflow: hidden;
       position: relative;
-
-      &::before {
-         content: "";
-         position: absolute;
-         bottom: 0;
-         left: 0;
-         right: 0;
-         height: 20%;
-         background: linear-gradient(180deg, rgba(12, 3, 69, 0) 0%, #0C0346 51.87%);
-      }
+      background-image: linear-gradient(to bottom, #ffffff, #ffffff27);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      margin-bottom: 28px;
 
       p {
          @include adaptiveValue("margin-bottom", 46, 18, 0, 1130, 768);
@@ -604,6 +599,8 @@ $blockHeight: 124px;
     &__text._show-text {
       max-height: unset;
       overflow: auto;
+      color: #ffffff;
+      margin-bottom: 0px;
    }
 
    
@@ -675,6 +672,7 @@ $blockHeight: 124px;
             display: block;
             width: 110%;
             height: auto; 
+            margin-left: -10%;
         }
       }
    }

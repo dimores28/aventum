@@ -11,9 +11,13 @@ let playBtn = document.querySelector('.video__btn');
 let playBtnWrap = document.querySelector('.video__btn-wrp');
 
 
-playBtn?.addEventListener('click', function() {
-    player.play();
-});
+// if(!/iPhone|iPad|iPod/i.test(navigator.userAgent)){
+//     console.log('iphone');
+// }
+
+// let detect = new MobileDetect(window.navigator.userAgent)
+// console.log("OS: " + detect.os());               // операционная система
+
 
 player?.addEventListener('play', function() {
     playBtnWrap.style.display = 'none';
@@ -25,6 +29,13 @@ player?.addEventListener('pause', function() {
     playBtnWrap.style.display = 'flex';
     document.querySelector('.about__img').style.display = 'inline-block'
 })
+
+
+const startScreanPlayer = document.querySelector('#startScreanPlayer');
+
+if(startScreanPlayer?.paused) {
+    startScreanPlayer?.play();
+}
 
 //====================================================================================================
 
@@ -309,7 +320,7 @@ if(document.querySelector('#about-animation')) {
       
       }, (context) => {
       
-        let { isDesktop } = context.conditions;
+        let { isDesktop, isMobile } = context.conditions;
 
         const main = document.querySelector('#main');
         const mainAbout = document.querySelector('.main-about');
@@ -352,56 +363,53 @@ if(document.querySelector('#about-animation')) {
         
             ];
 
-        } else {
-            let ourHistory =  document.querySelector('.our-history').offsetHeight;
-            startPoint = (aboutSection.offsetHeight - smallImageHeight) / 2;
-            endPoint = main.offsetHeight - mainAbout.offsetHeight - (ourHistory / 4) - smallImageHeight;
-            marqueePoint = endPoint - marquee.offsetHeight;
-
-
-            path = [
-                //1
-                {x: mobileCenter, y: startPoint},
-                //2
-                {x: mobileCenter, y: 200},
-                {x: mobileCenter, y: 400},
-                {x: mobileCenter, y: 600},
-                //3
-                {x: mobileCenter, y: marqueePoint},
-                //4
-                {x: mobileCenter, y: endPoint},
+            const scaledPath = path.map(({ x, y }) => {
+                return {
+                    x: x,
+                    y: y 
+                }
+            });
+    
+            const aboutSpotScene = gsap.timeline({
+                scrollTrigger: {
+                    trigger:".about",
+                    start: "top 20%",
+                    endTrigger: ".our-history",
+                    scrub: 1.5,
         
-            ];
+                },
+            });
+    
+            aboutSpotScene.to(".big-spot", {
+                motionPath: {
+                    path: scaledPath,
+                    align: 'self',
+                    alignOrigin: [0.5, 0.5],
+                    // autoRotate: true
+                },
+                duration: 2,
+                immediateRender: true,
+                // ease: 'power4'
+            })
+
         }
 
-        const scaledPath = path.map(({ x, y }) => {
-            return {
-                x: x,
-                y: y 
-            }
-        });
 
-        const aboutSpotScene = gsap.timeline({
-            scrollTrigger: {
-                trigger:".about",
-                start: "top 20%",
-                endTrigger: ".our-history",
-                scrub: 1.5,
-    
-            },
-        });
+        if(isMobile) {
 
-        aboutSpotScene.to(".big-spot", {
-            motionPath: {
-                path: scaledPath,
-                align: 'self',
-                alignOrigin: [0.5, 0.5],
-                // autoRotate: true
-            },
-            duration: 2,
-            immediateRender: true,
-            // ease: 'power4'
-        })
+            gsap.to(".big-spot", {
+                scrollTrigger: {
+                    trigger:".about",
+                    start: "top 30%",
+                    end:"center bottom",
+                    scrub: 1.5,
+                    // markers: true,
+                }, 
+                opacity: 1,
+                duration: 1,
+                immediateRender: true,
+              });
+        }
 
       }); 
 }
