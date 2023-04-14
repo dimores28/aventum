@@ -673,8 +673,8 @@ $blockHeight: 124px;
          display: none;
          @media (max-width:$mobile) {
             display: block;
-            width: 130%;
-            height: 100vh; 
+            width: 110%;
+            height: auto; 
         }
       }
    }
