@@ -10,6 +10,10 @@ let player = document.querySelector('.video');
 let playBtn = document.querySelector('.video__btn');
 let playBtnWrap = document.querySelector('.video__btn-wrp');
 
+playBtn?.addEventListener('click', function() {
+    player.play();
+});
+
 
 // if(!/iPhone|iPad|iPod/i.test(navigator.userAgent)){
 //     console.log('iphone');
@@ -31,11 +35,11 @@ player?.addEventListener('pause', function() {
 })
 
 
-const startScreanPlayer = document.querySelector('#startScreanPlayer');
+// const startScreanPlayer = document.querySelector('#startScreanPlayer');
 
-if(startScreanPlayer?.paused) {
-    startScreanPlayer?.play();
-}
+// if(startScreanPlayer?.paused) {
+//     startScreanPlayer?.play();
+// }
 
 //====================================================================================================
 
