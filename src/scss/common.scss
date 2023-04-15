@@ -687,12 +687,14 @@ $blockHeight: 124px;
 }
 
 #tools-animation {
-   .big-spot {
-      position: fixed;
-      top: 0;
-      left: 30%;
-      z-index: 2;
-      opacity: 0;
+   @media (min-width:$mobile){
+      .big-spot {
+         position: fixed;
+         top: 0;
+         left: 30%;
+         z-index: 2;
+         opacity: 0;
+      }
    }
 }
 

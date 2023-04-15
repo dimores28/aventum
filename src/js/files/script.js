@@ -533,7 +533,6 @@ if(document.querySelector('#home-animation')) {
       }); 
 }
 
-
 //Tools page animation 
 if(document.querySelector('#tools-animation')) {
     let mm = gsap.matchMedia(),
@@ -550,19 +549,6 @@ mm.add({
   let { isDesktop, isMobile } = context.conditions;
 
   if(isDesktop) {
-        const main = document.querySelector('#main');
-
-        //размер 4 части тега main
-        let quarterMain = main.offsetWidth / 4;
-        //размер 2 части тега main
-        let centerMain = main.offsetWidth / 2;
-        const imageCenter = imageWidth / 2;
-
-        //axis offset X
-        // const shiftToRight = (centerMain - imageCenter) + quarterMain;
-        const shiftToLeft = quarterMain - imageCenter - 200;
-        // const shiftToCenter = centerMain - imageCenter;
-
 
         gsap.to(".big-spot", {
             scrollTrigger: {
@@ -586,10 +572,24 @@ mm.add({
                 scrub: 1.5,
                 markers: true,
             },
-            x: shiftToLeft,
-            duration: 1,
+            xPercent: -50,
+            zIndex: 0,
+            duration: 3,
             immediateRender: true,
         })
+
+
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger:".formula-success",
+                start: "top 30%",
+                end:"center bottom",
+                scrub: 1.5,
+                // markers: true,
+            }
+        });
+
+        tl.to(".big-spot", {xPercent: -30, duration: 3});
   }
 
   if(isMobile) {
