@@ -35,6 +35,12 @@ player?.addEventListener('pause', function() {
 })
 
 
+if (navigator.vendor.startsWith('Apple')) {
+    document.querySelector('.about__player')?.classList.add('_apple');
+    document.querySelector('.about__video')?.classList.add('_apple');
+}
+
+
 // const startScreanPlayer = document.querySelector('#startScreanPlayer');
 
 // if(startScreanPlayer?.paused) {

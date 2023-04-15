@@ -120,12 +120,16 @@
 
    &__player {
       position: relative;
+      @media (max-width:$mobileSmall){
+          width: 100%; 
+      }
    }
 
    // .about__video
 
    &__video {
       width: 100%;
+      max-width: 100%;
    }
 
    &__img {
@@ -139,6 +143,37 @@
          right: 2%;
          bottom: -24%;
       }
+   }
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (max-width:$mobileSmall) { 
+
+   /* Safari only override */
+   ::i-block-chrome, .about__player {
+      height: calc((100vh - 30px) / 3 * 2);
+   }
+
+   ::i-block-chrome, .about__video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc((100vh - 30px) / 3 * 2);
+   }
+}
+
+@media (max-width:$mobileSmall){
+   .about__player._apple {
+      height: calc((100vh - 30px) / 3 * 2);
+   }
+
+   .about__video._apple {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc((100vh - 30px) / 3 * 2);
    }
 }
 
