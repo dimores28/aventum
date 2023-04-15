@@ -79,6 +79,10 @@
          flex-basis: 100%; 
          margin-bottom: 6px;
      }
+
+     @media (max-width:$mobileSmall){
+       padding-right: 0; 
+     }
    }
 
    // .about__title
