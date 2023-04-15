@@ -48,9 +48,17 @@
             margin-bottom: 0;
         }
 
+        &:focus,
+        &:active {
+            outline: none;
+            box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 3px, rgb(255, 255, 255) 0px 0px 0px 2px;
+            transition: all 0.3s ease-in;
+        }
+
 		@media (any-hover: hover){
-			&:hover{
+			&:hover {
 				color: $greenColor;
+                transition: all 0.3s ease-in;
 			}
 		}
     }
@@ -101,12 +109,19 @@
         width: 100%;
         font-size: 18px;
         line-height: 22px;
+        color:#fff;
         padding: 12px 25px 9px;
+        outline: none;
+
+        &:focus,
+        &:active {
+            box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 3px, rgb(255, 255, 255) 0px 0px 0px 2px;
+        }
     }
 
     &__btn {
         position: absolute;
-        top: 1px;
+        top: 0;
         right: 0;
         font-size: 24px;
         line-height: 97.02%;

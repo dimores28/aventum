@@ -2,9 +2,23 @@
 <html lang="en">
    @@include('html/_head.htm',{ "title":"Team" })
    <body>
-      <div class="wrapper">
+      <div class="wrapper" id="team-animation">
          @@include('html/_header.htm',{})
          <main class="page _animate-header" id="main">
+
+            <div id="big-spot" class="big-spot">
+               <img
+                  src="@img/common/big_spot.png"
+                  alt="scroll animation images"
+                  class="big-spot__img"
+                  width="1663"
+                  height="998" />
+               <img
+                  src="@img/common/small_spot.png"
+                  alt="scroll animation images"
+                  class="big-spot__img big-spot__img_mobile" />
+            </div>
+
             <section class="team">
                <div class="team__container">
                   <div class="team__text-block">

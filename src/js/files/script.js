@@ -544,18 +544,61 @@ if(document.querySelector('#tools-animation')) {
     let mm = gsap.matchMedia(),
     breakPoint = 768;
 
-mm.add({
+    mm.add({
 
-  isDesktop: `(min-width: ${breakPoint}px)`,
-  isMobile: `(max-width: ${breakPoint - 1}px)`,
-  reduceMotion: "(prefers-reduced-motion: reduce)"
+    isDesktop: `(min-width: ${breakPoint}px)`,
+    isMobile: `(max-width: ${breakPoint - 1}px)`,
+    reduceMotion: "(prefers-reduced-motion: reduce)"
 
-}, (context) => {
+    }, (context) => {
 
-  let { isDesktop, isMobile } = context.conditions;
+    let { isDesktop, isMobile } = context.conditions;
 
-  if(isDesktop) {
+    if(isDesktop) {
 
+            gsap.to(".big-spot", {
+                scrollTrigger: {
+                    trigger:".myPin",
+                    start: "top 30%",
+                    end:"center bottom",
+                    scrub: 1.5,
+                    // markers: true,
+                }, 
+                opacity: 1,
+                duration: 1,
+                immediateRender: true,
+            });
+
+
+            gsap.to(".big-spot", {
+                scrollTrigger: {
+                    trigger:".agri-banck",
+                    start: "top top",
+                    end:"bottom bottom",
+                    scrub: 1.5,
+                    markers: true,
+                },
+                xPercent: -50,
+                zIndex: 0,
+                duration: 3,
+                immediateRender: true,
+            })
+
+
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger:".formula-success",
+                    start: "top 30%",
+                    end:"center bottom",
+                    scrub: 1.5,
+                    // markers: true,
+                }
+            });
+
+            tl.to(".big-spot", {xPercent: -30, duration: 3});
+    }
+
+    if(isMobile) {
         gsap.to(".big-spot", {
             scrollTrigger: {
                 trigger:".myPin",
@@ -568,50 +611,57 @@ mm.add({
             duration: 1,
             immediateRender: true,
         });
+    }
 
+    }); 
+    }
 
-        gsap.to(".big-spot", {
-            scrollTrigger: {
-                trigger:".agri-banck",
-                start: "top top",
-                end:"bottom bottom",
-                scrub: 1.5,
-                markers: true,
-            },
-            xPercent: -50,
-            zIndex: 0,
-            duration: 3,
-            immediateRender: true,
-        })
+//Tools page animation 
+if(document.querySelector('#team-animation')) {
+    let mm = gsap.matchMedia(),
+    breakPoint = 768;
 
+    mm.add({
 
-        let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger:".formula-success",
-                start: "top 30%",
-                end:"center bottom",
-                scrub: 1.5,
-                // markers: true,
-            }
-        });
-
-        tl.to(".big-spot", {xPercent: -30, duration: 3});
-  }
-
-  if(isMobile) {
-    gsap.to(".big-spot", {
-        scrollTrigger: {
-            trigger:".myPin",
-            start: "top 30%",
-            end:"center bottom",
-            scrub: 1.5,
-            // markers: true,
-        }, 
-        opacity: 1,
-        duration: 1,
-        immediateRender: true,
-      });
-  }
-
-}); 
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)"
+    
+        }, (context) => {
+    
+        let { isDesktop, isMobile } = context.conditions;
+    
+        if(isDesktop) {
+    
+                gsap.to(".big-spot", {
+                    scrollTrigger: {
+                        trigger:".big-spot",
+                        start: "top top",
+                        endTrigger: ".photo-gallery__desc",
+                        scrub: 1.5,
+                        pin: true,
+                        // markers: true,
+                    }, 
+                    opacity: 1,
+                    immediateRender: true,
+                });
+        }
+    
+        // if(isMobile) {
+        //     gsap.to(".big-spot", {
+        //         scrollTrigger: {
+        //             trigger:".myPin",
+        //             start: "top 30%",
+        //             end:"center bottom",
+        //             scrub: 1.5,
+        //             // markers: true,
+        //         }, 
+        //         opacity: 1,
+        //         duration: 1,
+        //         immediateRender: true,
+        //     });
+        // }
+    
+        }); 
+        
 }
