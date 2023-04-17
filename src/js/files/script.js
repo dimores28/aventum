@@ -234,7 +234,7 @@ if(document.querySelector('.formula-success')) {
 if(document.querySelector('.team')) {
     let item = gsap.utils.toArray(".worker"),
      teamScene = gsap.to(".team__workers", {
-		y: (i, target) => (target.scrollHeight - target.firstElementChild.offsetHeight) * -1,
+		y: (i, target) => (target.scrollHeight  - target.firstElementChild.offsetHeight * 1.5) * -1,
 		ease: "none",
 		scrollTrigger: {
 			trigger: ".team",
@@ -244,7 +244,8 @@ if(document.querySelector('.team')) {
 			scrub: 1,
 			snap: 1 / (item.length - 1),
 			pin: true,
-			invalidateOnRefresh: true
+            pinSpacing: true,
+			invalidateOnRefresh: true,
 		}
     });
 }
@@ -275,13 +276,12 @@ if(document.querySelector('.photo-gallery')) {
                 start: "top top",
                 end: "+=" + scrollLength,
                 // markers: true,
+                id:"gallery",
                 scrub: 1,
                 snap: 1 / (item.length - 1),
                 pin: true,
+                pinSpacing: true,
                 invalidateOnRefresh: true,
-                // onLeave: () => {document.querySelector('.contacts').classList.add('_move-contact')},
-                // onEnterBack: () => document.querySelector('.contacts').classList.remove('_move-contact'),
-
             }
         });
     
@@ -607,7 +607,7 @@ if(document.querySelector('#tools-animation')) {
     }
 
     }); 
-    }
+}
 
 //Team page animation 
 if(document.querySelector('#team-animation')) {
