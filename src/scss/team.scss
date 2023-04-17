@@ -238,10 +238,13 @@
     }
 }
 
-._move-contact {
-    transition: all 0.3s ease;
-    margin-top: -200px;
+@media (max-width:$mobileSmall){
+    ._move-contact {
+        transition: all 0.3s ease;
+        margin-top: -200px;
+    }
 }
+
 //====================================================================================================
 
 #team-animation {

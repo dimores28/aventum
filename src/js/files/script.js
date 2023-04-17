@@ -262,6 +262,8 @@ if(document.querySelector('.photo-gallery')) {
       }, (context) => {
       
         let {isDesktop} = context.conditions;
+        const gallery = document.querySelector(".gallery");
+        let scrollLength = gallery.offsetWidth > gallery.offsetHeight ? gallery.offsetWidth : gallery.offsetHeight;
 
         let item = gsap.utils.toArray(".gallery__item"),
         galleryScene = gsap.to(".gallery", {
@@ -271,13 +273,13 @@ if(document.querySelector('.photo-gallery')) {
             scrollTrigger: {
                 trigger: ".photo-gallery",
                 start: "top top",
-                end: "+=" + 600,
+                end: "+=" + scrollLength,
                 // markers: true,
                 scrub: 1,
                 snap: 1 / (item.length - 1),
                 pin: true,
                 invalidateOnRefresh: true,
-                // onLeave: () => document.querySelector('.contacts').classList.add('_move-contact'),
+                // onLeave: () => {document.querySelector('.contacts').classList.add('_move-contact')},
                 // onEnterBack: () => document.querySelector('.contacts').classList.remove('_move-contact'),
 
             }
@@ -302,15 +304,6 @@ if(document.querySelector('._animate-header')) {
 
 //Spot animation====================================================================================================
 gsap.registerPlugin(MotionPathPlugin)
-
-function getOffset(el) {
-    const rect = el.getBoundingClientRect();
-    return {
-      x: rect.left + window.scrollX,
-      y: rect.top + window.scrollY
-    };
-}
-
 
 
 const imageWidth = 1663;
@@ -616,7 +609,7 @@ if(document.querySelector('#tools-animation')) {
     }); 
     }
 
-//Tools page animation 
+//Team page animation 
 if(document.querySelector('#team-animation')) {
     let mm = gsap.matchMedia(),
     breakPoint = 768;
@@ -637,7 +630,7 @@ if(document.querySelector('#team-animation')) {
                     scrollTrigger: {
                         trigger:".big-spot",
                         start: "top top",
-                        endTrigger: ".photo-gallery__desc",
+                        endTrigger: ".photo-gallery",
                         scrub: 1.5,
                         pin: true,
                         // markers: true,
