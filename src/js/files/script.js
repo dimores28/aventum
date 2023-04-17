@@ -545,10 +545,53 @@ if(document.querySelector('#tools-animation')) {
 
     }, (context) => {
 
-    let { isDesktop, isMobile } = context.conditions;
+        let { isDesktop, isMobile } = context.conditions;
 
-    if(isDesktop) {
+        if(isDesktop) {
 
+                gsap.to(".big-spot", {
+                    scrollTrigger: {
+                        trigger:".myPin",
+                        start: "top 30%",
+                        end:"center bottom",
+                        scrub: 1.5,
+                        // markers: true,
+                    }, 
+                    opacity: 1,
+                    duration: 1,
+                    immediateRender: true,
+                });
+
+
+                gsap.to(".big-spot", {
+                    scrollTrigger: {
+                        trigger:".agri-banck",
+                        start: "top top",
+                        end:"bottom bottom",
+                        scrub: 1.5,
+                        // markers: true,
+                    },
+                    xPercent: -50,
+                    zIndex: 0,
+                    duration: 3,
+                    immediateRender: true,
+                })
+
+
+                let tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger:".formula-success",
+                        start: "top 30%",
+                        end:"center bottom",
+                        scrub: 1.5,
+                        // markers: true,
+                    }
+                });
+
+                tl.to(".big-spot", {xPercent: -30, duration: 3});
+        }
+
+        if(isMobile) {
             gsap.to(".big-spot", {
                 scrollTrigger: {
                     trigger:".myPin",
@@ -561,53 +604,10 @@ if(document.querySelector('#tools-animation')) {
                 duration: 1,
                 immediateRender: true,
             });
-
-
-            gsap.to(".big-spot", {
-                scrollTrigger: {
-                    trigger:".agri-banck",
-                    start: "top top",
-                    end:"bottom bottom",
-                    scrub: 1.5,
-                    markers: true,
-                },
-                xPercent: -50,
-                zIndex: 0,
-                duration: 3,
-                immediateRender: true,
-            })
-
-
-            let tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger:".formula-success",
-                    start: "top 30%",
-                    end:"center bottom",
-                    scrub: 1.5,
-                    // markers: true,
-                }
-            });
-
-            tl.to(".big-spot", {xPercent: -30, duration: 3});
-    }
-
-    if(isMobile) {
-        gsap.to(".big-spot", {
-            scrollTrigger: {
-                trigger:".myPin",
-                start: "top 30%",
-                end:"center bottom",
-                scrub: 1.5,
-                // markers: true,
-            }, 
-            opacity: 1,
-            duration: 1,
-            immediateRender: true,
-        });
-    }
+        }
 
     }); 
-    }
+}
 
 //Team page animation 
 if(document.querySelector('#team-animation')) {
@@ -622,7 +622,7 @@ if(document.querySelector('#team-animation')) {
     
         }, (context) => {
     
-        let { isDesktop, isMobile } = context.conditions;
+        let { isDesktop } = context.conditions;
     
         if(isDesktop) {
     
@@ -639,22 +639,6 @@ if(document.querySelector('#team-animation')) {
                     immediateRender: true,
                 });
         }
-    
-        // if(isMobile) {
-        //     gsap.to(".big-spot", {
-        //         scrollTrigger: {
-        //             trigger:".myPin",
-        //             start: "top 30%",
-        //             end:"center bottom",
-        //             scrub: 1.5,
-        //             // markers: true,
-        //         }, 
-        //         opacity: 1,
-        //         duration: 1,
-        //         immediateRender: true,
-        //     });
-        // }
-    
-        }); 
+    }); 
         
 }
