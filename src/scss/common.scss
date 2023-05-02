@@ -772,3 +772,186 @@ $blockHeight: 124px;
    }
 }
 //====================================================================================================
+
+//====================================================================================================
+.registration {
+   padding-top: 168px;
+   padding-bottom: 190px;
+
+   &__title {
+      font-family: 'Compov2Bold';
+      font-weight: 700;
+      font-size: 55px;
+      line-height: 97.02%;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 30px;
+   }
+
+   // .registration__form
+   &__form {
+   }
+}
+
+.form {
+   background: #451094;
+   border-radius: 21px;
+   max-width: 640px;
+   margin: 0 auto;
+   padding: 32px 46px;
+
+   @media (max-width:$mobileSmall){
+      padding: 28px 24px;  
+   }
+
+   // .form__fields
+   &__fields {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 24px;
+
+      @media (max-width: 584px) {
+         margin-bottom: 4px;
+      }
+   }
+
+   // .form__group
+   &__group {
+      flex: 1 1 calc(50% - 4px);   
+      margin-bottom: 12px;
+
+      @media (max-width: 584px){
+         flex: 1 1 100%;
+      }
+   }
+
+   // .form__label
+   &__label {
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 4px;
+   }
+
+   // .form__input
+   &__input {
+      background: #0B0245;
+      border-radius: 8px;
+      width: 100%;
+      color: #ffffff;
+      padding: 6px 12px;
+
+      outline: none;
+      transition: all 0.3s ease;
+
+      // .form__input_pass
+      &_pass {
+      }
+
+      &:focus,
+      &:focus-visible,
+      &:active {
+         outline: none;
+         box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 3px, rgb(255, 255, 255) 0px 0px 0px 2px;
+         transition: all 0.3s ease-in;
+      }
+   }
+
+   // .form__controls
+   &__controls {
+      display: flex;
+      margin-bottom: 42px;
+
+      @media (max-width: 584px) {
+         flex-wrap: wrap;
+         gap: 22px;
+      }
+   }
+
+   // .form__checkbox
+   &__checkbox {
+      padding-left: 34px;
+   }
+
+   // .form__checkbox-label
+   &__checkbox-label {
+      font-size: 15px;
+      line-height: 18px;
+      position: relative; 
+
+      &::before {
+         content: '';
+         display: block;
+         position: absolute;
+         width: 20px;
+         height: 20px;
+         background: #0B0245;
+         border-radius: 4px;
+         top: 0;
+         left: -34px;
+      }
+   }
+
+   // .form__checkbox-input
+   &__checkbox-input {
+      display: none;
+   }
+
+   &__btn-group {
+      flex: 1 0 50%;
+      text-align: right;
+   }
+
+   // .form__btn
+   &__btn {
+      font-family: 'Compo';
+      font-size: 20px;
+      line-height: 20px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      padding: 9px 31px;
+      border: 1px solid #FFFFFF;
+
+      outline: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+         color: #74DA06;
+         background: #FFFFFF;
+      }
+
+      // .form__btn_green
+      &_green {
+         background: #74DA06;
+         border: 1px solid #74DA06;
+
+         &:focus,
+         &:focus-visible,
+         &:active {
+            outline: none;
+            box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 3px, rgb(255, 255, 255) 0px 0px 0px 2px;
+            transition: all 0.3s ease-in;
+         }
+      }
+   }
+
+   // .form__footer
+   &__footer {
+      font-size: 20px;
+      line-height: 25px;
+      text-align: center;
+      color: #FFFFFF;
+   }
+
+   // .form__linck
+   &__linck {
+      color: #74DA06;
+      transition: all 0.3s ease-in;
+
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+}
+
+//====================================================================================================

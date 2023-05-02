@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   @@include('html/_head.htm',{ "title":"License" })
+   <body>
+      <div class="wrapper" id="license-animation">
+         @@include('html/_header.htm',{})
+         <main class="page _animate-header" id="main">
+            <div class="registration">
+               <div class="registration__container">
+                  <h2 class="registration__title">registration</h2>
+                  <form action="POST">
+                     <div class="registration__form form">
+                        <div class="form__fields">
+                           <div class="form__group">
+                              <label for="userName" class="form__label"
+                                 >Name:</label
+                              >
+                              <input
+                                 type="text"
+                                 name="userName"
+                                 id="userName"
+                                 class="form__input" />
+                           </div>
+
+                           <div class="form__group">
+                              <label for="email" class="form__label"
+                                 >Email:</label
+                              >
+                              <input
+                                 type="email"
+                                 name="email"
+                                 id="email"
+                                 class="form__input" />
+                           </div>
+
+                           <div class="form__group">
+                              <label for="password" class="form__label"
+                                 >Name:</label
+                              >
+                              <input
+                                 type="password"
+                                 name="password"
+                                 id="password"
+                                 class="form__input form__input_pass" />
+                           </div>
+
+                           <div class="form__group">
+                              <label for="confirmPassword" class="form__label"
+                                 >Name:</label
+                              >
+                              <input
+                                 type="password"
+                                 name="confirmPassword"
+                                 id="confirmPassword"
+                                 class="form__input form__input_pass" />
+                           </div>
+                        </div>
+
+                        <div class="form__controls">
+                           <div class="form__checkbox">
+                              <input
+                                 type="checkbox"
+                                 name="policy"
+                                 id="policy"
+                                 class="form__checkbox-input" />
+                              <label for="policy" class="form__checkbox-label"
+                                 >I agree to the Terms and Condition and Privacy
+                                 and Policy.</label
+                              >
+                           </div>
+
+                           <div class="form__btn-group">
+                              <button type="button" class="form__btn">
+                                 Back
+                              </button>
+                              <button
+                                 type="submit"
+                                 class="form__btn form__btn_green">
+                                 Registration
+                              </button>
+                           </div>
+                        </div>
+
+                        <div class="form__footer">
+                           Do you already have an account?
+                           <a href="sigin.html" class="form__linck"
+                              >Login instead</a
+                           >
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </main>
+         @@include('html/_contacts.htm',{}) @@include('html/_footer.htm',{})
+      </div>
+      @@include('html/_js.htm',{})
+   </body>
+</html>
