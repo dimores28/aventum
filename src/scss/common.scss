@@ -774,14 +774,16 @@ $blockHeight: 124px;
 //====================================================================================================
 
 //====================================================================================================
-.registration {
+.registration, 
+.logining,
+.pass-recovery {
    padding-top: 168px;
    padding-bottom: 190px;
 
    &__title {
       font-family: 'Compov2Bold';
       font-weight: 700;
-      font-size: 55px;
+      @include adaptiveValue("font-size", 55, 32);
       line-height: 97.02%;
       text-transform: uppercase;
       text-align: center;
@@ -792,6 +794,57 @@ $blockHeight: 124px;
    &__form {
    }
 }
+
+.logining {
+   &__form {
+
+      .form__group {
+         flex: 1 1 100%;
+      }
+
+      .form__controls {
+         align-items: center;
+
+         > .form__linck {
+            font-size: 15px;
+            line-height: 18px;
+         }
+      }
+   }
+
+}
+
+.pass-recovery {
+
+   &__sub-title {
+      font-weight: 400;
+      @include adaptiveValue("font-size", 24, 18);
+      line-height: 30px;
+      text-align: center;
+      color: #FFFFFF;
+
+      max-width: 500px;
+      margin: 0 auto 26px auto;
+   }
+
+   .form__controls {
+      margin-bottom: 0;
+
+      .form__btn-group {
+         @media (max-width: 354px){
+            display: flex; 
+            flex-wrap: wrap;
+            gap: 14px;
+
+            .form__btn {
+               flex: 1 1 100%;
+            }
+        }
+      }
+   }
+}
+
+
 
 .form {
    background: #451094;

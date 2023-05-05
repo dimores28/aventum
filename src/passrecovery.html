@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+   @@include('html/_head.htm',{ "title":"Password recovery" })
+   <body>
+      <div class="wrapper" id="license-animation">
+         @@include('html/_header.htm',{})
+         <main class="page _animate-header" id="main">
+            <div class="pass-recovery">
+               <div class="pass-recovery__container">
+                  <h2 class="pass-recovery__title">Password recovery</h2>
+                  <p class="pass-recovery__sub-title">
+                     If you have forgotten your password, then we will send you
+                     instructions to reset your password by email.
+                  </p>
+                  <form action="POST">
+                     <div class="pass-recovery__form form">
+                        <div class="form__fields">
+                           <div class="form__group">
+                              <label for="registerEmail" class="form__label"
+                                 >Your mail:</label
+                              >
+                              <input
+                                 type="email"
+                                 name="email"
+                                 id="registerEmail"
+                                 class="form__input" />
+                           </div>
+                        </div>
+
+                        <div class="form__controls">
+                           <div class="form__btn-group">
+                              <button type="button" class="form__btn">
+                                 Back to registration
+                              </button>
+                              <button
+                                 type="submit"
+                                 class="form__btn form__btn_green">
+                                 Send
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </main>
+         @@include('html/_contacts.htm',{}) @@include('html/_footer.htm',{})
+      </div>
+      @@include('html/_js.htm',{})
+   </body>
+</html>
