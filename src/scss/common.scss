@@ -846,6 +846,28 @@ $blockHeight: 124px;
 
       // .form__input_pass
       &_pass {
+         position: relative;
+
+         &::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 8px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-image: url(../img/common/show.svg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: all 0.3s ease-in;
+         }
+
+         &._visible{
+            &::after {
+               background-image: url(../img/common/hide.svg);
+            }
+         }
       }
 
       &:focus,
@@ -890,11 +912,33 @@ $blockHeight: 124px;
          top: 0;
          left: -34px;
       }
+
+      &::after {
+         content: '';
+         display: block;
+         position: absolute;
+         width: 20px;
+         height: 20px;
+         top: -4px;
+         left: -34px;
+         background: url(../img/common/check.svg) center center no-repeat;
+         background-size: cover;
+         opacity: 0;
+         transform: scale(0);
+         transition: all 0.3s ease;
+      }
    }
 
    // .form__checkbox-input
    &__checkbox-input {
-      display: none;
+      display: none; 
+   }
+
+   &__checkbox-input:checked {
+      ~.form__checkbox-label::after{
+         opacity: 1;
+         transform: scale(1);
+      }
    }
 
    &__btn-group {

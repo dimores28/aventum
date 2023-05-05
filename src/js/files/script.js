@@ -642,3 +642,27 @@ if(document.querySelector('#team-animation')) {
     }); 
         
 }
+
+//Show password
+const inputs = document.querySelectorAll(".form__input_pass > .form__input");
+inputs.forEach(node => {
+    node.addEventListener('click', function(event) {
+        event.stopPropagation();
+    })
+})
+
+const passInputs = document.querySelectorAll(".form__input_pass");
+passInputs.forEach(item => {
+    item.addEventListener('click', function() {
+        const inp = item.querySelector('.form__input');
+        
+        if(inp.getAttribute('type') === "password") {
+            inp.setAttribute('type', "text");
+            item.classList.add('_visible');
+        }
+        else {
+            inp.setAttribute("type", "password");
+            item.classList.remove('_visible')
+        }
+    });
+});
